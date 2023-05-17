@@ -1,0 +1,76 @@
+# This file is a template, and might need editing before it works on your project.
+# You can copy and paste this template into a new `.gitlab-ci.yml` file.
+# You should not add this template to an existing `.gitlab-ci.yml` file by using the `include:` keyword.
+#
+# To contribute improvements to CI/CD templates, please follow the Development guide at:
+# https://docs.gitlab.com/ee/development/cicd/templates.html
+# This specific template is located at:
+# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Nodejs.gitlab-ci.yml
+
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/node/tags/
+image: node:latest
+
+stages:
+  - lint
+  - build
+  - tests
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+
+# This folder is cached between builds
+# https://docs.gitlab.com/ee/ci/yaml/index.html#cache
+cache:
+  paths:
+    - node_modules/
+
+# Lets name our Job eslint, because that's what it's doing.
+eslint:
+  # tell eslint what stage it is. (This could also be build or test for example)
+  stage: lint
+  # What scripts do we want to run?
+  script:
+    # install eslint
+    - npm i eslint
+    # Run eslint
+    - yarn lint
+    - yarn prettier
+
+install:
+  stage: build
+  script:
+    - echo 'yarn-offline-mirror ".yarn-cache/"' >> .yarnrc
+    - echo 'yarn-offline-mirror-pruning true' >> .yarnrc
+    - yarn install --frozen-lockfile --no-progress
+    - cd tests/example-app
+    - yarn install --frozen-lockfile --no-progress
+  cache:
+    key:
+      files:
+        - yarn.lock
+        - tests/example-app/yarn.lock
+    paths:
+      - .yarn-cache/
+      - tests/example-app/.yarn-cache/
+
+cypress:
+  image: cypress/browsers:node16.17.0-chrome106
+  stage: tests
+  before_script:
+    - yarn install
+    - yarn build
+    - cd tests/example-app
+    - yarn install
+    - yarn build
+  script:
+    - yarn start &
+    - yarn cypress:headless
+
+jest:
+  stage: tests
+  before_script:
+    - yarn install --frozen-lockfile --no-progress
+  script:
+    - yarn test

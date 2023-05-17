@@ -1,0 +1,257 @@
+diff --git a/src/components/MultiPageForm.tsx b/src/components/MultiPageForm.tsx
+new file mode 100644
+index 0000000..5628189
+--- /dev/null
++++ b/src/components/MultiPageForm.tsx
+@@ -0,0 +1,80 @@
++import * as React from 'react';
++import { useState } from 'react';
++import { getChildElements } from '../utils';
++import WizardPage from './WizardPage';
++import WebformElement from '../WebformElement';
++
++const MultiPageForm = ({ elements }) => {
++  const [currentPage, setCurrentPage] = useState(0);
++  const children = getChildElements(elements);
++  const [pageElement, setPageElement] = useState(
++    elements[children[currentPage]],
++  );
++  const showPrevBtn = currentPage > 0;
++  const [showSubmitBtn, setShowSubmitBtn] = useState(false);
++  const submitBtnElement = elements['actions'];
++  const highlightCurrent = (item) => {
++    if (pageElement['#title'] == elements[item]['#title']) {
++      return { color: 'blue' };
++    }
++  };
++
++  // Function to increment count by 1
++  const incrementPage = () => {
++    setShowSubmitBtn(true);
++    setCurrentPage(currentPage + 1);
++    elements[children[currentPage + 1]]['#access'] = Boolean(1); // This forces the show of elements
++    setPageElement(elements[children[currentPage + 1]]);
++    currentPage === children.length - 2
++      ? setShowSubmitBtn(true)
++      : setShowSubmitBtn(false);
++  };
++
++  const decrementPage = () => {
++    setCurrentPage(currentPage - 1);
++    elements[children[currentPage - 1]]['#access'] = Boolean(1); // This forces the show of elements
++    setPageElement(elements[children[currentPage - 1]]);
++    currentPage < children.length
++      ? setShowSubmitBtn(false)
++      : setShowSubmitBtn(true);
++  };
++
++  return (
++    <div>
++      <ul style={{ display: 'flex' }}>
++        {children.map((item) => {
++          return (
++            <li style={highlightCurrent(item)} key={item}>
++              {elements[item]['#title']}----{'>'}
++            </li>
++          );
++        })}
++      </ul>
++      <br />
++      <h1>{pageElement['#title']}</h1>
++      <h2>Page: #{currentPage + 1}</h2>
++      <WizardPage element={{ ...pageElement }} />
++      {showPrevBtn && (
++        <button
++          style={{ border: 'solid' }}
++          type="button"
++          onClick={decrementPage}
++        >
++          Previous
++        </button>
++      )}
++      {!showSubmitBtn && (
++        <button
++          style={{ border: 'solid' }}
++          type="button"
++          onClick={incrementPage}
++        >
++          Next
++        </button>
++      )}
++      {showSubmitBtn && <WebformElement element={submitBtnElement} />}
++    </div>
++  );
++};
++
++export default MultiPageForm;
+diff --git a/src/components/WebformMarkup.tsx b/src/components/WebformMarkup.tsx
+new file mode 100644
+index 0000000..3d543a5
+--- /dev/null
++++ b/src/components/WebformMarkup.tsx
+@@ -0,0 +1,7 @@
++import * as React from 'react';
++
++export const WebformMarkup = ({ element, error }) => {
++  return <div dangerouslySetInnerHTML={{ __html: element['#markup'] }} />;
++};
++
++export default WebformMarkup;
+diff --git a/src/components/WebformMessage.tsx b/src/components/WebformMessage.tsx
+new file mode 100644
+index 0000000..e7b8fea
+--- /dev/null
++++ b/src/components/WebformMessage.tsx
+@@ -0,0 +1,13 @@
++import * as React from 'react';
++
++export const WebformMessage = ({ element, error }) => {
++  return (
++    <div
++      dangerouslySetInnerHTML={{
++        __html: element['#message_message']['#markup'],
++      }}
++    />
++  );
++};
++
++export default WebformMessage;
+diff --git a/src/components/WizardPage.tsx b/src/components/WizardPage.tsx
+new file mode 100644
+index 0000000..44bbb5d
+--- /dev/null
++++ b/src/components/WizardPage.tsx
+@@ -0,0 +1,52 @@
++import * as React from 'react';
++import { useContext, useState } from 'react';
++import { WebformElementProps } from '../types';
++import withAttributes from './utils/withAttributes';
++import withStates from './utils/withStates';
++import { getChildElements, WebformContext } from '../utils';
++import WebformElement from '../WebformElement';
++import withWrapper from './utils/withWrapper';
++
++const WizardPage = ({ element, fieldProps }: WebformElementProps) => {
++  const { data, setData, errors } = useContext(WebformContext);
++
++  const childElements = getChildElements(element).map((key) => {
++    const parentAndChildStates = element['#states']
++      ? { ...element[key]['#states'], ...element['#states'] }
++      : null;
++    return (
++      <WebformElement
++        key={element[key]['#webform_key']}
++        element={
++          parentAndChildStates
++            ? {
++                ...element[key],
++                '#states': parentAndChildStates,
++                '#access': true,
++              }
++            : { ...element[key], '#access': true }
++        }
++        error={errors[element[key]['#webform_key']]}
++        value={data[element[key]['#webform_key']]}
++        setValue={(value) => {
++          setData((previousData) => {
++            return {
++              ...previousData,
++              [element[key]['#webform_key']]: value,
++            };
++          });
++        }}
++      />
++    );
++  });
++
++  return (
++    <>
++      <div {...fieldProps}>{childElements}</div>
++    </>
++  );
++};
++
++export default withStates(
++  withAttributes(withWrapper(WizardPage, { defaultWrapperType: 'container' })),
++);
+diff --git a/tests/example-app/.gitignore b/tests/example-app/.gitignore
+new file mode 100644
+index 0000000..11ee758
+--- /dev/null
++++ b/tests/example-app/.gitignore
+@@ -0,0 +1 @@
++.env.local
+diff --git a/src/components/FormLayout.tsx b/src/components/FormLayout.tsx
+index 7d0b97e..9b0d8d7 100644
+--- a/src/components/FormLayout.tsx
++++ b/src/components/FormLayout.tsx
+@@ -3,6 +3,7 @@ import { useContext, useEffect } from 'react';
+ import { getChildElements, WebformContext } from '../utils';
+ import WebformElement from '../WebformElement';
+ import DebugConfirmation from './DebugConfirmation';
++import MultiPageForm from './MultiPageForm';
+ 
+ const FormLayout = ({ webform, status }) => {
+   const { registry, setData, data, errors } = useContext(WebformContext);
+@@ -13,6 +14,9 @@ const FormLayout = ({ webform, status }) => {
+     const ConfirmationPage = registry.getComponent('confirmation_page');
+     return <ConfirmationPage webform={webform} submission={data} />;
+   };
++  const isMultiPageForm = children.some((i) => {
++    return elements[i]['#type'] === 'webform_wizard_page';
++  });
+ 
+   useEffect(() => {
+     if (confirmation.type !== 'debug' || status === 'success') {
+@@ -83,7 +87,11 @@ const FormLayout = ({ webform, status }) => {
+     }
+   }
+ 
+-  return renderChildren();
++  if (isMultiPageForm) {
++    return <MultiPageForm elements={elements}></MultiPageForm>;
++  } else {
++    return renderChildren();
++  }
+ };
+ 
+ export default FormLayout;
+diff --git a/src/components/index.ts b/src/components/index.ts
+index 60cc653..04f3287 100644
+--- a/src/components/index.ts
++++ b/src/components/index.ts
+@@ -23,11 +23,14 @@ import WebformDate from './WebformDate';
+ import WebformItem from './WebformItem';
+ import WebformActions from './WebformActions';
+ import WebformCheckboxRadioGroup from './WebformCheckboxRadioGroup';
++import WebformMarkup from './WebformMarkup';
++import WebformMessage from './WebformMessage';
+ import WebformButton from './WebformButton';
+ import WebformTableRow from './WebformTableRow';
+ import ConfirmationPage from './ConfirmationPage';
+ import FormLayout from './FormLayout';
+ import Message from './Message';
++import WizardPage from './WizardPage';
+ import WebformCustomComposite from './WebformCustomComposite';
+ 
+ const defaultComponents = {
+@@ -81,6 +84,7 @@ const defaultComponents = {
+   webform_time: WebformTime,
+ 
+   button: WebformButton,
++  submit: WebformActions,
+   item: WebformItem,
+   value: WebformValue,
+   webform_actions: WebformActions,
+@@ -91,6 +95,11 @@ const defaultComponents = {
+   confirmation_page: ConfirmationPage,
+   form_layout: FormLayout,
+   message: Message,
++  webform_wizard_page: WizardPage,
++
++  // Custom Messages, Markup (Work in progress)
++  webform_message: WebformMessage,
++  webform_markup: WebformMarkup,
+ };
+ 
+ export const defaultComponentRegistry = new ComponentRegistry(
