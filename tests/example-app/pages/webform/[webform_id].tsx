@@ -40,6 +40,7 @@ export async function getStaticPaths(
     'webform--webform',
     context,
   );
+
   const paths = entities.map((entity) => {
     return { params: { webform_id: entity.drupal_internal__id } };
   });
@@ -53,6 +54,7 @@ export async function getStaticProps(context) {
   const webform = await resolveWebformContent(
     context.params.webform_id,
     drupal,
+    {withAuth: true},
   );
 
   return {
