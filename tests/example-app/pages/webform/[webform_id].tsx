@@ -54,7 +54,7 @@ export async function getStaticProps(context) {
   const webform = await resolveWebformContent(
     context.params.webform_id,
     drupal,
-    {withAuth: true},
+    { withAuth: true },
   );
 
   return {
