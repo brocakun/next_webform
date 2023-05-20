@@ -7,36 +7,14 @@ import WebformElement from '../WebformElement';
 const MultiPageForm = ({ elements }) => {
   const [currentPage, setCurrentPage] = useState(0);
   const children = getChildElements(elements);
-  const [pageElement, setPageElement] = useState(
-    elements[children[currentPage]],
-  );
+  const pageElement = elements[children[currentPage]];
   const showPrevBtn = currentPage > 0;
-  const [showSubmitBtn, setShowSubmitBtn] = useState(false);
-  const submitBtnElement = elements['actions'];
+  const showSubmitBtn = currentPage === children.length - 2;
+  const submitBtnElement = elements['actions']?.submit;
   const highlightCurrent = (item) => {
     if (pageElement['#title'] == elements[item]['#title']) {
       return { color: 'blue' };
     }
-  };
-
-  // Function to increment count by 1
-  const incrementPage = () => {
-    setShowSubmitBtn(true);
-    setCurrentPage(currentPage + 1);
-    elements[children[currentPage + 1]]['#access'] = Boolean(1); // This forces the show of elements
-    setPageElement(elements[children[currentPage + 1]]);
-    currentPage === children.length - 2
-      ? setShowSubmitBtn(true)
-      : setShowSubmitBtn(false);
-  };
-
-  const decrementPage = () => {
-    setCurrentPage(currentPage - 1);
-    elements[children[currentPage - 1]]['#access'] = Boolean(1); // This forces the show of elements
-    setPageElement(elements[children[currentPage - 1]]);
-    currentPage < children.length
-      ? setShowSubmitBtn(false)
-      : setShowSubmitBtn(true);
   };
 
   return (
@@ -51,27 +29,25 @@ const MultiPageForm = ({ elements }) => {
         })}
       </ul>
       <br />
-      <h1>{pageElement['#title']}</h1>
-      <h2>Page: #{currentPage + 1}</h2>
+      <h1>Page Title: {pageElement['#title']}</h1>
+      <h1>Current page: {currentPage + 1}</h1>
       <WizardPage element={{ ...pageElement }} />
       {showPrevBtn && (
         <button
           style={{ border: 'solid' }}
           type="button"
-          onClick={decrementPage}
+          onClick={() => setCurrentPage((prevState) => prevState - 1)}
         >
           Previous
         </button>
       )}
-      {!showSubmitBtn && (
-        <button
-          style={{ border: 'solid' }}
-          type="button"
-          onClick={incrementPage}
-        >
-          Next
-        </button>
-      )}
+      <button
+        style={{ border: 'solid' }}
+        type="button"
+        onClick={() => setCurrentPage((prevState) => prevState + 1)}
+      >
+        Next
+      </button>
       {showSubmitBtn && <WebformElement element={submitBtnElement} />}
     </div>
   );

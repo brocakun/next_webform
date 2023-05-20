@@ -88,6 +88,16 @@ const FormLayout = ({ webform, status }) => {
   }
 
   if (isMultiPageForm) {
+    // Fix for element access on Wizard.
+    for (const [key, value] of Object.entries(elements)) {
+      if (typeof value === 'object' && value !== null) {
+        const keys2 = Object.keys(value);
+        const hasValue = keys2.includes('#access');
+        if (hasValue) {
+          elements[key]['#access'] = true;
+        }
+      }
+    }
     return <MultiPageForm elements={elements}></MultiPageForm>;
   } else {
     return renderChildren();
