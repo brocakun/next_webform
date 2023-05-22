@@ -95,6 +95,7 @@ const FormLayout = ({ webform, status }) => {
         const hasValue = keys2.includes('#access');
         if (hasValue) {
           elements[key]['#access'] = true;
+          accessChildrenElements(elements[key]);
         }
       }
     }
@@ -103,5 +104,22 @@ const FormLayout = ({ webform, status }) => {
     return renderChildren();
   }
 };
+
+const accessChildrenElements = (element : any) => {
+  Object.entries(element).forEach( (item : any) => {
+    for (const [key, value] of Object.entries(item)) {
+      if (typeof value === 'object' && value !== null) {
+        const keys2 = Object.keys(value);
+        const hasValue = keys2.includes('#access');
+        if (hasValue) {
+          item[key]['#access'] = true;
+          accessChildrenElements(item[key]);
+        }
+      }
+    }
+  });
+  return true;
+}
+
 
 export default FormLayout;
