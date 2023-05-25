@@ -9,8 +9,8 @@ const MultiPageForm = ({ elements }) => {
   const children = getChildElements(elements);
   const pageElement = elements[children[currentPage]];
   const showPrevBtn = currentPage > 0;
-  const showSubmitBtn = currentPage === children.length - 2;
-  const submitBtnElement = elements['actions']?.submit;
+  const showSubmitBtn = currentPage === children.length - 1;
+  const submitBtnElement = elements['actions'];
   const highlightCurrent = (item) => {
     if (pageElement['#title'] == elements[item]['#title']) {
       return { color: 'blue' };
