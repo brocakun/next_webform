@@ -144,6 +144,7 @@ const WebformMultifield = ({
                 remove(i);
               },
               id: `${element['#webform_key']}-remove-btn-${i}`,
+              class: `remove-btn`,
             }}
           />
         </td>
@@ -174,6 +175,7 @@ const WebformMultifield = ({
                 setValue(normalizedValue);
               },
               id: `${element['#webform_key']}-add-btn`,
+              class: `add-btn`,
             }}
           />
         </div>
