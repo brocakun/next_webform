@@ -11,6 +11,7 @@ import {
 import WebformElement from '../WebformElement';
 import withAttributes from './utils/withAttributes';
 import withWrapper from './utils/withWrapper';
+import classNames from "classnames";
 
 export interface WebformMultifieldProps extends WebformElementProps {
   tableProps?: PropsType;
@@ -139,12 +140,12 @@ const WebformMultifield = ({
           <WebformElement
             element={removeButton}
             fieldProps={{
+              className:  classNames(["btn remove-btn"]),
               onClick: (e) => {
                 e.preventDefault();
                 remove(i);
               },
               id: `${element['#webform_key']}-remove-btn-${i}`,
-              className: `remove-btn`,
             }}
           />
         </td>
@@ -169,13 +170,13 @@ const WebformMultifield = ({
               '#type': 'button',
             }}
             fieldProps={{
+              className:  classNames(["btn add-btn"]),
               onClick: (e) => {
                 e.preventDefault();
                 normalizedValue.push(isCustomComposite ? {} : '');
                 setValue(normalizedValue);
               },
               id: `${element['#webform_key']}-add-btn`,
-              className: `add-btn`,
             }}
           />
         </div>

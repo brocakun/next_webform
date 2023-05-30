@@ -1536,12 +1536,12 @@ var WebformMultifield = function WebformMultifield(_ref) {
         children: /*#__PURE__*/jsx(WebformElement, {
           element: removeButton,
           fieldProps: {
+            className: classNames(["btn remove-btn"]),
             onClick: function onClick(e) {
               e.preventDefault();
               remove(i);
             },
-            id: element['#webform_key'] + "-remove-btn-" + i,
-            className: "remove-btn"
+            id: element['#webform_key'] + "-remove-btn-" + i
           }
         })
       }))]
@@ -1565,13 +1565,13 @@ var WebformMultifield = function WebformMultifield(_ref) {
           '#type': 'button'
         }),
         fieldProps: {
+          className: classNames(["btn add-btn"]),
           onClick: function onClick(e) {
             e.preventDefault();
             normalizedValue.push(isCustomComposite ? {} : '');
             _setValue(normalizedValue);
           },
-          id: element['#webform_key'] + "-add-btn",
-          className: "add-btn"
+          id: element['#webform_key'] + "-add-btn"
         }
       })
     })]

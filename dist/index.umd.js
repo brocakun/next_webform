@@ -1559,12 +1559,12 @@
           children: /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
             element: removeButton,
             fieldProps: {
+              className: classNames__default["default"](["btn remove-btn"]),
               onClick: function onClick(e) {
                 e.preventDefault();
                 remove(i);
               },
-              id: element['#webform_key'] + "-remove-btn-" + i,
-              className: "remove-btn"
+              id: element['#webform_key'] + "-remove-btn-" + i
             }
           })
         }))]
@@ -1588,13 +1588,13 @@
             '#type': 'button'
           }),
           fieldProps: {
+            className: classNames__default["default"](["btn add-btn"]),
             onClick: function onClick(e) {
               e.preventDefault();
               normalizedValue.push(isCustomComposite ? {} : '');
               _setValue(normalizedValue);
             },
-            id: element['#webform_key'] + "-add-btn",
-            className: "add-btn"
+            id: element['#webform_key'] + "-add-btn"
           }
         })
       })]
