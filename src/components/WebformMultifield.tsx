@@ -132,6 +132,9 @@ const WebformMultifield = ({
       ...element.items[0]['_operations_']['remove'],
       '#type': 'button',
       '#value': 'Remove',
+      "#attributes": {
+        "class": ["webform-button--remove"],
+      },
     };
     children.push(
       <tr key={i} {...trProps}>
@@ -140,7 +143,6 @@ const WebformMultifield = ({
           <WebformElement
             element={removeButton}
             fieldProps={{
-              className:  classNames(["btn remove-btn"]),
               onClick: (e) => {
                 e.preventDefault();
                 remove(i);
@@ -168,9 +170,11 @@ const WebformMultifield = ({
             element={{
               ...element['add']['submit'],
               '#type': 'button',
+              "#attributes": {
+                "class": ["webform-button--add"],
+              },
             }}
             fieldProps={{
-              className:  classNames(["btn add-btn"]),
               onClick: (e) => {
                 e.preventDefault();
                 normalizedValue.push(isCustomComposite ? {} : '');

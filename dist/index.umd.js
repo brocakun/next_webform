@@ -1550,7 +1550,10 @@
     var _loop = function _loop(i) {
       var removeButton = _extends({}, element.items[0]['_operations_']['remove'], {
         '#type': 'button',
-        '#value': 'Remove'
+        '#value': 'Remove',
+        "#attributes": {
+          "class": ["webform-button--remove"]
+        }
       });
       children.push( /*#__PURE__*/jsxRuntime.jsxs("tr", _extends({}, trProps, {
         children: [/*#__PURE__*/jsxRuntime.jsx("td", _extends({}, tdProps, {
@@ -1559,7 +1562,6 @@
           children: /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
             element: removeButton,
             fieldProps: {
-              className: classNames__default["default"](["btn remove-btn"]),
               onClick: function onClick(e) {
                 e.preventDefault();
                 remove(i);
@@ -1585,10 +1587,12 @@
       })), (currentCount < maxItems || !maxItems) && /*#__PURE__*/jsxRuntime.jsx("div", {
         children: /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
           element: _extends({}, element['add']['submit'], {
-            '#type': 'button'
+            '#type': 'button',
+            "#attributes": {
+              "class": ["webform-button--add"]
+            }
           }),
           fieldProps: {
-            className: classNames__default["default"](["btn add-btn"]),
             onClick: function onClick(e) {
               e.preventDefault();
               normalizedValue.push(isCustomComposite ? {} : '');

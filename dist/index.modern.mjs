@@ -1344,7 +1344,10 @@ const WebformMultifield = ({
   for (let i = 0; i < currentCount; i++) {
     const removeButton = _extends({}, element.items[0]['_operations_']['remove'], {
       '#type': 'button',
-      '#value': 'Remove'
+      '#value': 'Remove',
+      "#attributes": {
+        "class": ["webform-button--remove"]
+      }
     });
     children.push( /*#__PURE__*/jsxs("tr", _extends({}, _trProps, {
       children: [/*#__PURE__*/jsx("td", _extends({}, _tdProps, {
@@ -1353,7 +1356,6 @@ const WebformMultifield = ({
         children: /*#__PURE__*/jsx(WebformElement, {
           element: removeButton,
           fieldProps: {
-            className: classNames(["btn remove-btn"]),
             onClick: e => {
               e.preventDefault();
               remove(i);
@@ -1376,10 +1378,12 @@ const WebformMultifield = ({
     })), (currentCount < maxItems || !maxItems) && /*#__PURE__*/jsx("div", {
       children: /*#__PURE__*/jsx(WebformElement, {
         element: _extends({}, element['add']['submit'], {
-          '#type': 'button'
+          '#type': 'button',
+          "#attributes": {
+            "class": ["webform-button--add"]
+          }
         }),
         fieldProps: {
-          className: classNames(["btn add-btn"]),
           onClick: e => {
             e.preventDefault();
             normalizedValue.push(isCustomComposite ? {} : '');
