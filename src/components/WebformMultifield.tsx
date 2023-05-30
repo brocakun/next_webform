@@ -11,7 +11,6 @@ import {
 import WebformElement from '../WebformElement';
 import withAttributes from './utils/withAttributes';
 import withWrapper from './utils/withWrapper';
-import classNames from "classnames";
 
 export interface WebformMultifieldProps extends WebformElementProps {
   tableProps?: PropsType;
@@ -132,8 +131,8 @@ const WebformMultifield = ({
       ...element.items[0]['_operations_']['remove'],
       '#type': 'button',
       '#value': 'Remove',
-      "#attributes": {
-        "class": ["webform-button--remove"],
+      '#attributes': {
+        class: ['webform-button--remove'],
       },
     };
     children.push(
@@ -170,8 +169,8 @@ const WebformMultifield = ({
             element={{
               ...element['add']['submit'],
               '#type': 'button',
-              "#attributes": {
-                "class": ["webform-button--add"],
+              '#attributes': {
+                class: ['webform-button--add'],
               },
             }}
             fieldProps={{

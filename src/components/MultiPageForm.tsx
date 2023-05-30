@@ -36,7 +36,7 @@ const MultiPageForm = ({ elements }) => {
         <button
           style={{ border: 'solid' }}
           type="button"
-          className={`prev-btn`}
+          className={'webform-button--previous'}
           onClick={() => setCurrentPage((prevState) => prevState - 1)}
         >
           Previous
@@ -45,7 +45,7 @@ const MultiPageForm = ({ elements }) => {
       <button
         style={{ border: 'solid' }}
         type="button"
-        className={`next-btn`}
+        className={'webform-button--next'}
         onClick={() => setCurrentPage((prevState) => prevState + 1)}
       >
         Next
