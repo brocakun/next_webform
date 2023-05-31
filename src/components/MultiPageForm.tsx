@@ -42,14 +42,15 @@ const MultiPageForm = ({ elements }) => {
           Previous
         </button>
       )}
-      <button
-        style={{ border: 'solid' }}
-        type="button"
-        className={'webform-button--next'}
-        onClick={() => setCurrentPage((prevState) => prevState + 1)}
-      >
-        Next
-      </button>
+      {!showSubmitBtn && (
+        <button
+          style={{ border: 'solid' }}
+          type="button"
+          onClick={() => setCurrentPage((prevState) => prevState + 1)}
+        >
+          Next
+        </button>
+      )}
       {showSubmitBtn && <WebformElement element={submitBtnElement} />}
     </div>
   );
