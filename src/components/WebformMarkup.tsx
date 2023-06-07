@@ -28,7 +28,7 @@ const WebformMarkup = ({
         {...fieldProps}
         id={element['#webform_key']}
         dangerouslySetInnerHTML={{
-          __html: element['#message_message']['#markup'],
+          __html: element['#markup'],
         }}
       />
     </WebformElementWrapper>
