@@ -96,6 +96,76 @@ export async function resolveWebformContent(
   };
 }
 
+export async function resolveWebformSubmission(
+  id: string,
+  uuid: string,
+  drupal: DrupalClient,
+  fetchOptions?: FetchOptions,
+): Promise<WebformObject> {
+  const url = drupal.buildUrl(`/webform/${id}?_format=json`);
+  const elementsUrl = drupal.buildUrl(
+    `/webform_rest/${id}/elements?_format=json`,
+  );
+  const submissionUrl = drupal.buildUrl(
+    `/webform_rest/${id}/submission/${uuid}?_format=json`,
+  );
+  const [result, elementsResult, submissionResult] = await Promise.all([
+    drupal.fetch(url.toString(), {
+      ...fetchOptions,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }),
+    drupal.fetch(elementsUrl.toString(), {
+      ...fetchOptions,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }),
+    drupal.fetch(submissionUrl.toString(), {
+      ...fetchOptions,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }),
+  ]);
+  if (!result.ok) {
+    const message = await result.json();
+    throw new Error(message);
+  }
+  if (!elementsResult.ok) {
+    const message = await elementsResult.json();
+    throw new Error(message);
+  }
+  if (!submissionResult.ok) {
+    const message = await submissionResult.json();
+    throw new Error(message);
+  }
+
+  // Clean up some commonly provided, unused properties to reduce the overall
+  // size of props.
+  const normalizedElements = normalizeElements(await elementsResult.json());
+
+  // Fetch submission ID
+  const submission = await submissionResult.json();
+
+  const webform = await result.json();
+
+  return {
+    id: id,
+    uuid: webform.uuid,
+    title: webform.title,
+    description: webform.description,
+    status: webform.status,
+    confirmation: {
+      type: webform.settings.confirmation_type,
+      url: webform.settings.confirmation_url,
+      message: webform.settings.confirmation_message,
+    },
+    elements: normalizedElements,
+  };
+}
+
 export async function defaultOnSubmit({
   id,
   event,

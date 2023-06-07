@@ -1,9 +1,9 @@
 import * as React from 'react';
-import { resolveWebformContent, Webform } from 'nextjs-drupal-webform';
+import { resolveWebformSubmission, Webform } from 'nextjs-drupal-webform';
 import { GetStaticPathsContext } from 'next/types';
 import { GetStaticPathsResult } from 'next';
 import { useRouter } from 'next/router';
-import { drupal } from '../../lib/drupal';
+import { drupal } from '../../../lib/drupal';
 
 export default function WebformSlug({ webform, id }) {
   const router = useRouter();
@@ -22,7 +22,7 @@ export default function WebformSlug({ webform, id }) {
 
   return (
     <div>
-      <h1>{webform.title}</h1>
+      <h1>{webform?.title}</h1>
       <Webform
         id={id}
         data={webform}
@@ -36,23 +36,16 @@ export default function WebformSlug({ webform, id }) {
 export async function getStaticPaths(
   context: GetStaticPathsContext,
 ): Promise<GetStaticPathsResult> {
-  const entities = await drupal.getResourceCollectionFromContext(
-    'webform--webform',
-    context,
-  );
-
-  const paths = entities.map((entity) => {
-    return { params: { webform_id: entity.drupal_internal__id } };
-  });
   return {
-    paths: [...paths],
-    fallback: false,
+    paths: [],
+    fallback: 'blocking',
   };
 }
 
 export async function getStaticProps(context) {
-  const webform = await resolveWebformContent(
+  const webform = await resolveWebformSubmission(
     context.params.webform_id,
+    context.params.submission_id,
     drupal,
     { withAuth: true },
   );
