@@ -145,10 +145,15 @@ export async function resolveWebformSubmission(
   // Clean up some commonly provided, unused properties to reduce the overall
   // size of props.
   const normalizedElements = normalizeElements(await elementsResult.json());
-
   // Fetch submission ID
   const submission = await submissionResult.json();
-
+  const submissionData = submission.data;
+  // Fill values with default data from submission.
+  for (const [key, value] of Object.entries(submissionData)) {
+    if (typeof normalizedElements[key] !== 'undefined') {
+      normalizedElements[key]['#default_value'] = value;
+    }
+  }
   const webform = await result.json();
 
   return {

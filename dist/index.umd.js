@@ -1,2 +1,3674 @@
-!function(e,t){"object"==typeof exports&&"undefined"!=typeof module?t(exports,require("react"),require("deepmerge"),require("strtotime"),require("react/jsx-runtime"),require("classnames")):"function"==typeof define&&define.amd?define(["exports","react","deepmerge","strtotime","react/jsx-runtime","classnames"],t):t((e||self).nextjsDrupalWebform={},e.react,e.deepmerge,e.strtotime,e.jsx,e.classnames)}(this,function(e,t,r,n,i,o){function a(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}function s(e){if(e&&e.__esModule)return e;var t=Object.create(null);return e&&Object.keys(e).forEach(function(r){if("default"!==r){var n=Object.getOwnPropertyDescriptor(e,r);Object.defineProperty(t,r,n.get?n:{enumerable:!0,get:function(){return e[r]}})}}),t.default=e,t}var l=/*#__PURE__*/s(t),u=/*#__PURE__*/a(r),c=/*#__PURE__*/a(n),d=/*#__PURE__*/a(o);function f(){return f=Object.assign?Object.assign.bind():function(e){for(var t=1;t<arguments.length;t++){var r=arguments[t];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(e[n]=r[n])}return e},f.apply(this,arguments)}function m(e){return m=Object.setPrototypeOf?Object.getPrototypeOf.bind():function(e){return e.__proto__||Object.getPrototypeOf(e)},m(e)}function p(e,t){return p=Object.setPrototypeOf?Object.setPrototypeOf.bind():function(e,t){return e.__proto__=t,e},p(e,t)}function b(e,t,r){return b=function(){if("undefined"==typeof Reflect||!Reflect.construct)return!1;if(Reflect.construct.sham)return!1;if("function"==typeof Proxy)return!0;try{return Boolean.prototype.valueOf.call(Reflect.construct(Boolean,[],function(){})),!0}catch(e){return!1}}()?Reflect.construct.bind():function(e,t,r){var n=[null];n.push.apply(n,t);var i=new(Function.bind.apply(e,n));return r&&p(i,r.prototype),i},b.apply(null,arguments)}function h(e){var t="function"==typeof Map?new Map:void 0;return h=function(e){if(null===e||-1===Function.toString.call(e).indexOf("[native code]"))return e;if("function"!=typeof e)throw new TypeError("Super expression must either be null or a function");if(void 0!==t){if(t.has(e))return t.get(e);t.set(e,r)}function r(){return b(e,arguments,m(this).constructor)}return r.prototype=Object.create(e.prototype,{constructor:{value:r,enumerable:!1,writable:!0,configurable:!0}}),p(r,e)},h(e)}function v(e,t){if(null==e)return{};var r,n,i={},o=Object.keys(e);for(n=0;n<o.length;n++)t.indexOf(r=o[n])>=0||(i[r]=e[r]);return i}function y(e,t){(null==t||t>e.length)&&(t=e.length);for(var r=0,n=new Array(t);r<t;r++)n[r]=e[r];return n}function g(e,t){var r="undefined"!=typeof Symbol&&e[Symbol.iterator]||e["@@iterator"];if(r)return(r=r.call(e)).next.bind(r);if(Array.isArray(e)||(r=function(e,t){if(e){if("string"==typeof e)return y(e,t);var r=Object.prototype.toString.call(e).slice(8,-1);return"Object"===r&&e.constructor&&(r=e.constructor.name),"Map"===r||"Set"===r?Array.from(e):"Arguments"===r||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(r)?y(e,t):void 0}}(e))||t&&e&&"number"==typeof e.length){r&&(e=r);var n=0;return function(){return n>=e.length?{done:!0}:{done:!1,value:e[n++]}}}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function _(e){for(var t=Object.keys(e).length,r=0,n=[],i=0,o=Object.keys(e);i<o.length;i++){var a=o[i];if("#"!==a.charAt(0)&&"type"!==a){var s=e[a];n.push({weight:Math.floor(1e3*(void 0!==s["#weight"]?s["#weight"]:0))+r/t,key:a}),r++}}return n.sort(function(e,t){return e.weight-t.weight}),n.map(function(e){return e.key})}var x=/*#__PURE__*/l.createContext(null),j=function(e){/*#__PURE__*/return i.jsx("div",{dangerouslySetInnerHTML:{__html:e}})},w=function e(t){return t?Object.keys(t).reduce(function(r,n){var i=n.split("][");if(i.length>1)if(r[i[0]]||(r[i[0]]={}),2===i.length)"_item_"===i[1]?r[i[0]]=j(t[n]):r[i[0]][i[1]]=j(t[n]);else if("items"===i[1]||"_item_"===i[1]){var o,a=[].concat(i.slice(2)).join("][");r[i[0]]=f({},r[i[0]],e(((o={})[a]=t[n],o)))}else{var s,l=[].concat(i.slice(1)).join("][");r[i[0]]=f({},r[i[0]],e(f({},r[i[0]],((s={})[l]=t[n],s))))}else r[n]=j(t[n]);return r},{}):null};function k(e){return e.split("][")}function P(e){return e.filter(function(e){return"items"!==e&&"_item_"!==e}).join("][")}function O(e,t,r){for(var n=k(t),i=e,o=0;o<n.length;o++){var a=n[o];if(n.length-1===o)i[a]=r;else if(!i[a]){var s=n[o+1];i[a]=C(s)&&Number(s)>=0?[]:{}}i=i[a]}return e}function S(e){return"object"==typeof e&&!Array.isArray(e)&&null!==e}var C=function(e){return Number.isInteger(e)||String(Math.floor(Number(e)))===e},q=function(e){return"function"==typeof e};function E(e){return null!=e&&"function"==typeof e[Symbol.iterator]}var T=function(e){var r=t.useState(!1),n=r[1];r[0]||(e(),n(!0))},F=function(e){var t={};return"string"==typeof e&&e.replace(/(?<=^|;)\s*([^:]+)\s*:\s*([^;]+)\s*/g,function(e,r,n){var i=r.replace(/-./g,function(e){return e[1].toUpperCase()});return t[i]=n}),t},D={accept:"accept",acceptcharset:"acceptCharset","accept-charset":"acceptCharset",accesskey:"accessKey",action:"action",allowfullscreen:"allowFullScreen",alt:"alt",as:"as",async:"async",autocapitalize:"autoCapitalize",autocomplete:"autoComplete",autocorrect:"autoCorrect",autofocus:"autoFocus",autoplay:"autoPlay",autosave:"autoSave",capture:"capture",cellpadding:"cellPadding",cellspacing:"cellSpacing",challenge:"challenge",charset:"charSet",checked:"checked",children:"children",cite:"cite",class:"className",classid:"classID",classname:"className",cols:"cols",colspan:"colSpan",content:"content",contenteditable:"contentEditable",contextmenu:"contextMenu",controls:"controls",controlslist:"controlsList",coords:"coords",crossorigin:"crossOrigin",dangerouslysetinnerhtml:"dangerouslySetInnerHTML",data:"data",datetime:"dateTime",default:"default",defaultchecked:"defaultChecked",defaultvalue:"defaultValue",defer:"defer",dir:"dir",disabled:"disabled",disablepictureinpicture:"disablePictureInPicture",disableremoteplayback:"disableRemotePlayback",download:"download",draggable:"draggable",enctype:"encType",enterkeyhint:"enterKeyHint",for:"htmlFor",form:"form",formmethod:"formMethod",formaction:"formAction",formenctype:"formEncType",formnovalidate:"formNoValidate",formtarget:"formTarget",frameborder:"frameBorder",headers:"headers",height:"height",hidden:"hidden",high:"high",href:"href",hreflang:"hrefLang",htmlfor:"htmlFor",httpequiv:"httpEquiv","http-equiv":"httpEquiv",icon:"icon",id:"id",imagesizes:"imageSizes",imagesrcset:"imageSrcSet",innerhtml:"innerHTML",inputmode:"inputMode",integrity:"integrity",is:"is",itemid:"itemID",itemprop:"itemProp",itemref:"itemRef",itemscope:"itemScope",itemtype:"itemType",keyparams:"keyParams",keytype:"keyType",kind:"kind",label:"label",lang:"lang",list:"list",loop:"loop",low:"low",manifest:"manifest",marginwidth:"marginWidth",marginheight:"marginHeight",max:"max",maxlength:"maxLength",media:"media",mediagroup:"mediaGroup",method:"method",min:"min",minlength:"minLength",multiple:"multiple",muted:"muted",name:"name",nomodule:"noModule",nonce:"nonce",novalidate:"noValidate",open:"open",optimum:"optimum",pattern:"pattern",placeholder:"placeholder",playsinline:"playsInline",poster:"poster",preload:"preload",profile:"profile",radiogroup:"radioGroup",readonly:"readOnly",referrerpolicy:"referrerPolicy",rel:"rel",required:"required",reversed:"reversed",role:"role",rows:"rows",rowspan:"rowSpan",sandbox:"sandbox",scope:"scope",scoped:"scoped",scrolling:"scrolling",seamless:"seamless",selected:"selected",shape:"shape",size:"size",sizes:"sizes",span:"span",spellcheck:"spellCheck",src:"src",srcdoc:"srcDoc",srclang:"srcLang",srcset:"srcSet",start:"start",step:"step",style:"style",summary:"summary",tabindex:"tabIndex",target:"target",title:"title",type:"type",usemap:"useMap",value:"value",width:"width",wmode:"wmode",wrap:"wrap"},N=function(e){return e.match(/\[(\d.*?)\]/g).pop()},A=function(e,t,r){var n=e.slice();return t.forEach(function(t,i){void 0===n[i]?n[i]=r.cloneUnlessOtherwiseSpecified(t,r):r.isMergeableObject(t)?n[i]=u.default(e[i],t,r):-1===e.indexOf(t)&&n.push(t)}),n};function V(e,t){var r=_(t);if(r.length)for(var n,i=g(r);!(n=i()).done;){var o=n.value,a=t[o]["#id"],s=t[o]["#name"];if("]"===a.charAt(a.length-1)){var l=a.replace(/\[(.+?)\]/g,"["+e+"]"),u=s.replace(/\[(.+?)\]/g,"["+e+"]");t[o]["#id"]=l,t[o]["#name"]=u}else t[o]["#id"]=t[o]["#id"]+"["+e+"]",t[o]["#name"]=t[o]["#name"]+"["+e+"]";V(e,t[o])}}function R(e,t){return e.split(".").reduce(function(e,t){return e?e[t]:null},t||self)}var M=function(e,t){if(t["#date_date_min"]){var r=I(t["#date_date_min"]);if(c.default(e)<c.default(r))return"Date must be on or after "+r+"."}if(t["#date_date_max"]){var n=I(t["#date_date_max"]);if(c.default(e)>c.default(n))return"Date must be on or before "+n+"."}},I=function(e){return"today"===e?(new Date).toISOString().substring(0,10):"number"==typeof c.default(e)?new Date(e).toISOString().split("T")[0]:c.default(e).toISOString().substring(0,10)},W=function(e){var t=e.id,r=e.data,n=e.setData,i=e.setStatus,o=e.setErrors,a=e.apiUrl;try{var s=f({},r,{webform_id:t});return Promise.resolve(fetch(a,{method:"POST",body:JSON.stringify(s),headers:{"Content-Type":"application/json"}})).then(function(e){var t=function(){if(!e.ok)return i("error"),Promise.resolve(e.json()).then(function(e){o(w(e.message.error))});i("success"),n({}),o({})}();if(t&&t.then)return t.then(function(){})})}catch(e){return Promise.reject(e)}},U=["#process","#groups","#after_build","#pre_render","#value_callback","#theme_wrappers","#allowed_tags","#attached","#element_validate","#cache","#prefix","#suffix","#webform_children","#webform_parents","#array_parents","#autocomplete_route_parameters","#autocomplete_route_name","#ajax","#ajax_processed","#ajax_prefix","#ajax_suffix","#child_keys","#ajax_attributes","#tabledrag","#sorted","#processed","#after_build_done","#tree"],z=function e(t){return U.forEach(function(e){delete t[e]}),_(t).forEach(function(r){t[r]=e(t[r])}),t},H=function(e){return function(r){return t.useEffect(function(){r.value||!r.element["#default_value"]||r.element["#default_value"].headers||r.setValue(r.element["#default_value"])},[]),/*#__PURE__*/i.jsx(e,f({},r))}},L=function(e){var t=["id","data-drupal-selector","webform-remove-for-attribute"];return Object.keys(e).filter(function(e){return!t.includes(e)}).reduce(function(t,r){return"class"===r?t.className=d.default(e[r]):D[r]?t[D[r]]=e[r]:t[r]=e[r],t},{})},J=function(e){return function(t){var r,n,o,a,s,l,u=f({},L(null!=(r=t.element["#attributes"])?r:{}),null!=(n=t.fieldProps)?n:{});u.style&&(u.style=F(u.style));var c=f({},L(null!=(o=t.element["#label_attributes"])?o:{}),null!=(a=t.labelProps)?a:{});c.style&&(c.style=F(c.style));var d=f({},L(null!=(s=t.element["#wrapper_attributes"])?s:{}),null!=(l=t.wrapperProps)?l:{});return d.style&&(d.style=F(d.style)),/*#__PURE__*/i.jsx(e,f({},t,{fieldProps:u,labelProps:c,wrapperProps:d}))}};function G(e){var t=e.match(/\[name=["|']([A-z][A-z\d-_.:]*)["|']\]$/);return t&&t[1]}function B(e,t){if(S(e[Object.keys(e)[0]]))switch(Object.keys(e[Object.keys(e)[0]])[0]){case"pattern":return"string"==typeof t&&new RegExp(e.value.pattern).test(t);case"!pattern":return"string"==typeof t&&!new RegExp(e.value.pattern).test(t);case"less":return t<e.value.less;case"less_equal":return t<=e.value.less_equal;case"greater":return t>e.value.greater;case"greater_equal":return t>=e.value.greater_equal;case"between":case"!between":var r=e.value.between,n=r.substring(0,r.indexOf(":")),i=r.substring(r.indexOf(":"),r.length-1);return"between"==Object.keys(e)[0]?t>=n&&t<=i:t<n||t>i}else switch(e&&Object.keys(e)[0]){case"empty":return!t;case"filled":return!!t;case"checked":return 1==t;case"unchecked":return 0==t;case"value":return t==e.value;case"!value":return t!=e.value}}var K=function(e){switch(e){case"invisible":case"invisible-slide":case"!visible":return{"#access":!1};case"visible":case"visible-slide":case"!invisible":return{"#access":!0};case"enabled":case"!disabled":return{"#disabled":!1};case"disabled":case"!enabled":return{"#disabled":!0};case"required":case"!optional":return{"#required":!0};case"optional":case"!required":return{"#required":!1};case"checked":case"!unchecked":return{"#checked":!0};case"unchecked":case"!checked":return{"#unchecked":!0};case"readonly":case"!readwrite":return{"#readonly":!0};case"readwrite":case"!readonly":return{"#readonly":!1}}},X=function(e,t){var r=function(e,t){var r,n={},i={},o={};if(e&&!Object.keys(e).includes("headers")){r=e;for(var a=0,s=Object.keys(r);a<s.length;a++){var l=s[a];n[l]={},i[l]={},o[l]={};for(var u=0,c=Object.keys(r[l]);u<c.length;u++){var d=c[u];if(isNaN(Number(d))){var f,m=G(d);if(Object.prototype.hasOwnProperty.call(t,m)&&"string"!=typeof t[m]&&"boolean"!=typeof t[m]){console.warn('Unexpected type "'+typeof t[m]+'" for element "'+m+'"');continue}n[l][m]=B(r[l][d],null!=(f=t[m])?f:void 0)}else if("or"!==r[l][d]&&"xor"!==r[l][d]){var p,b=G(Object.keys(r[l][d])[0]),h=Object.values(r[l][d])[0];if(Object.prototype.hasOwnProperty.call(t,b)&&"string"!=typeof t[b]&&"boolean"!=typeof t[b]){console.warn('Unexpected type "'+typeof t[b]+'" for element "'+b+'"');continue}if(Object.values(r[l]).includes("or"))i[l][b]=B(h,null!=(p=t[b])?p:void 0);else if(Object.values(r[l]).includes("xor")){var v;o[l][b]=B(h,null!=(v=t[b])?v:void 0)}}}}}return{allConditionsForTrue:n,anyConditionForTrue:i,oneConditionForTrue:o,webformStates:r}}(e,t),n=r.allConditionsForTrue,i=r.anyConditionForTrue,o=r.oneConditionForTrue,a=r.webformStates;if(a&&0!==Object.keys(a).length&&Object.keys(a)[0].length){for(var s={},l=0,u=Object.keys(a);l<u.length;l++){var c=u[l];Object.keys(n[c]).length&&Object.values(n[c]).every(function(e){return!0===e})||Object.keys(i[c]).length&&Object.values(i[c]).includes(!0)||Object.keys(o[c]).length&&1==Object.values(o[c]).filter(function(e){return 1==e}).length?Object.assign(s,K(c)):Object.assign(s,K("!"+c))}return s}},$=function(e){return function(r){var n=t.useState({}),o=n[0],a=n[1],s=t.useContext(x).data,l=r.element,u=l.add?l["#_webform_states"]:l["#states"],c=function(e){if(!e||Object.keys(e).includes("headers"))return[];for(var t=[],r=0,n=Object.keys(e);r<n.length;r++)for(var i=n[r],o=0,a=Object.keys(e[i]);o<a.length;o++){var s=a[o];if(isNaN(Number(s))){var l=G(s);t.push(l)}else if("or"!==e[i][s]&&"xor"!==e[i][s]){var u=G(Object.keys(e[i][s])[0]);t.push(u)}}return t}(u);return t.useEffect(function(){a(X(u,s))},[]),t.useEffect(function(){a(X(u,s))},c.map(function(e){return s[e]})),/*#__PURE__*/i.jsx(e,f({},r,{element:f({},l,o)}))}},Y=["children","label","labelProps","labelFor","isRequired","description","descriptionDisplay","descriptionProps","labelDisplay","error","access"],Q=function(e){var t=e.children,r=e.label,n=e.labelProps,o=void 0===n?{}:n,a=e.labelFor,s=e.isRequired,l=e.description,u=e.descriptionDisplay,c=e.descriptionProps,m=void 0===c?{}:c,p=e.labelDisplay,b=void 0===p?"before":p,h=e.error,y=e.access,g=v(e,Y),_=d.default(o.className,{"required-field":s,"visually-hidden":"invisible"===b}),x=d.default(m.className,{"visually-hidden":"invisible"===u}),j=/*#__PURE__*/i.jsx("label",f({},o,{className:_,htmlFor:a,children:r}));return y?/*#__PURE__*/i.jsxs("div",f({},g,{children:[/*#__PURE__*/i.jsx("style",{suppressHydrationWarning:!0,children:"\n.required-field:after {\n  content: ' *';\n  color: red;\n}\n.invalid-feedback {\n  color: red;\n}\n.visually-hidden {\n  position: absolute !important;\n  clip: rect(1px, 1px, 1px, 1px);\n  overflow: hidden;\n  height: 1px;\n  width: 1px;\n  word-wrap: normal;\n}\n        "}),!["after","none"].includes(b)&&j,"before"===u&&l&&/*#__PURE__*/i.jsx("div",f({},m,{children:l})),t,("after"===u||"invisible"===u)&&l&&/*#__PURE__*/i.jsx("div",f({},m,{className:x,children:l})),"after"===b&&j,h&&/*#__PURE__*/i.jsx("div",{className:"invalid-feedback",children:h})]})):null},Z=["children","label","labelProps","labelDisplay","labelFor","description","descriptionDisplay","descriptionProps","isRequired","error","access"],ee=function(e){var t=e.children,r=e.label,n=e.labelProps,o=void 0===n?{}:n,a=e.description,s=e.descriptionDisplay,l=e.descriptionProps,u=void 0===l?{}:l,c=e.isRequired,m=e.error,p=e.access,b=v(e,Z),h=d.default(o.className,{"required-field":c}),y=d.default(u.className,{"visually-hidden":"invisible"===s}),g=/*#__PURE__*/i.jsx("legend",f({},o,{className:h,children:r}));return p?/*#__PURE__*/i.jsxs("fieldset",f({},b,{children:[/*#__PURE__*/i.jsx("style",{suppressHydrationWarning:!0,children:"\n.required-field:after {\n  content: ' *';\n  color: red;\n}\n.invalid-feedback {\n  color: red;\n}\n.visually-hidden {\n  position: absolute !important;\n  clip: rect(1px, 1px, 1px, 1px);\n  overflow: hidden;\n  height: 1px;\n  width: 1px;\n  word-wrap: normal;\n}\n        "}),g,"before"===s&&a&&/*#__PURE__*/i.jsx("div",f({},u,{className:y,children:a})),t,("after"===s||"invisible"===s)&&a&&/*#__PURE__*/i.jsx("div",f({},u,{className:y,children:a})),m&&/*#__PURE__*/i.jsx("div",{className:"invalid-feedback",children:m})]})):null},te=function(e,t){return void 0===t&&(t={}),function(r){var n=r.element,o=r.error,a=f({defaultWrapperType:"form_element",displayErrors:!0,labelFor:function(e){return e["#id"]},labelProps:{},wrapperProps:{}},"function"==typeof t?t(n):t),s=a.labelFor,u=a.displayErrors,c=n["#wrapper_type"]?n["#wrapper_type"]:a.defaultWrapperType,d="form_element"===c&&n["#title"]?n["#title_display"]:"none",m="string"==typeof o||/*#__PURE__*/l.isValidElement(o),p="fieldset"!==c?Q:ee,b=f({},r.labelProps,a.labelProps),h=f({},r.wrapperProps,a.wrapperProps);/*#__PURE__*/return i.jsx(p,f({label:n["#title"],isRequired:n["#required"],access:n["#access"],labelDisplay:d,error:u&&m?o:void 0,labelProps:b,description:n["#description"]?/*#__PURE__*/i.jsx("div",{dangerouslySetInnerHTML:{__html:n["#description"]["#markup"]}}):void 0,descriptionDisplay:n["#description_display"]},h,{labelFor:"none"!==d?function(){if("function"==typeof s)return s(n)}():void 0,children:/*#__PURE__*/i.jsx(e,f({},r))}))}},re=$(H(J(te(function(e){var r=e.element,n=e.setValue,o=e.value,a=void 0===o?"":o,s=e.fieldProps,l=t.useState({}),u=l[0],c=l[1],d=t.useState(null),m=d[0],p=d[1],b=t.useContext(x);return t.useEffect(function(){Array.isArray(r["#autocomplete_items"])?c(r["#autocomplete_items"].reduce(function(e,t){return e[t]=t,e},{})):"string"==typeof r["#autocomplete_items"]?function(){try{return Promise.resolve(fetch(b.apiUrl+"?op=autocomplete_options&id="+b.id+"&options_id="+r["#autocomplete_items"])).then(function(e){function t(t){return Promise.resolve(e.json()).then(function(e){c(e)})}var r=function(){if(!e.ok)return Promise.resolve(e.json()).then(function(e){throw Error(e.message.message)})}();return r&&r.then?r.then(t):t()})}catch(e){return Promise.reject(e)}}():console.warn("Unsupported autocomplete type on element "+r["#name"]+".")},[r["#autocomplete_items"]]),t.useEffect(function(){p(a)},[a]),/*#__PURE__*/i.jsxs(i.Fragment,{children:[/*#__PURE__*/i.jsx("input",f({type:"text",name:r["#webform_key"],onChange:function(e){return function(e){try{return n(u[e.target.value]?e.target.value:""),p(e.target.value),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},disabled:r["#disabled"],hidden:!r["#access"],required:r["#required"],readOnly:r["#readonly"],value:null!=m?m:a},s,{id:""+r["#id"],list:r["#webform_key"]+"-datalist"})),/*#__PURE__*/i.jsx("datalist",{id:r["#webform_key"]+"-datalist",children:Object.keys(u).map(function(e,t){/*#__PURE__*/return i.jsx("option",{value:e,children:u[e]},t)})})]})})))),ne={number:"number",hidden:"hidden",email:"email",search:"search",tel:"tel",url:"url",textfield:"text"},ie=$(H(J(te(function(e){var t,r=e.element,n=e.value,o=void 0===n?"":n,a=e.setValue,s=e.fieldProps;return r["#type"]in ne||console.warn(r["#type"]+" which was used on "+r["#webform_key"]+" is not supported by WebformText."),/*#__PURE__*/i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsx("input",f({type:null!=(t=ne[r["#type"]])?t:r["#type"],name:r["#name"],value:o,onChange:function(e){return function(e){try{return a(e.target.value),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},disabled:r["#disabled"],hidden:!r["#access"],required:r["#required"],readOnly:r["#readonly"],placeholder:r["#placeholder"]},s,{id:r["#id"]}))})})))),oe=$(H(J(te(function(e){var r=e.element,n=e.setValue,o=e.value,a=void 0===o?"":o,s=e.fieldProps,l=t.useState(!1),u=l[0],c=l[1],d="webform_select_other"===r["#type"]?function(){for(var e={},t=0,n=Object.keys(r);t<n.length;t++){var i=n[t];"select"==i&&(e=r[i])}return e}():null;/*#__PURE__*/return i.jsxs(i.Fragment,{children:[/*#__PURE__*/i.jsxs("select",f({name:r["#name"],onChange:function(e){return function(e){try{return"Other"==e.target.value?c(!u):u?(c(!u),n(e.target.value)):n(e.target.value),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},value:a,disabled:r["#disabled"],hidden:!r["#access"],required:r["#required"]},s,{id:r["#id"],children:["select"==r["#webform_plugin_id"]||void 0===r["#webform_plugin_id"]&&"webform_select_other"!==r["#type"]?function(e){for(var t,r=[],n=0,i=Object.keys(e);n<i.length;n++){var o=i[n];o.length?r.push(e[o]):t=e[o]}return r.unshift(t),r}(r["#options"]).map(function(e,t){/*#__PURE__*/return i.jsx("option",{value:e,children:e},t)}):null,"webform_entity_select"==r["#webform_plugin_id"]?Object.keys(r["#options"]).map(function(e){/*#__PURE__*/return i.jsx("option",{value:e,children:r["#options"][e]},e)}):null,"webform_select_other"===r["#type"]&&d["#options"]?/*#__PURE__*/i.jsxs(i.Fragment,{children:[Object.values(d["#options"]).map(function(e,t){if("Other…"!=e)/*#__PURE__*/return i.jsx("option",{value:e.toString(),children:e},t)}),/*#__PURE__*/i.jsx("option",{value:"Other",children:"Other..."})]}):null]})),u?/*#__PURE__*/i.jsx("input",{type:"text",id:r["#webform_key"],name:r["#webform_key"],onInput:function(e){return function(e){try{return n(e.target.value),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},value:a}):null]})})))),ae=$(H(J(te(function(e){var t=e.element,r=e.value,n=e.setValue;/*#__PURE__*/return i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsx("textarea",f({name:t["#webform_key"],value:void 0===r?"":r,onChange:function(e){return function(e){try{return n(e.target.value),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},disabled:t["#disabled"],hidden:!t["#access"],required:t["#required"],readOnly:t["#readonly"],placeholder:t["#placeholder"]},e.fieldProps,{id:t["#id"]}))})})))),se=function(e){/*#__PURE__*/return i.jsxs("code",{children:[e.error,/*#__PURE__*/i.jsx("pre",{children:JSON.stringify(e.element,null,2)})]})},le=function(e){var r=t.useContext(x).registry,n=e.element,o=e.error;if(r.getComponent(n["#type"])){var a=r.getComponent(n["#type"]);/*#__PURE__*/return i.jsx(a,f({},e))}/*#__PURE__*/return i.jsx(se,{element:n,error:o})},ue=$(J(te(function(e){var r=e.element,n=e.value,o=e.setValue,a=e.error,s=e.tableProps,l=void 0===s?{}:s,u=e.trProps,c=void 0===u?{}:u,d=e.tdProps,m=void 0===d?{}:d,p=Array.isArray(n)?n:[],b="webform_custom_composite"===r["#type"],h=function(e,t,n){void 0===n&&(n=null);var s=[].concat(r["#parents"],["items",e,"_item_"]),l=f({},t,r.items[e]?{"#access":r["#access"],"#states":r["#_webform_states"],"#parents":s}:{"#default_value":void 0,"#access":r["#access"],"#states":r["#_webform_states"],"#parents":s});/*#__PURE__*/return i.jsx(le,{element:l,setValue:function(t){var r=Array.from(p);n?r[e][n]=t:r[e]=t,o(r)},value:n?p[e][n]:p[e],error:a?a[e]:null},l["#id"])},v=function(e){var t=_(r["#element"]),n=r.items[e]?e:0;if(Array.isArray(t)&&t.length)return t.map(function(t){var i=R(r.items[n]._item_?"items."+n+"._item_."+t:"items."+n+"."+t,r),o=f({},i,{"#webform_key":t,"#id":i["#id"]+"["+e+"]"}),a=JSON.parse(JSON.stringify(o));return V(e,a),h(e,a,t)});var i=f({},r.items[n]._item_,{"#webform_key":r.items[n]._item_["#webform_key"]+"["+e+"]","#id":r.items[n]._item_["#webform_key"]+"["+e+"]"});return h(e,i)},y=r["#cardinality"],g=p.length;t.useEffect(function(){0===g&&(r["#default_value"]&&Array.isArray(r["#default_value"])?o(r["#default_value"]):o([""]))},[]);for(var x=[],j=function(e){var t=f({},r.items[0]._operations_.remove,{"#type":"button","#value":"Remove","#attributes":{class:["webform-button--remove"]}});x.push(/*#__PURE__*/i.jsxs("tr",f({},c,{children:[/*#__PURE__*/i.jsx("td",f({},m,{children:v(e)})),/*#__PURE__*/i.jsx("td",f({},m,{children:/*#__PURE__*/i.jsx(le,{element:t,fieldProps:{onClick:function(t){t.preventDefault(),function(e){if(!E(n))throw new TypeError('"'+typeof n+'" is not iterable');var t=[].concat(n);t.splice(e,1),o(t)}(e)},id:r["#webform_key"]+"-remove-btn-"+e}})}))]}),e))},w=0;w<g;w++)j(w);/*#__PURE__*/return i.jsxs(i.Fragment,{children:[/*#__PURE__*/i.jsx("table",f({style:{width:"100%"}},l,{children:/*#__PURE__*/i.jsx("tbody",{children:x})})),(g<y||!y)&&/*#__PURE__*/i.jsx("div",{children:/*#__PURE__*/i.jsx(le,{element:f({},r.add.submit,{"#type":"button","#attributes":{class:["webform-button--add"]}}),fieldProps:{onClick:function(e){e.preventDefault(),p.push(b?{}:""),o(p)},id:r["#webform_key"]+"-add-btn"}})})]})},{labelFor:!1}))),ce=H(te(function(e){var t=e.element,r=e.error,n=e.value,o=e.setValue,a=_(t);/*#__PURE__*/return i.jsx(i.Fragment,{children:a.map(function(e){/*#__PURE__*/return i.jsx(le,{element:f({"#webform_key":t["#webform_key"],"#states":t["#states"]},t[e],{"#id":t["#webform_multiple"]?""+t[e]["#id"]+N(t["#webform_key"]):t[e]["#id"]}),value:n&&n[e]?n[e]:"",setValue:function(t){var r;o(f({},n,((r={})[e]=t,r)))},error:r?r[e]:null},e)})})},{displayErrors:!1,defaultWrapperType:"fieldset"})),de=$(J(te(function(e){var r=e.element,n=e.fieldProps,o=t.useContext(x),a=o.data,s=o.setData,l=o.errors,u=_(r).map(function(e){var t=r["#states"]?f({},r[e]["#states"],r["#states"]):null;/*#__PURE__*/return i.jsx(le,{element:t?f({},r[e],{"#states":t}):r[e],error:l[r[e]["#webform_key"]],value:a[r[e]["#webform_key"]],setValue:function(t){s(function(n){var i;return f({},n,((i={})[r[e]["#webform_key"]]=t,i))})}},r[e]["#webform_key"])});/*#__PURE__*/return i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsx("div",f({},n,{children:u}))})},{defaultWrapperType:"container"}))),fe=$(te(function(e){var r=e.element,n=e.itemProps,o=void 0===n?{}:n,a=t.useContext(x),s=a.data,l=a.setData,u=a.errors,c=f({style:{flexGrow:1}},o),d=_(r).map(function(e){var n=r["#states"]?f({},r[e]["#states"],r["#states"]):null;/*#__PURE__*/return t.createElement("div",f({},c,{key:r[e]["#webform_key"]}),/*#__PURE__*/i.jsx("div",{children:/*#__PURE__*/i.jsx(le,{element:n?f({},r[e],{"#states":n}):r[e],error:u[r[e]["#webform_key"]],value:s[r[e]["#webform_key"]],setValue:function(t){l(function(n){var i;return f({},n,((i={})[r[e]["#webform_key"]]=t,i))})}})},r[e]["#webform_key"]))});/*#__PURE__*/return i.jsx(i.Fragment,{children:d})},function(e){var t,r;return{wrapperProps:f({},L(null!=(t=e["#attributes"])?t:{}),{style:{display:"flex",boxSizing:"border-box",gap:"1rem",justifyContent:null!=(r=e["#align_items"])?r:"flex-start"}})}})),me=$(te(function(e){var r=e.element,n=t.useContext(x),o=n.data,a=n.setData,s=n.errors,l=_(r).map(function(e){var t=r["#states"]?f({},r[e]["#states"],r["#states"]):null;/*#__PURE__*/return i.jsx(le,{element:t?f({},r[e],{"#states":t}):r[e],error:s[r[e]["#webform_key"]],value:o[r[e]["#webform_key"]],setValue:function(t){a(function(n){var i;return f({},n,((i={})[r[e]["#webform_key"]]=t,i))})}},r[e]["#webform_key"])});/*#__PURE__*/return i.jsx(i.Fragment,{children:l})},{defaultWrapperType:"fieldset"})),pe=$(J(function(e){var r=e.element,n=e.error,o=e.labelProps,a=e.fieldProps,s=e.wrapperProps,l=void 0===s?{}:s,u=t.useContext(x),c=u.data,d=u.setData,m=u.errors,p=_(r).map(function(e){var t=r["#states"]?f({},r[e]["#states"],r["#states"]):null;/*#__PURE__*/return i.jsx(le,{element:t?f({},r[e],{"#states":t}):r[e],error:m[r[e]["#webform_key"]],value:c[r[e]["#webform_key"]],setValue:function(t){d(function(n){var i;return f({},n,((i={})[r[e]["#webform_key"]]=t,i))})}},r[e]["#webform_key"])});/*#__PURE__*/return i.jsx(Q,f({label:r["#title"],isRequired:r["#required"],labelDisplay:r["#title_display"],access:r["#access"],settings:null,error:n,labelProps:o},l,{children:/*#__PURE__*/i.jsx("section",f({},a,{style:a.style,children:p}))}))})),be=["data"],he=$(J(function(e){var r=e.element,n=e.error,o=e.wrapperProps,a=void 0===o?{}:o,s=e.fieldProps,l=void 0===s?{}:s,u=e.theadProps,c=void 0===u?{}:u,d=e.tbodyProps,m=void 0===d?{}:d,p=e.trProps,b=void 0===p?{}:p,h=e.tdProps,y=void 0===h?{}:h,g=e.labelProps,x=_(r).map(function(e){return"webform_table_row"!==r[e]["#type"]?/*#__PURE__*/i.jsx("tr",{children:/*#__PURE__*/i.jsx("td",{children:/*#__PURE__*/i.jsxs("div",{children:["The form element ",/*#__PURE__*/i.jsx("em",{children:e})," is not inside a table row. To render the form element, it must be placed inside a table row."]})})},e):/*#__PURE__*/i.jsx(le,{element:f({},r[e],{"#states":r["#states"]}),fieldProps:b,tdProps:y},e)}),j=r["#header"];/*#__PURE__*/return i.jsx(Q,f({label:r["#title"],isRequired:r["#required"],labelDisplay:r["#title_display"],access:r["#access"],settings:null,error:n,labelProps:g},a,{children:/*#__PURE__*/i.jsxs("table",f({},l,{children:[/*#__PURE__*/i.jsx("thead",f({},c,{children:/*#__PURE__*/i.jsx("tr",f({},b,{children:j&&j.length?j.map(function(e,r){var n=e.data,i=v(e,be);/*#__PURE__*/return t.createElement("th",f({},L(i),{key:r}),n["#markup"])}):null}))})),/*#__PURE__*/i.jsx("tbody",f({},m,{children:x}))]}))}))})),ve=$(H(J(te(function(e){var t=e.element,r=e.value,n=void 0===r?0:r,o=e.setValue,a=e.fieldProps,s=/*#__PURE__*/i.jsx("output",{htmlFor:t["#id"],style:{below:{transform:"translateX("+n+"px)",display:"block",position:"absolute",padding:"2px 5px",textAlign:"center",border:"1px solid #bbb",background:"#ededed"},above:{transform:"translateX("+n+"px)",display:"block",position:"absolute",padding:"2px 5px",textAlign:"center",border:"1px solid #bbb",background:"#ededed",bottom:"22px"},left:{marginRight:"5px"},right:{marginLeft:"5px"}}[t["#output"]],name:"result",children:n});/*#__PURE__*/return i.jsxs("div",{className:"form-type-range",style:{display:"block",position:"relative"},children:[t["#output"]&&"left"===t["#output"]?s:null,/*#__PURE__*/i.jsx("input",f({type:t["#type"],name:t["#webform_key"],min:t["#min"]?t["#min"]:null,max:t["#max"]?t["#max"]:null,onChange:function(e){return function(e){try{return o(e.target.value),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},disabled:t["#disabled"],hidden:!t["#access"],required:t["#required"],readOnly:t["#readonly"]},a,{id:t["#id"],value:n})),t["#output"]&&"left"!==t["#output"]?s:null]})})))),ye=$(H(J(te(function(e){var r=e.element,n=e.setValue,o=e.fieldProps,a=e.value;"checkbox"!==r["#type"]&&"radio"!==r["#type"]&&console.warn(r["#type"]+" which was used on "+r["#webform_key"]+" is not supported by WebformCheckbox.");var s=t.useState(null!=a?a:!!r["#checked"]&&r["#checked"]),l=s[0],u=s[1];return t.useEffect(function(){"boolean"==typeof a&&u(a)},[a]),/*#__PURE__*/i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsx("div",{children:/*#__PURE__*/i.jsx("input",f({type:r["#type"],name:r["#name"],onChange:function(e){return function(e){try{return n(e.target.checked),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},disabled:r["#disabled"],hidden:!(!r["#access"]||r["#access"]),required:r["#required"],readOnly:r["#readonly"],checked:l,id:r["#id"]},o,{value:r["#return_value"]}))})})},{wrapperProps:{style:{display:"flex"}}})))),ge=$(H(te(function(e){var r=e.element,n=e.value,o=void 0===n?0:n,a=e.setValue,s=e.fieldProps,l=t.useState(0),u=l[0],c=l[1],d=r["#max"]?r["#max"]:5;/*#__PURE__*/return i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsxs("div",{className:"star-rating",children:[/*#__PURE__*/i.jsx("input",f({defaultValue:o,name:r["#webform_key"],hidden:!0,type:"range"},s,{id:r["#webform_key"]})),/*#__PURE__*/i.jsx("style",{suppressHydrationWarning:!0,children:"\nbutton {\n  backgroundColor: 'transparent',\n  border: 'none',\n  outline: 'none',\n  cursor: 'pointer',\n}\n.on {\n  color: rgb(14 165 233);\n  }\n.off {\ncolor: #ccc;\n}\n.star-rating {\nfont-size: 2rem;\n}\n}"}),Array(d).fill(0).map(function(e,t){/*#__PURE__*/return i.jsx("button",{type:"button",className:(t+=1)<=(u||o)?"on":"off",onClick:function(){return a(t)},onMouseEnter:function(){return c(t)},onMouseLeave:function(){return c(o)},disabled:r["#disabled"],hidden:!r["#access"],children:/*#__PURE__*/i.jsx("span",{className:"star",children:"★"})},t)})]})})}))),_e=$(H(J(function(e){var r=e.element,n=e.error,o=e.setValue,a=e.labelProps,s=e.value,u=e.fieldProps,c=e.wrapperProps,d=void 0===c?{}:c,m=t.useContext(x).registerField,p=t.useState(""),b=p[0],h=p[1],v=t.useState(""),y=v[0],g=v[1];l.useEffect(function(){r["#parents"]&&m(P(r["#parents"]),{validate:function(){if(b!==y)return"The specified email addresses do not match."}})}),t.useEffect(function(){""!==s&&(h(s),g(s))},[s]),t.useEffect(function(){o(b&&y?b!==y?"":b:"")},[b,y]);var j=_(r).map(function(e){/*#__PURE__*/return i.jsx(le,{element:f({},r[e],{"#states":r["#states"]}),error:n?n[e]:null,value:"mail_1"===e?b:y,setValue:function(t){"mail_1"===e?h(t):"mail_2"===e&&g(t)},labelProps:a,fieldProps:u},e)});/*#__PURE__*/return i.jsx(Q,f({isRequired:!1,labelDisplay:"none",error:n,access:r["#access"]},d,{children:j}))}))),xe=$(function(e){var t=e.element,r=e.fieldProps,n=e.labelProps,o=e.wrapperProps;/*#__PURE__*/return i.jsx(Q,f({label:t["#title"],isRequired:t["#required"],labelDisplay:t["#title_display"],access:t["#access"],settings:null,error:e.error,labelProps:void 0===n?{}:n},void 0===o?{}:o,{labelFor:t["#webform_key"],children:/*#__PURE__*/i.jsx("div",f({},void 0===r?{}:r,{id:t["#webform_key"],children:t["#value"]}))}))}),je=function(e){var t=function(t){e.onClose&&e.onClose(t)};return e.show?/*#__PURE__*/i.jsxs("div",{className:"modal",id:"modal",onClick:t,children:[/*#__PURE__*/i.jsx("style",{suppressHydrationWarning:!0,children:'\n.modal {\n    width: 500px;\n    background: white;\n    border: 1px solid #ccc;\n    transition: 1.1s ease-out;\n    box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);\n    filter: blur(0);\n    transform: translate(-50%, -5%);\n    visibility: visible;\n    position: absolute;\n    opacity: 1;\n    left: 50%;\n    z-index: 100;\n}\n.modal.off {\n    opacity: 0;\n    visibility: hidden;\n    filter: blur(8px);\n    transform: scale(0.33);\n    box-shadow: 1rem 0 0 rgba(0, 0, 0, 0.2);\n}\n@supports (offset-rotation: 0deg) {\n    offset-rotation: 0deg;\n    offset-path: path("M 250,100 S -300,500 -700,-200");\n    .modal.off {\n        offset-distance: 100%;\n    }\n}\n@media (prefers-reduced-motion) {\n    .modal {\n        offset-path: none;\n    }\n}\n.modal h2 {\n    border-bottom: 1px solid #ccc;\n    padding: 1rem;\n    margin: 0;\n}\n.modal .content {\n    padding: 1rem;\n}\n.modal .actions {\n    border-top: 1px solid #ccc;\n    background: #eee;\n    padding: 0.5rem 1rem;\n}\n#centered-toggle-button {\n    position: absolute;\n}\n\n'}),/*#__PURE__*/i.jsx("div",{className:"content",children:e.children}),/*#__PURE__*/i.jsx("div",{className:"actions",children:/*#__PURE__*/i.jsx("button",{className:"toggle-button",onClick:t,children:"Close"})})]}):null},we=$(H(J(te(function(e){var r=e.element,n=e.setValue,o=e.fieldProps,a=e.labelProps,s=t.useState(!1),l=s[0],u=s[1],c=t.useState(!!r["#checked"]&&r["#checked"]),d=c[0],m=c[1],p=t.useState(!r["#access"]||r["#access"]);/*#__PURE__*/return i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsxs("div",{children:[/*#__PURE__*/i.jsx("input",f({type:"checkbox",id:r["#id"],name:r["#webform_key"],onChange:function(e){return function(e){try{return m(!d),n(e.target.value?"1":"0"),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},disabled:r["#disabled"],hidden:!p[0],required:r["#required"],readOnly:r["#readonly"],checked:d},o)),/*#__PURE__*/i.jsx(je,{onClose:function(){return u(!1)},show:l,children:/*#__PURE__*/i.jsx("div",{dangerouslySetInnerHTML:{__html:r["#terms_content"]["#markup"]}})}),/*#__PURE__*/i.jsx("label",f({htmlFor:r["#id"]},a,{children:function(){var e=new RegExp(/(.*){(.*)}(.*)/);if(!e.test(r["#title"]))/*#__PURE__*/return i.jsx(i.Fragment,{children:r["#title"]});var t=e.exec(r["#title"]);/*#__PURE__*/return i.jsxs(i.Fragment,{children:[t[1],/*#__PURE__*/i.jsx("a",{href:"#terms",role:"button",target:"_blank",className:"terms-link",onClick:function(e){e.preventDefault(),u(!l)},children:t[2]}),t[3]]})}()}))]})})},{labelProps:{style:{display:"none"}}})))),ke=$(H(J(function(e){var r=e.element,n=e.setValue,o=e.value,a=e.error,s=e.fieldProps,u=e.labelProps,c=e.wrapperProps,d=void 0===c?{}:c,m=t.useContext(x).registerField,p=(null!=o?o:"").split("T"),b=p[0],h=void 0===b?"":b,v=p[1],y=void 0===v?"":v,g={date:h,time:y};l.useEffect(function(){r["#parents"]&&m(P(r["#parents"]),{validate:function(e){if(e){var t=new RegExp("^((19|20)\\d{2})-((0|1)\\d{1})-((0|1|2)\\d{1})T(2[0-3]|[01][0-9]):[0-5][0-9]"),r=new RegExp("^((19|20)\\d{2})-((0|1)\\d{1})-((0|1|2)\\d{1})T(2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]");return t.test(e)||r.test(e)?void 0:"The value is invalid. Please fill out every field."}}})},[]);var j=_(r);/*#__PURE__*/return i.jsx(Q,f({label:r["#title"],labelDisplay:r["#title_display"],access:r["#access"],isRequired:!1,error:a},d,{children:/*#__PURE__*/i.jsx("div",{id:r["#id"],children:j.map(function(e){/*#__PURE__*/return i.jsx(le,{element:f({},r[e],{"#webform_key":r["#webform_key"],"#access":r[e]["#access"]?r[e]["#access"]:r["#access"],"#disabled":r["#disabled"],"#required":r["#required"],"#date_date_min":r["#date_date_min"],"#date_date_max":r["#date_date_max"],"#date_time_min":r["#date_time_min"],"#date_time_max":r["#date_time_max"],"#states":r["#states"]}),error:a?a[e]:null,setValue:function(t){n(("date"===e?t:h)+"T"+("time"===e?t:y))},labelProps:u,fieldProps:s,value:g[e]?g[e]:""},e)})})}))}))),Pe=$(H(J(te(function(e){var t,r,n=e.element,o=e.setValue,a=e.value;/*#__PURE__*/return i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsx("input",f({type:"time",name:n["#name"],onChange:function(e){return function(e){try{return o(e.target.value),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},disabled:n["#disabled"],hidden:!n["#access"],required:n["#required"],readOnly:n["#readonly"],value:void 0===a?"":a},e.fieldProps,{id:n["#id"],min:null!=(t=n["#date_time_min"])?t:null,max:null!=(r=n["#date_time_max"])?r:null}))})})))),Oe=$(H(J(function(e){var r=e.element,n=e.error,o=e.setValue,a=e.fieldProps,s=e.labelProps,u=e.wrapperProps,c=void 0===u?{}:u,d=t.useState({}),m=d[0],p=d[1],b=_(r),h=t.useContext(x).registerField;l.useEffect(function(){r["#parents"]&&h(P(r["#parents"]),{validate:function(e){if(e){var t=new RegExp("^((19|20)\\d{2})-((0|1)\\d{1})-((0|1|2)\\d{1})T(2[0-3]|[01][0-9]):[0-5][0-9]"),n=new RegExp("^((19|20)\\d{2})-((0|1)\\d{1})-((0|1|2)\\d{1})T(2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]");return t.test(e)||n.test(e)?M(e,r):"The value is invalid. Please fill out every field."}}})},[]),t.useEffect(function(){if(Object.keys(m)[0]&&Object.values(m).every(function(e){return null!==e})){var e,t,n=m.ampm&&"pm"===m.ampm;if(e=m.hour?n?m.hour+12:m.hour:n?12:"00",m.month){var i=r.month["#options"];t=Object.keys(i).find(function(e){return i[e]===m.month})}else t="1";var a=m.day?m.day:"1",s=m.year?m.year:(new Date).getFullYear(),l=e,u=m.minute?m.minute:"00",c=m.second?m.second:null;o(c?s+"-"+v(t)+"-"+v(a)+"T"+v(l)+":"+u+":"+c:s+"-"+v(t)+"-"+v(a)+"T"+v(l)+":"+u)}else Object.values(m).some(function(e){return null!==e})&&o(m)},[m]),t.useEffect(function(){b.map(function(e){p(function(t){var r;return f({},t,((r={})[e]=null,r))})})},[]);var v=function(e){return e<=9?e="0"+e:e};/*#__PURE__*/return i.jsx(Q,f({label:r["#title"],labelDisplay:r["#title_display"],access:r["#access"],isRequired:!1,error:n},c,{children:/*#__PURE__*/i.jsx("div",{id:r["#id"],children:b.map(function(e,t){/*#__PURE__*/return i.jsx(le,{element:f({},r[e],{"#webform_key":r["#webform_key"],"#disabled":r["#disabled"],"#access":r["#access"],"#required":r["#required"],"#states":r["#states"]}),error:n?n[e]:null,setValue:function(t){var r;p(f({},m,((r={})[e]=t,r)))},labelProps:s,fieldProps:a,value:m[e]?m[e]:""},t)})})}))}))),Se=$(H(J(te(function(e){var r=e.element,n=e.setValue,o=e.value,a=void 0===o?"":o,s=e.fieldProps,u=t.useContext(x).registerField;return l.useEffect(function(){r["#parents"]&&u(P(r["#parents"]),{validate:function(e){if(e)return M(e,r)}})},[]),/*#__PURE__*/i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsx("input",f({onChange:function(e){return function(e){try{return n(e.target.value),Promise.resolve()}catch(e){return Promise.reject(e)}}(e)},type:r["#type"],name:r["#name"],disabled:r["#disabled"],hidden:!r["#access"],required:r["#required"],readOnly:r["#readonly"],value:a},s,{id:r["#id"],min:r["#date_date_min"]?I(r["#date_date_min"]):null,max:r["#date_date_max"]?I(r["#date_date_max"]):null}))})})))),Ce=$(H(function(e){var t=e.element;return!1===t["#access"]?null:/*#__PURE__*/i.jsx("div",{children:/*#__PURE__*/i.jsx("label",{children:t["#title"]})})})),qe=function(e){var r=e.element,n=e.wrapperProps,o=[],a=t.useContext(x),s=a.setData,l={submit:function(){},reset:function(e){e.preventDefault(),s(function(){return{}})}},u=a.registry.getComponent("button");return Object.keys(l).forEach(function(e){r[e]&&o.push(/*#__PURE__*/i.jsx(u,{element:r[e],fieldProps:{type:"submit",onClick:l[e]}},e))}),/*#__PURE__*/i.jsx("div",f({},n,{children:o}))},Ee={radios:"radio",checkboxes:"checkbox",webform_radios_other:"radio",webform_checkboxes_other:"checkbox",webform_entity_checkboxes:"checkbox",webform_entity_radios:"radio"},Te=$(J(te(function(e){var r=e.element,n=e.value,o=void 0===n?[]:n,a=e.setValue,s=e.error,l=e.fieldProps;if(!(r["#type"]in Ee))throw new Error(r["#type"]+" which was used on "+r["#webform_key"]+" is not supported by WebformCheckboxRadioGroup.");var u=t.useState(null),c=u[0],d=u[1],m=t.useState(!1),p=m[0],b=m[1],h=Ee[r["#type"]],v="webform_checkboxes_other"===r["#type"]||"webform_radios_other"===r["#type"],y=v?r.other:null,x=function(){var e={},t={};if(v)for(var n=0,i=Object.keys(r);n<i.length;n++){var o=i[n];"radios"!==o&&"checkboxes"!==o||(e=r[o])}else e=r;for(var a=0,s=Object.keys(e["#options"]);a<s.length;a++){var l=s[a];"_other_"!==l&&(t[l]=e["#options"][l])}return t}();t.useEffect(function(){if(r["#default_value"]&&!r["#default_value"].headers){a(r["#default_value"]);var e="string"==typeof r["#default_value"]?[r["#default_value"]]:r["#default_value"],t=e.filter(function(e){return Object.hasOwn(x,e)});if("checkbox"===h&&a(t),v&&Object.keys(e).length!==Object.keys(t).length)for(var n,i=g(e);!(n=i()).done;){var o=n.value;Object.hasOwn(x,o)||d(o)}}},[]),t.useEffect(function(){c&&"checkbox"===h?a([].concat(Array.isArray(o)?o:[],[c])):c&&"radio"===h&&a(c)},[c]);var j=_(r).map(function(e){return"other"!==e&&"radios"!==e&&"checkboxes"!==e?/*#__PURE__*/i.jsx(le,{element:f({},r[e],{"#webform_key":r["#webform_key"],"#states":r["#states"],"#access":r["#access"]}),fieldProps:l,setValue:function(t){if("checkboxes"===r["#type"]||"webform_entity_checkboxes"===r["#type"]){if(!0===t)a([].concat(Array.isArray(o)?o:[],[r[e]["#return_value"]]));else if(Array.isArray(o)&&o.length){var n=o.filter(function(t){return t!==r[e]["#return_value"]});a(n)}}else a(r[e]["#return_value"])},value:Array.isArray(o)&&o.includes(r[e]["#return_value"])||o===r[e]["#return_value"],error:s},e):"checkboxes"==e||"radios"==e?_(r[e]).map(function(t){/*#__PURE__*/return i.jsx(le,{fieldProps:l,element:f({},r[e][t],{"#webform_key":r["#webform_key"],"#states":r["#states"],"#access":r["#access"]}),setValue:function(n){if("checkbox"===r[e][t]["#type"]){if("_other_"===r[e][t]["#return_value"])n?(d(null!=c?c:""),b(!0)):(b(!1),d(null));else if(!0===n)a([].concat(Array.isArray(o)?o:[],[r[e][t]["#return_value"]]));else if(Array.isArray(o)&&o.length){var i=o.filter(function(n){return n!==r[e][t]["#return_value"]});a(i)}}else"_other_"===r[e][t]["#return_value"]?(d(null!=c?c:""),a(null!=c?c:""),b(!0)):(b(!1),d(null),a(r[e][t]["#return_value"]))},value:Array.isArray(o)&&o.includes(r[e][t]["#return_value"])||o===r[e][t]["#return_value"]||"_other_"===r[e][t]["#return_value"]&&p,error:s},t)}):void 0});/*#__PURE__*/return i.jsxs(i.Fragment,{children:[j,v&&p?/*#__PURE__*/i.jsx(le,{element:f({},r,{"#type":y["#type"],"#webform_key":r["#webform_key"],"#title":y["#title"],"#description":y["#description"],"#id":r["#id"]+"-other-input"}),value:c,setValue:function(e){d(e)}}):null]})},{defaultWrapperType:"fieldset",labelFor:!1}))),Fe=$(H(J(te(function(e){var t=e.element,r=e.fieldProps,n=e.labelProps,o=e.wrapperProps;/*#__PURE__*/return i.jsx(Q,f({label:t["#title"],isRequired:t["#required"],labelDisplay:t["#title_display"],access:t["#access"],settings:null,error:e.error,labelProps:void 0===n?{}:n},void 0===o?{}:o,{labelFor:t["#webform_key"],children:/*#__PURE__*/i.jsx("div",f({},void 0===r?{}:r,{id:t["#webform_key"],dangerouslySetInnerHTML:{__html:t["#markup"]}}))}))},{wrapperProps:{style:{display:"flex"}}})))),De=$(H(J(te(function(e){var t=e.element,r=e.fieldProps,n=e.labelProps,o=e.wrapperProps;/*#__PURE__*/return i.jsx(Q,f({label:t["#title"],isRequired:t["#required"],labelDisplay:t["#title_display"],access:t["#access"],settings:null,error:e.error,labelProps:void 0===n?{}:n},void 0===o?{}:o,{labelFor:t["#webform_key"],children:/*#__PURE__*/i.jsx("div",f({},void 0===r?{}:r,{id:t["#webform_key"],dangerouslySetInnerHTML:{__html:t["#message_message"]["#markup"]}}))}))},{wrapperProps:{style:{display:"flex"}}})))),Ne=J(function(e){/*#__PURE__*/return i.jsx("button",f({type:"button"},e.fieldProps,{children:e.element["#value"]}))}),Ae=J(function(e){var r=e.element,n=e.error,o=e.fieldProps,a=void 0===o?{}:o,s=e.tdProps,l=void 0===s?{}:s,u=t.useContext(x),c=u.data,d=u.setData;/*#__PURE__*/return i.jsx("tr",f({},a,{children:_(r).map(function(e){var o,a=r["#states"]?f({},r[e]["#states"],r["#states"]):null,s=r["#states"]?Object.assign({},a,r["#states"]):a;/*#__PURE__*/return t.createElement("td",f({},f({},l,L(null!=(o=r[e]["#wrapper_attributes"])?o:{})),{key:e}),/*#__PURE__*/i.jsx(le,{element:f({},s?f({"#states":s},r[e]):r[e],{"#wrapper_attributes":[]}),error:n,value:c[r[e]["#webform_key"]],setValue:function(t){d(function(n){var i;return f({},n,((i={})[r[e]["#webform_key"]]=t,i))})}},e))})}))}),Ve=function(e){/*#__PURE__*/return i.jsx("pre",{children:/*#__PURE__*/i.jsx("code",{id:"submitted-data",children:JSON.stringify(e.submission)})})},Re=$(J(te(function(e){var r=e.element,n=e.fieldProps,o=t.useContext(x),a=o.data,s=o.setData,l=o.errors,u=_(r).map(function(e){var t=r["#states"]?f({},r[e]["#states"],r["#states"]):null;/*#__PURE__*/return i.jsx(le,{element:f({},r[e],t?{"#states":t,"#access":!0}:{"#access":!0}),error:l[r[e]["#webform_key"]],value:a[r[e]["#webform_key"]],setValue:function(t){s(function(n){var i;return f({},n,((i={})[r[e]["#webform_key"]]=t,i))})}},r[e]["#webform_key"])});/*#__PURE__*/return i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsx("div",f({},n,{children:u}))})},{defaultWrapperType:"container"}))),Me=function(e){var r=e.elements,n=t.useState(0),o=n[0],a=n[1],s=_(r),l=r[s[o]],u=o>0,c=o===s.length-1,d=r.actions,m=function(e){if(l["#title"]==r[e]["#title"])return{color:"blue"}};/*#__PURE__*/return i.jsxs("div",{children:[/*#__PURE__*/i.jsx("ul",{style:{display:"flex"},children:s.map(function(e){/*#__PURE__*/return i.jsxs("li",{style:m(e),children:[r[e]["#title"],"----",">"]},e)})}),/*#__PURE__*/i.jsx("br",{}),/*#__PURE__*/i.jsxs("h1",{children:["Page Title: ",l["#title"]]}),/*#__PURE__*/i.jsxs("h1",{children:["Current page: ",o+1]}),/*#__PURE__*/i.jsx(Re,{element:f({},l)}),u&&/*#__PURE__*/i.jsx("button",{style:{border:"solid"},type:"button",className:"webform-button--previous",onClick:function(){return a(function(e){return e-1})},children:"Previous"}),!c&&/*#__PURE__*/i.jsx("button",{style:{border:"solid"},type:"button",onClick:function(){return a(function(e){return e+1})},children:"Next"}),c&&/*#__PURE__*/i.jsx(le,{element:d})]})},Ie=function e(t){return Object.entries(t).forEach(function(t){for(var r=0,n=Object.entries(t);r<n.length;r++){var i=n[r],o=i[0],a=i[1];"object"==typeof a&&null!==a&&Object.keys(a).includes("#access")&&(t[o]["#access"]=!0,e(t[o]))}}),!0},We={textfield:ie,number:ie,hidden:ie,email:ie,search:ie,tel:ie,url:ie,textarea:ae,autocomplete:re,checkbox:ye,checkboxes:Te,entity_autocomplete:re,range:ve,radio:ye,radios:Te,select:oe,webform_autocomplete:re,webform_checkboxes_other:Te,webform_entity_checkboxes:Te,webform_entity_radios:Te,webform_radios_other:Te,webform_rating:ge,webform_select_other:oe,webform_terms_of_service:we,container:de,fieldset:me,webform_flexbox:fe,webform_section:pe,webform_table:he,webform_table_row:Ae,webform_address:ce,webform_contact:ce,webform_name:ce,webform_link:ce,webform_custom_composite:function(e){var r=e.element,n=e.error,o=e.value,a=e.setValue,s=e.labelProps,l=_(r["#element"]),u=!!r.add;return t.useEffect(function(){r["#default_value"]&&Array.isArray(r["#default_value"])?a(r["#default_value"]):a([{}])},[]),/*#__PURE__*/i.jsx(i.Fragment,{children:u?/*#__PURE__*/i.jsx(i.Fragment,{children:/*#__PURE__*/i.jsx(ue,{element:r,value:o,setValue:a,error:n})}):/*#__PURE__*/i.jsx(Q,{label:r["#title"],labelDisplay:r["#title_display"],access:r["#access"],isRequired:!1,error:n,children:l.map(function(e,t){var l=r.items[0][e];/*#__PURE__*/return i.jsx(le,{element:f({},l,{"#webform_key":e,"#states":r["#_webform_states"],"#id":l["#id"],"#default_value":void 0}),value:o&&o[0][e]?o[0][e]:"",setValue:function(t){var r,n;a(o&&o[0]?[f({},o[0],(r={},r[e]=t,r))]:[(n={},n[e]=t,n)])},error:n?n[e]:null,labelProps:s},t)})})})},date:Se,datelist:Oe,datetime:ke,webform_time:Pe,button:Ne,submit:qe,item:Ce,value:xe,webform_actions:qe,webform_email_confirm:_e,webform_multiple:ue,confirmation_page:function(e){var t=e.webform;/*#__PURE__*/return i.jsx("div",{children:t.confirmation.message&&t.confirmation.message.length>0?t.confirmation.message:/*#__PURE__*/i.jsxs(i.Fragment,{children:["New submission added to ",/*#__PURE__*/i.jsx("em",{children:t.title}),"."]})})},form_layout:function(e){var r=e.webform,n=e.status,o=t.useContext(x),a=o.registry,s=o.setData,l=o.data,u=o.errors,c=r.elements,d=r.confirmation,m=_(c),p=m.some(function(e){return"webform_wizard_page"===c[e]["#type"]});t.useEffect(function(){"debug"===d.type&&"success"!==n&&window.localStorage.setItem("webformDebugData",JSON.stringify(l))},[l,n,d.type]);var b,h=function(){/*#__PURE__*/return i.jsx(i.Fragment,{children:m.map(function(e){/*#__PURE__*/return i.jsx(le,{element:c[e],setValue:function(t){s(function(r){var n;return f({},r,((n={})[c[e]["#webform_key"]]=t,n))})},value:l[c[e]["#webform_key"]],error:u[c[e]["#webform_key"]]},c[e]["#webform_key"])})})};if("success"===n){if("debug"===d.type){var v="undefined"==typeof window?l:JSON.parse(window.localStorage.getItem("webformDebugData"));/*#__PURE__*/return i.jsx(Ve,{submission:v})}if("page"===d.type||"inline"===d.type)return b=a.getComponent("confirmation_page"),/*#__PURE__*/i.jsx(b,{webform:r,submission:l});if("message"===d.type){var y=a.getComponent("message");/*#__PURE__*/return i.jsxs(i.Fragment,{children:[/*#__PURE__*/i.jsx(y,{type:"success",children:r.confirmation.message&&r.confirmation.message.length>0?r.confirmation.message:/*#__PURE__*/i.jsxs(i.Fragment,{children:["New submission added to ",/*#__PURE__*/i.jsx("em",{children:r.title}),"."]})}),h()]})}if("none"===d.type)return h()}if(p){for(var g=0,j=Object.entries(c);g<j.length;g++){var w=j[g],k=w[0],P=w[1];"object"==typeof P&&null!==P&&Object.keys(P).includes("#access")&&(c[k]["#access"]=!0,Ie(c[k]))}/*#__PURE__*/return i.jsx(Me,{elements:c})}return h()},message:function(e){/*#__PURE__*/return i.jsx("div",{children:e.children})},webform_wizard_page:Re,webform_message:De,webform_markup:Fe},Ue=new function(e){var t=this;void 0===e&&(e={}),this._registry=void 0,this.getComponent=function(e){var r;return null!=(r=t._registry.get(e))?r:null},this.setComponent=function(e,r){t._registry.set(e,r)},this._registry=new Map,Object.keys(e).forEach(function(r){t._registry.set(r,e[r])})}(We),ze=["data","id","customComponents","onSubmit","apiUrl","validate"],He=/*#__PURE__*/function(e){var t,r;function n(t){var r;return(r=e.call(this)||this).response=void 0,r.response=t,r}return r=e,(t=n).prototype=Object.create(r.prototype),t.prototype.constructor=t,p(t,r),n}(/*#__PURE__*/h(Error));e.Webform=function(e){var r=e.data,n=e.id,o=e.customComponents,a=void 0===o?{}:o,s=e.onSubmit,c=e.apiUrl,d=void 0===c?"/api/webform":c,m=e.validate,p=v(e,ze),b=Ue;T(function(){Object.keys(a).forEach(function(e){b.setComponent(e,a[e])})}),t.useEffect(function(){Object.keys(a).forEach(function(e){b.setComponent(e,a[e])})},[a]);var h=t.useState({}),y=h[0],g=h[1],_=t.useState(),j=_[0],w=_[1],k=t.useState({}),P=k[0],S=k[1],C=t.useRef({}),E=l.useCallback(function(e,t){C.current[e]={validate:t.validate}},[]),F=l.useCallback(function(e){delete C.current[e]},[]),D=s||W,N=b.getComponent("form_layout"),V=b.getComponent("message"),R=function(e){var t=Object.keys(C.current).filter(function(e){return q(C.current[e].validate)}),r=t.map(function(t){return r=t,n=e[t],new Promise(function(e){return e(C.current[r].validate(n))});var r,n});return Promise.all(r).then(function(e){return e.reduce(function(e,r,n){return void 0===r||O(e,t[n],r),e},{})})};/*#__PURE__*/return i.jsxs("form",f({},p,{onSubmit:function(e){var t;e.preventDefault(),(t=P,Promise.all([R(t),m?m(t):{}]).then(function(e){return u.default.all([e[0],e[1]],{arrayMerge:A})})).then(function(t){0!==Object.keys(t).length?(w("error"),g(t)):D({id:n,event:e,data:P,setData:S,setStatus:w,setErrors:g,apiUrl:d})})},children:["error"===j?/*#__PURE__*/i.jsx(V,{type:"error",children:"An error occurred. Please try again."}):null,/*#__PURE__*/i.jsx(x.Provider,{value:{id:n,apiUrl:d,data:P,setData:S,setStatus:w,errors:y,registry:b,registerField:E,unregisterField:F},children:/*#__PURE__*/i.jsx(N,{webform:r,status:j})})]}))},e.WebformContext=x,e.WebformDefaultApiRoute=function(e,t,r){try{return Promise.resolve(function(){if("GET"===e.method){if("autocomplete_options"===e.query.op.toString()){var n=e.query,i=n.options_id,o=r.buildUrl("/webform_rest/"+n.id.toString()+"/autocomplete_options/"+i+"?_format=json");return Promise.resolve(r.fetch(o.toString(),{headers:{"Content-Type":"application/json"}})).then(function(e){var r;function n(n){if(r)return n;var i=t.end;return Promise.resolve(e.json()).then(function(e){return i.call(t,JSON.stringify(e)),t.status(200),t})}var i=function(){if(!e.ok)return Promise.resolve(e.json()).then(function(n){var i=t.status(e.status).json({message:n});return r=1,i})}();return i&&i.then?i.then(n):n(i)})}return t.end("{}"),t.status(404),t}return function(){if("POST"===e.method){var n=r.buildUrl("/webform_rest/submit?_format=json");return Promise.resolve(r.fetch(n.toString(),{method:"POST",body:JSON.stringify(e.body),headers:{"Content-Type":"application/json"}})).then(function(e){var r;function n(n){return r?n:(t.end(JSON.stringify(e)),t.status(200),t)}var i=function(){if(!e.ok)return Promise.resolve(e.json()).then(function(n){var i=t.status(e.status).json({message:n});return r=1,i})}();return i&&i.then?i.then(n):n(i)})}}()}())}catch(e){return Promise.reject(e)}},e.WebformError=He,e.WebformHeight=function(e){var t=e.element,r=e.value,n=e.setValue,o=function(e){try{var t;return n(f({},r,((t={})[e.target.name]=e.target.value,t))),Promise.resolve()}catch(e){return Promise.reject(e)}};/*#__PURE__*/return i.jsx(Q,{labelFor:t["#key"],label:t["#title"],isRequired:t["#required"],access:t["#access"],settings:null,error:e.error,children:/*#__PURE__*/i.jsxs("div",{style:{display:"inline-flex",alignItems:"center"},children:[/*#__PURE__*/i.jsx("input",{type:"number",name:"feet",min:0,max:8,onChange:function(e){return o(e)}}),/*#__PURE__*/i.jsx("label",{style:{padding:"0.5em"},children:"feet"}),/*#__PURE__*/i.jsx("input",{type:"number",name:"inches",min:0,max:11,onChange:function(e){return o(e)}}),/*#__PURE__*/i.jsx("label",{style:{padding:"0.5em"},children:"inches"})]})})},e.arrayMerge=A,e.checkDateMinMax=M,e.components=We,e.convertDateToISO=I,e.cssStringToObject=F,e.defaultOnSubmit=W,e.getChildElements=_,e.getCurrentError=function(e,t){return e||("string"==typeof t||/*#__PURE__*/l.isValidElement(t)?t:void 0)},e.getIndexOfMultiValue=N,e.getNormalizedErrorMessages=w,e.isFunction=q,e.isInteger=C,e.isIterable=E,e.isObject=S,e.normalizeElements=z,e.reactPropertyMap=D,e.resolvePath=R,e.resolveWebformContent=function(e,t,r){try{var n=t.buildUrl("/webform/"+e+"?_format=json"),i=t.buildUrl("/webform_rest/"+e+"/elements?_format=json");return Promise.resolve(Promise.all([t.fetch(n.toString(),f({},r,{headers:{"Content-Type":"application/json"}})),t.fetch(i.toString(),f({},r,{headers:{"Content-Type":"application/json"}}))])).then(function(t){var r=t[0],n=t[1];function i(t){function i(t){return Promise.resolve(n.json()).then(function(t){var n=z(t);return Promise.resolve(r.json()).then(function(t){return{id:e,uuid:t.uuid,title:t.title,description:t.description,status:t.status,confirmation:{type:t.settings.confirmation_type,url:t.settings.confirmation_url,message:t.settings.confirmation_message},elements:n}})})}var o=function(){if(!n.ok)return Promise.resolve(n.json()).then(function(e){throw new Error(e)})}();return o&&o.then?o.then(i):i()}var o=function(){if(!r.ok)return Promise.resolve(r.json()).then(function(e){throw new Error(e)})}();return o&&o.then?o.then(i):i()})}catch(e){return Promise.reject(e)}},e.resolveWebformSubmission=function(e,t,r,n){try{var i=r.buildUrl("/webform/"+e+"?_format=json"),o=r.buildUrl("/webform_rest/"+e+"/elements?_format=json"),a=r.buildUrl("/webform_rest/"+e+"/submission/"+t+"?_format=json");return Promise.resolve(Promise.all([r.fetch(i.toString(),f({},n,{headers:{"Content-Type":"application/json"}})),r.fetch(o.toString(),f({},n,{headers:{"Content-Type":"application/json"}})),r.fetch(a.toString(),f({},n,{headers:{"Content-Type":"application/json"}}))])).then(function(t){var r=t[0],n=t[1],i=t[2];function o(t){function o(t){function o(t){return Promise.resolve(n.json()).then(function(t){var n=z(t);return Promise.resolve(i.json()).then(function(t){return Promise.resolve(r.json()).then(function(t){return{id:e,uuid:t.uuid,title:t.title,description:t.description,status:t.status,confirmation:{type:t.settings.confirmation_type,url:t.settings.confirmation_url,message:t.settings.confirmation_message},elements:n}})})})}var a=function(){if(!i.ok)return Promise.resolve(i.json()).then(function(e){throw new Error(e)})}();return a&&a.then?a.then(o):o()}var a=function(){if(!n.ok)return Promise.resolve(n.json()).then(function(e){throw new Error(e)})}();return a&&a.then?a.then(o):o()}var a=function(){if(!r.ok)return Promise.resolve(r.json()).then(function(e){throw new Error(e)})}();return a&&a.then?a.then(o):o()})}catch(e){return Promise.reject(e)}},e.setIn=O,e.toKey=P,e.toPath=k,e.updateNameAndIdWithIndex=V,e.useConstructor=T});
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('react'), require('deepmerge'), require('strtotime'), require('react/jsx-runtime'), require('classnames')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'react', 'deepmerge', 'strtotime', 'react/jsx-runtime', 'classnames'], factory) :
+  (global = global || self, factory(global.nextjsDrupalWebform = {}, global.react, global.deepmerge, global.strtotime, global.jsx, global.classnames));
+})(this, (function (exports, React, deepmerge, strtotime, jsxRuntime, classNames) {
+  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+  function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+      Object.keys(e).forEach(function (k) {
+        if (k !== 'default') {
+          var d = Object.getOwnPropertyDescriptor(e, k);
+          Object.defineProperty(n, k, d.get ? d : {
+            enumerable: true,
+            get: function () { return e[k]; }
+          });
+        }
+      });
+    }
+    n["default"] = e;
+    return n;
+  }
+
+  var React__namespace = /*#__PURE__*/_interopNamespace(React);
+  var deepmerge__default = /*#__PURE__*/_interopDefaultLegacy(deepmerge);
+  var strtotime__default = /*#__PURE__*/_interopDefaultLegacy(strtotime);
+  var classNames__default = /*#__PURE__*/_interopDefaultLegacy(classNames);
+
+  function _extends() {
+    _extends = Object.assign ? Object.assign.bind() : function (target) {
+      for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+        for (var key in source) {
+          if (Object.prototype.hasOwnProperty.call(source, key)) {
+            target[key] = source[key];
+          }
+        }
+      }
+      return target;
+    };
+    return _extends.apply(this, arguments);
+  }
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    _setPrototypeOf(subClass, superClass);
+  }
+  function _getPrototypeOf(o) {
+    _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) {
+      return o.__proto__ || Object.getPrototypeOf(o);
+    };
+    return _getPrototypeOf(o);
+  }
+  function _setPrototypeOf(o, p) {
+    _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) {
+      o.__proto__ = p;
+      return o;
+    };
+    return _setPrototypeOf(o, p);
+  }
+  function _isNativeReflectConstruct() {
+    if (typeof Reflect === "undefined" || !Reflect.construct) return false;
+    if (Reflect.construct.sham) return false;
+    if (typeof Proxy === "function") return true;
+    try {
+      Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {}));
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  function _construct(Parent, args, Class) {
+    if (_isNativeReflectConstruct()) {
+      _construct = Reflect.construct.bind();
+    } else {
+      _construct = function _construct(Parent, args, Class) {
+        var a = [null];
+        a.push.apply(a, args);
+        var Constructor = Function.bind.apply(Parent, a);
+        var instance = new Constructor();
+        if (Class) _setPrototypeOf(instance, Class.prototype);
+        return instance;
+      };
+    }
+    return _construct.apply(null, arguments);
+  }
+  function _isNativeFunction(fn) {
+    return Function.toString.call(fn).indexOf("[native code]") !== -1;
+  }
+  function _wrapNativeSuper(Class) {
+    var _cache = typeof Map === "function" ? new Map() : undefined;
+    _wrapNativeSuper = function _wrapNativeSuper(Class) {
+      if (Class === null || !_isNativeFunction(Class)) return Class;
+      if (typeof Class !== "function") {
+        throw new TypeError("Super expression must either be null or a function");
+      }
+      if (typeof _cache !== "undefined") {
+        if (_cache.has(Class)) return _cache.get(Class);
+        _cache.set(Class, Wrapper);
+      }
+      function Wrapper() {
+        return _construct(Class, arguments, _getPrototypeOf(this).constructor);
+      }
+      Wrapper.prototype = Object.create(Class.prototype, {
+        constructor: {
+          value: Wrapper,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      });
+      return _setPrototypeOf(Wrapper, Class);
+    };
+    return _wrapNativeSuper(Class);
+  }
+  function _objectWithoutPropertiesLoose(source, excluded) {
+    if (source == null) return {};
+    var target = {};
+    var sourceKeys = Object.keys(source);
+    var key, i;
+    for (i = 0; i < sourceKeys.length; i++) {
+      key = sourceKeys[i];
+      if (excluded.indexOf(key) >= 0) continue;
+      target[key] = source[key];
+    }
+    return target;
+  }
+  function _unsupportedIterableToArray(o, minLen) {
+    if (!o) return;
+    if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+    var n = Object.prototype.toString.call(o).slice(8, -1);
+    if (n === "Object" && o.constructor) n = o.constructor.name;
+    if (n === "Map" || n === "Set") return Array.from(o);
+    if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  }
+  function _arrayLikeToArray(arr, len) {
+    if (len == null || len > arr.length) len = arr.length;
+    for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+    return arr2;
+  }
+  function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+    var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"];
+    if (it) return (it = it.call(o)).next.bind(it);
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {
+      if (it) o = it;
+      var i = 0;
+      return function () {
+        if (i >= o.length) return {
+          done: true
+        };
+        return {
+          done: false,
+          value: o[i++]
+        };
+      };
+    }
+    throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+  }
+
+  function getChildElements(containerElement) {
+    var count = Object.keys(containerElement).length;
+    var i = 0;
+    var childWeights = [];
+    for (var _i = 0, _Object$keys = Object.keys(containerElement); _i < _Object$keys.length; _i++) {
+      var key = _Object$keys[_i];
+      if (key.charAt(0) === '#') {
+        continue;
+      }
+      // Skip `type` key since it's reserved for this application.
+      // @todo should we get rid of this?
+      // @see WebformElementType
+      if (key === 'type') {
+        continue;
+      }
+      var element = containerElement[key];
+      var weight = void 0;
+      if (typeof element['#weight'] !== 'undefined') {
+        weight = element['#weight'];
+      } else {
+        weight = 0;
+      }
+      // Supports weight with up to three digit precision and conserve
+      // the insertion order.
+      childWeights.push({
+        weight: Math.floor(weight * 1000) + i / count,
+        key: key
+      });
+      i++;
+    }
+    childWeights.sort(function (a, b) {
+      return a.weight - b.weight;
+    });
+    return childWeights.map(function (childWeight) {
+      return childWeight.key;
+    });
+  }
+  var WebformContext = /*#__PURE__*/React__namespace.createContext(null);
+  var drupalRenderedMarkup = function drupalRenderedMarkup(message) {
+    return /*#__PURE__*/jsxRuntime.jsx("div", {
+      dangerouslySetInnerHTML: {
+        __html: message
+      }
+    });
+  };
+  var getNormalizedErrorMessages = function getNormalizedErrorMessages(errors) {
+    if (!errors) {
+      return null;
+    }
+    return Object.keys(errors).reduce(function (currentValue, key) {
+      var parts = key.split('][');
+      if (parts.length > 1) {
+        if (!currentValue[parts[0]]) {
+          currentValue[parts[0]] = {};
+        }
+        if (parts.length === 2) {
+          // This is handling the field cardinality data structure:
+          // `${id}][items][{$i}][_item_` when `_item_` is a primitive value.
+          if (parts[1] === '_item_') {
+            currentValue[parts[0]] = drupalRenderedMarkup(errors[key]);
+          } else {
+            currentValue[parts[0]][parts[1]] = drupalRenderedMarkup(errors[key]);
+          }
+        } else {
+          // This is handling the field cardinality data structure:
+          // `${id}][items][{$i}][_item_`, and cases where field cardinality has
+          // structured data, e.g. composite element.
+          if (parts[1] === 'items' || parts[1] === '_item_') {
+            var _getNormalizedErrorMe;
+            var newKey = [].concat(parts.slice(2)).join('][');
+            currentValue[parts[0]] = _extends({}, currentValue[parts[0]], getNormalizedErrorMessages((_getNormalizedErrorMe = {}, _getNormalizedErrorMe[newKey] = errors[key], _getNormalizedErrorMe)));
+          } else {
+            var _extends2;
+            var _newKey = [].concat(parts.slice(1)).join('][');
+            currentValue[parts[0]] = _extends({}, currentValue[parts[0]], getNormalizedErrorMessages(_extends({}, currentValue[parts[0]], (_extends2 = {}, _extends2[_newKey] = errors[key], _extends2))));
+          }
+        }
+      } else {
+        currentValue[key] = drupalRenderedMarkup(errors[key]);
+      }
+      return currentValue;
+    }, {});
+  };
+  function toPath(key) {
+    return key.split('][');
+  }
+  function toKey(path) {
+    return path.filter(function (item) {
+      return item !== 'items' && item !== '_item_';
+    }).join('][');
+  }
+  function setIn(obj, path, value) {
+    var pathArray = toPath(path);
+    var current = obj;
+    for (var i = 0; i < pathArray.length; i++) {
+      var currentPath = pathArray[i];
+      if (pathArray.length - 1 === i) {
+        current[currentPath] = value;
+      } else {
+        if (!current[currentPath]) {
+          var nextPath = pathArray[i + 1];
+          if (isInteger(nextPath) && Number(nextPath) >= 0) {
+            current[currentPath] = [];
+          } else {
+            current[currentPath] = {};
+          }
+        }
+      }
+      current = current[currentPath];
+    }
+    return obj;
+  }
+  function isObject(item) {
+    return typeof item === 'object' && !Array.isArray(item) && item !== null;
+  }
+  var isInteger = function isInteger(obj) {
+    return Number.isInteger(obj) || String(Math.floor(Number(obj))) === obj;
+  };
+  // eslint-disable-next-line @typescript-eslint/ban-types
+  var isFunction = function isFunction(object) {
+    return typeof object === 'function';
+  };
+  function isIterable(item) {
+    if (item === null || item === undefined) {
+      return false;
+    }
+    return typeof item[Symbol.iterator] === 'function';
+  }
+  var useConstructor = function useConstructor(callback) {
+    var _useState = React.useState(false),
+      hasBeenCalled = _useState[0],
+      setHasBeenCalled = _useState[1];
+    if (hasBeenCalled) return;
+    callback();
+    setHasBeenCalled(true);
+  };
+  // Converts a CSS style from string to an object supported by React.
+  // E.g. `border: 3px solid green; border-radius: 4px;` is converted into
+  // `{ border: '3px solid green', borderRadius: '4px'}`.
+  var cssStringToObject = function cssStringToObject(string) {
+    var regExp = /(?<=^|;)\s*([^:]+)\s*:\s*([^;]+)\s*/g;
+    var result = {};
+    if (typeof string === 'string') {
+      string.replace(regExp, function (declaration, property, value) {
+        // The property name must be converted from kebab-case to camelCase.
+        // @see https://reactjs.org/docs/dom-elements.html#style
+        var camelizedProperty = property.replace(/-./g, function (part) {
+          return part[1].toUpperCase();
+        });
+        return result[camelizedProperty] = value;
+      });
+    }
+    return result;
+  };
+  // @see https://github.com/facebook/react/blob/v18.2.0/packages/react-dom/src/shared/possibleStandardNames.js#L11
+  var reactPropertyMap = {
+    // HTML
+    accept: 'accept',
+    acceptcharset: 'acceptCharset',
+    'accept-charset': 'acceptCharset',
+    accesskey: 'accessKey',
+    action: 'action',
+    allowfullscreen: 'allowFullScreen',
+    alt: 'alt',
+    as: 'as',
+    async: 'async',
+    autocapitalize: 'autoCapitalize',
+    autocomplete: 'autoComplete',
+    autocorrect: 'autoCorrect',
+    autofocus: 'autoFocus',
+    autoplay: 'autoPlay',
+    autosave: 'autoSave',
+    capture: 'capture',
+    cellpadding: 'cellPadding',
+    cellspacing: 'cellSpacing',
+    challenge: 'challenge',
+    charset: 'charSet',
+    checked: 'checked',
+    children: 'children',
+    cite: 'cite',
+    "class": 'className',
+    classid: 'classID',
+    classname: 'className',
+    cols: 'cols',
+    colspan: 'colSpan',
+    content: 'content',
+    contenteditable: 'contentEditable',
+    contextmenu: 'contextMenu',
+    controls: 'controls',
+    controlslist: 'controlsList',
+    coords: 'coords',
+    crossorigin: 'crossOrigin',
+    dangerouslysetinnerhtml: 'dangerouslySetInnerHTML',
+    data: 'data',
+    datetime: 'dateTime',
+    "default": 'default',
+    defaultchecked: 'defaultChecked',
+    defaultvalue: 'defaultValue',
+    defer: 'defer',
+    dir: 'dir',
+    disabled: 'disabled',
+    disablepictureinpicture: 'disablePictureInPicture',
+    disableremoteplayback: 'disableRemotePlayback',
+    download: 'download',
+    draggable: 'draggable',
+    enctype: 'encType',
+    enterkeyhint: 'enterKeyHint',
+    "for": 'htmlFor',
+    form: 'form',
+    formmethod: 'formMethod',
+    formaction: 'formAction',
+    formenctype: 'formEncType',
+    formnovalidate: 'formNoValidate',
+    formtarget: 'formTarget',
+    frameborder: 'frameBorder',
+    headers: 'headers',
+    height: 'height',
+    hidden: 'hidden',
+    high: 'high',
+    href: 'href',
+    hreflang: 'hrefLang',
+    htmlfor: 'htmlFor',
+    httpequiv: 'httpEquiv',
+    'http-equiv': 'httpEquiv',
+    icon: 'icon',
+    id: 'id',
+    imagesizes: 'imageSizes',
+    imagesrcset: 'imageSrcSet',
+    innerhtml: 'innerHTML',
+    inputmode: 'inputMode',
+    integrity: 'integrity',
+    is: 'is',
+    itemid: 'itemID',
+    itemprop: 'itemProp',
+    itemref: 'itemRef',
+    itemscope: 'itemScope',
+    itemtype: 'itemType',
+    keyparams: 'keyParams',
+    keytype: 'keyType',
+    kind: 'kind',
+    label: 'label',
+    lang: 'lang',
+    list: 'list',
+    loop: 'loop',
+    low: 'low',
+    manifest: 'manifest',
+    marginwidth: 'marginWidth',
+    marginheight: 'marginHeight',
+    max: 'max',
+    maxlength: 'maxLength',
+    media: 'media',
+    mediagroup: 'mediaGroup',
+    method: 'method',
+    min: 'min',
+    minlength: 'minLength',
+    multiple: 'multiple',
+    muted: 'muted',
+    name: 'name',
+    nomodule: 'noModule',
+    nonce: 'nonce',
+    novalidate: 'noValidate',
+    open: 'open',
+    optimum: 'optimum',
+    pattern: 'pattern',
+    placeholder: 'placeholder',
+    playsinline: 'playsInline',
+    poster: 'poster',
+    preload: 'preload',
+    profile: 'profile',
+    radiogroup: 'radioGroup',
+    readonly: 'readOnly',
+    referrerpolicy: 'referrerPolicy',
+    rel: 'rel',
+    required: 'required',
+    reversed: 'reversed',
+    role: 'role',
+    rows: 'rows',
+    rowspan: 'rowSpan',
+    sandbox: 'sandbox',
+    scope: 'scope',
+    scoped: 'scoped',
+    scrolling: 'scrolling',
+    seamless: 'seamless',
+    selected: 'selected',
+    shape: 'shape',
+    size: 'size',
+    sizes: 'sizes',
+    span: 'span',
+    spellcheck: 'spellCheck',
+    src: 'src',
+    srcdoc: 'srcDoc',
+    srclang: 'srcLang',
+    srcset: 'srcSet',
+    start: 'start',
+    step: 'step',
+    style: 'style',
+    summary: 'summary',
+    tabindex: 'tabIndex',
+    target: 'target',
+    title: 'title',
+    type: 'type',
+    usemap: 'useMap',
+    value: 'value',
+    width: 'width',
+    wmode: 'wmode',
+    wrap: 'wrap'
+  };
+  // Get the index from the webform key if the element is multi-value.
+  var getIndexOfMultiValue = function getIndexOfMultiValue(string) {
+    var matchArr = string.match(/\[(\d.*?)\]/g);
+    // In case the webform key contains other indexes, we only want the last one.
+    return matchArr.pop();
+  };
+  var getCurrentError = function getCurrentError(clientSideError, serverSideError) {
+    if (clientSideError) {
+      return clientSideError;
+    }
+    if (typeof serverSideError === 'string' || /*#__PURE__*/React__namespace.isValidElement(serverSideError)) {
+      return serverSideError;
+    }
+    return;
+  };
+  /**
+   * deepmerge array merging algorithm
+   * https://github.com/TehShrike/deepmerge#arraymerge-example-combine-arrays
+   */
+  var arrayMerge = function arrayMerge(target, source, options) {
+    var destination = target.slice();
+    source.forEach(function (item, index) {
+      if (typeof destination[index] === 'undefined') {
+        destination[index] = options.cloneUnlessOtherwiseSpecified(item, options);
+      } else if (options.isMergeableObject(item)) {
+        destination[index] = deepmerge__default["default"](target[index], item, options);
+      } else if (target.indexOf(item) === -1) {
+        destination.push(item);
+      }
+    });
+    return destination;
+  };
+  // Updates the name and ID of every child element recursively.
+  function updateNameAndIdWithIndex(index, element) {
+    var childElements = getChildElements(element);
+    if (childElements.length) {
+      // Make a deep copy of the element item that we can change the id and name of.
+      for (var _iterator = _createForOfIteratorHelperLoose(childElements), _step; !(_step = _iterator()).done;) {
+        var nestedElement = _step.value;
+        var id = element[nestedElement]['#id'];
+        var idLength = id.length;
+        var name = element[nestedElement]['#name'];
+        if (id.charAt(idLength - 1) === ']') {
+          var updatedId = id.replace(/\[(.+?)\]/g, '[' + index + ']');
+          var updatedName = name.replace(/\[(.+?)\]/g, '[' + index + ']');
+          element[nestedElement]['#id'] = updatedId;
+          element[nestedElement]['#name'] = updatedName;
+        } else {
+          element[nestedElement]['#id'] = element[nestedElement]['#id'] + "[" + index + "]";
+          element[nestedElement]['#name'] = element[nestedElement]['#name'] + "[" + index + "]";
+        }
+        updateNameAndIdWithIndex(index, element[nestedElement]);
+      }
+    } else {
+      return;
+    }
+  }
+  // Accesses an object property with a given path that is in the format of a string
+  // with properties separated by periods.
+  function resolvePath(path, obj) {
+    return path.split('.').reduce(function (prev, curr) {
+      return prev ? prev[curr] : null;
+    }, obj || self);
+  }
+  var checkDateMinMax = function checkDateMinMax(value, element) {
+    if (element['#date_date_min']) {
+      var min = element['#date_date_min'];
+      var minAsISO = convertDateToISO(min);
+      if (strtotime__default["default"](value) < strtotime__default["default"](minAsISO)) {
+        return "Date must be on or after " + minAsISO + ".";
+      }
+    }
+    if (element['#date_date_max']) {
+      var max = element['#date_date_max'];
+      var maxAsISO = convertDateToISO(max);
+      if (strtotime__default["default"](value) > strtotime__default["default"](maxAsISO)) {
+        return "Date must be on or before " + maxAsISO + ".";
+      }
+    }
+    return;
+  };
+  var convertDateToISO = function convertDateToISO(date) {
+    if (date === 'today') {
+      return new Date().toISOString().substring(0, 10);
+    } else if (typeof strtotime__default["default"](date) === 'number') {
+      return new Date(date).toISOString().split('T')[0];
+    } else {
+      return strtotime__default["default"](date).toISOString().substring(0, 10);
+    }
+  };
+
+  var defaultOnSubmit = function defaultOnSubmit(_ref3) {
+    var id = _ref3.id,
+      data = _ref3.data,
+      setData = _ref3.setData,
+      setStatus = _ref3.setStatus,
+      setErrors = _ref3.setErrors,
+      apiUrl = _ref3.apiUrl;
+    try {
+      var body = _extends({}, data, {
+        webform_id: id
+      });
+      return Promise.resolve(fetch(apiUrl, {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })).then(function (response) {
+        var _temp11 = function () {
+          if (!response.ok) {
+            setStatus('error');
+            return Promise.resolve(response.json()).then(function (message) {
+              setErrors(getNormalizedErrorMessages(message.message.error));
+            });
+          } else {
+            setStatus('success');
+            setData({});
+            // Clear webform element errors.
+            setErrors({});
+          }
+        }();
+        if (_temp11 && _temp11.then) return _temp11.then(function () {});
+      });
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  };
+  var resolveWebformSubmission = function resolveWebformSubmission(id, uuid, drupal, fetchOptions) {
+    try {
+      var url = drupal.buildUrl("/webform/" + id + "?_format=json");
+      var elementsUrl = drupal.buildUrl("/webform_rest/" + id + "/elements?_format=json");
+      var submissionUrl = drupal.buildUrl("/webform_rest/" + id + "/submission/" + uuid + "?_format=json");
+      return Promise.resolve(Promise.all([drupal.fetch(url.toString(), _extends({}, fetchOptions, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })), drupal.fetch(elementsUrl.toString(), _extends({}, fetchOptions, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })), drupal.fetch(submissionUrl.toString(), _extends({}, fetchOptions, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }))])).then(function (_ref2) {
+        var _exit3;
+        var result = _ref2[0],
+          elementsResult = _ref2[1],
+          submissionResult = _ref2[2];
+        function _temp10(_result3) {
+          var _exit4;
+          if (_exit3) ;
+          function _temp8(_result4) {
+            var _exit5;
+            if (_exit4) ;
+            function _temp6(_result5) {
+              return _exit5 ? _result5 : Promise.resolve(elementsResult.json()).then(function (_elementsResult$json2) {
+                var normalizedElements = normalizeElements(_elementsResult$json2);
+                // Fetch submission ID
+                return Promise.resolve(submissionResult.json()).then(function (submission) {
+                  var submissionData = submission.data;
+                  // Fill values with default data from submission.
+                  for (var _i = 0, _Object$entries = Object.entries(submissionData); _i < _Object$entries.length; _i++) {
+                    var _Object$entries$_i = _Object$entries[_i],
+                      key = _Object$entries$_i[0],
+                      value = _Object$entries$_i[1];
+                    if (typeof normalizedElements[key] !== 'undefined') {
+                      normalizedElements[key]['#default_value'] = value;
+                    }
+                  }
+                  return Promise.resolve(result.json()).then(function (webform) {
+                    return {
+                      id: id,
+                      uuid: webform.uuid,
+                      title: webform.title,
+                      description: webform.description,
+                      status: webform.status,
+                      confirmation: {
+                        type: webform.settings.confirmation_type,
+                        url: webform.settings.confirmation_url,
+                        message: webform.settings.confirmation_message
+                      },
+                      elements: normalizedElements
+                    };
+                  });
+                });
+              });
+            }
+            var _temp5 = function () {
+              if (!submissionResult.ok) {
+                return Promise.resolve(submissionResult.json()).then(function (message) {
+                  throw new Error(message);
+                });
+              }
+            }();
+            return _temp5 && _temp5.then ? _temp5.then(_temp6) : _temp6(_temp5); // Clean up some commonly provided, unused properties to reduce the overall
+            // size of props.
+          }
+          var _temp7 = function () {
+            if (!elementsResult.ok) {
+              return Promise.resolve(elementsResult.json()).then(function (message) {
+                throw new Error(message);
+              });
+            }
+          }();
+          return _temp7 && _temp7.then ? _temp7.then(_temp8) : _temp8(_temp7);
+        }
+        var _temp9 = function () {
+          if (!result.ok) {
+            return Promise.resolve(result.json()).then(function (message) {
+              throw new Error(message);
+            });
+          }
+        }();
+        return _temp9 && _temp9.then ? _temp9.then(_temp10) : _temp10(_temp9);
+      });
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  };
+  var resolveWebformContent = function resolveWebformContent(id, drupal, fetchOptions) {
+    try {
+      var url = drupal.buildUrl("/webform/" + id + "?_format=json");
+      var elementsUrl = drupal.buildUrl("/webform_rest/" + id + "/elements?_format=json");
+      return Promise.resolve(Promise.all([drupal.fetch(url.toString(), _extends({}, fetchOptions, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })), drupal.fetch(elementsUrl.toString(), _extends({}, fetchOptions, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }))])).then(function (_ref) {
+        var _exit;
+        var result = _ref[0],
+          elementsResult = _ref[1];
+        function _temp4(_result) {
+          var _exit2;
+          if (_exit) ;
+          function _temp2(_result2) {
+            return _exit2 ? _result2 : Promise.resolve(elementsResult.json()).then(function (_elementsResult$json) {
+              var normalizedElements = normalizeElements(_elementsResult$json);
+              return Promise.resolve(result.json()).then(function (webform) {
+                return {
+                  id: id,
+                  uuid: webform.uuid,
+                  title: webform.title,
+                  description: webform.description,
+                  status: webform.status,
+                  confirmation: {
+                    type: webform.settings.confirmation_type,
+                    url: webform.settings.confirmation_url,
+                    message: webform.settings.confirmation_message
+                  },
+                  elements: normalizedElements
+                };
+              });
+            });
+          }
+          var _temp = function () {
+            if (!elementsResult.ok) {
+              return Promise.resolve(elementsResult.json()).then(function (message) {
+                throw new Error(message);
+              });
+            }
+          }();
+          return _temp && _temp.then ? _temp.then(_temp2) : _temp2(_temp); // Clean up some commonly provided, unused properties to reduce the overall
+          // size of props.
+        }
+        var _temp3 = function () {
+          if (!result.ok) {
+            return Promise.resolve(result.json()).then(function (message) {
+              throw new Error(message);
+            });
+          }
+        }();
+        return _temp3 && _temp3.then ? _temp3.then(_temp4) : _temp4(_temp3);
+      });
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  };
+  var deleteKeys = ['#process', '#groups', '#after_build', '#pre_render', '#value_callback', '#theme_wrappers', '#allowed_tags', '#attached', '#element_validate', '#cache', '#prefix', '#suffix', '#webform_children', '#webform_parents', '#array_parents', '#autocomplete_route_parameters', '#autocomplete_route_name', '#ajax', '#ajax_processed', '#ajax_prefix', '#ajax_suffix', '#child_keys', '#ajax_attributes', '#tabledrag', '#sorted', '#processed', '#after_build_done', '#tree'];
+  var normalizeElements = function normalizeElements(result) {
+    deleteKeys.forEach(function (key) {
+      delete result[key];
+    });
+    getChildElements(result).forEach(function (key) {
+      result[key] = normalizeElements(result[key]);
+    });
+    return result;
+  };
+
+  var withDefaultValue = function withDefaultValue(EnhancedComponent) {
+    return function WebformElementWithDefaultValue(props) {
+      React.useEffect(function () {
+        if (!props.value && props.element['#default_value'] && !props.element['#default_value']['headers']) {
+          props.setValue(props.element['#default_value']);
+        }
+      }, []);
+      return /*#__PURE__*/jsxRuntime.jsx(EnhancedComponent, _extends({}, props));
+    };
+  };
+
+  var normalizeAttributes = function normalizeAttributes(attributes) {
+    var ignoreList = ['id', 'data-drupal-selector', 'webform-remove-for-attribute'];
+    var filteredAttributes = Object.keys(attributes).filter(function (attribute) {
+      return !ignoreList.includes(attribute);
+    });
+    return filteredAttributes.reduce(function (currentValue, attribute) {
+      if (attribute === 'class') {
+        currentValue['className'] = classNames__default["default"](attributes[attribute]);
+      } else if (reactPropertyMap[attribute]) {
+        currentValue[reactPropertyMap[attribute]] = attributes[attribute];
+      } else {
+        currentValue[attribute] = attributes[attribute];
+      }
+      return currentValue;
+    }, {});
+  };
+  var withAttributes = function withAttributes(EnhancedComponent) {
+    return function WebformElementWithAttributes(props) {
+      var _props$element$Attri, _props$fieldProps, _props$element$Label, _props$labelProps, _props$element$Wrapp, _props$wrapperProps;
+      var normalizedFieldAttributes = normalizeAttributes((_props$element$Attri = props.element['#attributes']) != null ? _props$element$Attri : {});
+      var field = _extends({}, normalizedFieldAttributes, (_props$fieldProps = props.fieldProps) != null ? _props$fieldProps : {});
+      if (field['style']) {
+        field['style'] = cssStringToObject(field['style']);
+      }
+      var normalizedLabelAttributes = normalizeAttributes((_props$element$Label = props.element['#label_attributes']) != null ? _props$element$Label : {});
+      var label = _extends({}, normalizedLabelAttributes, (_props$labelProps = props.labelProps) != null ? _props$labelProps : {});
+      if (label['style']) {
+        label['style'] = cssStringToObject(label['style']);
+      }
+      var normalizedWrapperAttributes = normalizeAttributes((_props$element$Wrapp = props.element['#wrapper_attributes']) != null ? _props$element$Wrapp : {});
+      var wrapper = _extends({}, normalizedWrapperAttributes, (_props$wrapperProps = props.wrapperProps) != null ? _props$wrapperProps : {});
+      if (wrapper['style']) {
+        wrapper['style'] = cssStringToObject(wrapper['style']);
+      }
+      return /*#__PURE__*/jsxRuntime.jsx(EnhancedComponent, _extends({}, props, {
+        fieldProps: field,
+        labelProps: label,
+        wrapperProps: wrapper
+      }));
+    };
+  };
+
+  var getDependencies = function getDependencies(states) {
+    if (!states || Object.keys(states).includes('headers')) {
+      return [];
+    }
+    var dependencies = [];
+    for (var _i = 0, _Object$keys = Object.keys(states); _i < _Object$keys.length; _i++) {
+      var effect = _Object$keys[_i];
+      // Loop through indexes or selectors.
+      for (var _i2 = 0, _Object$keys2 = Object.keys(states[effect]); _i2 < _Object$keys2.length; _i2++) {
+        var indexOrSelector = _Object$keys2[_i2];
+        // If indexOrSelector is not an index, then ALL conditions must be true
+        // for the attribute to take effect.
+        if (isNaN(Number(indexOrSelector))) {
+          var elementName = getElementName(indexOrSelector);
+          dependencies.push(elementName);
+        } else if (states[effect][indexOrSelector] !== 'or' && states[effect][indexOrSelector] !== 'xor') {
+          var selectorString = Object.keys(states[effect][indexOrSelector])[0];
+          var _elementName = getElementName(selectorString);
+          dependencies.push(_elementName);
+        }
+      }
+    }
+    return dependencies;
+  };
+  // Returns substring with the element selector.
+  function getElementName(string) {
+    var match = string.match(/\[name=["|']([A-z][A-z\d-_.:]*)["|']\]$/);
+    return match && match[1];
+  }
+  // Checks if the condition is true or not and returns a boolean value.
+  function getConditionState(trigger, value) {
+    if (isObject(trigger[Object.keys(trigger)[0]])) {
+      switch (Object.keys(trigger[Object.keys(trigger)[0]])[0]) {
+        case 'pattern':
+          {
+            if (typeof value !== 'string') {
+              return false;
+            }
+            var re = new RegExp(trigger['value']['pattern']);
+            return re.test(value);
+          }
+        case '!pattern':
+          {
+            if (typeof value !== 'string') {
+              return false;
+            }
+            var _re = new RegExp(trigger['value']['pattern']);
+            return !_re.test(value);
+          }
+        case 'less':
+          return value < trigger['value']['less'];
+        case 'less_equal':
+          return value <= trigger['value']['less_equal'];
+        case 'greater':
+          return value > trigger['value']['greater'];
+        case 'greater_equal':
+          return value >= trigger['value']['greater_equal'];
+        case 'between':
+        case '!between':
+          {
+            var betweenValues = trigger['value']['between'];
+            var min = betweenValues.substring(0, betweenValues.indexOf(':'));
+            var max = betweenValues.substring(betweenValues.indexOf(':'), betweenValues.length - 1);
+            if (Object.keys(trigger)[0] == 'between') {
+              return value >= min && value <= max;
+            } else {
+              return value < min || value > max;
+            }
+          }
+      }
+    } else {
+      switch (trigger && Object.keys(trigger)[0]) {
+        case 'empty':
+          return !value;
+        case 'filled':
+          return !!value;
+        case 'checked':
+          return value == true;
+        case 'unchecked':
+          return value == false;
+        case 'value':
+          return value == trigger['value'];
+        case '!value':
+          return value != trigger['value'];
+      }
+    }
+  }
+  var getStateConditions = function getStateConditions(states, data) {
+    var allConditionsForTrue = {};
+    var anyConditionForTrue = {};
+    var oneConditionForTrue = {};
+    var webformStates;
+    if (states && !Object.keys(states).includes('headers')) {
+      webformStates = states;
+      for (var _i3 = 0, _Object$keys3 = Object.keys(webformStates); _i3 < _Object$keys3.length; _i3++) {
+        var effect = _Object$keys3[_i3];
+        allConditionsForTrue[effect] = {};
+        anyConditionForTrue[effect] = {};
+        oneConditionForTrue[effect] = {};
+        // Loop through indexes or selectors.
+        for (var _i4 = 0, _Object$keys4 = Object.keys(webformStates[effect]); _i4 < _Object$keys4.length; _i4++) {
+          var indexOrSelector = _Object$keys4[_i4];
+          // If indexOrSelector is not an index, then ALL conditions must be true
+          // for the attribute to take effect.
+          if (isNaN(Number(indexOrSelector))) {
+            var _data$elementName;
+            var elementName = getElementName(indexOrSelector);
+            if (Object.prototype.hasOwnProperty.call(data, elementName) && typeof data[elementName] !== 'string' && typeof data[elementName] !== 'boolean') {
+              console.warn("Unexpected type \"" + typeof data[elementName] + "\" for element \"" + elementName + "\"");
+              continue;
+            }
+            allConditionsForTrue[effect][elementName] = getConditionState(webformStates[effect][indexOrSelector], (_data$elementName = data[elementName]) != null ? _data$elementName : undefined);
+          } else if (webformStates[effect][indexOrSelector] !== 'or' && webformStates[effect][indexOrSelector] !== 'xor') {
+            var selectorString = Object.keys(webformStates[effect][indexOrSelector])[0];
+            var _elementName2 = getElementName(selectorString);
+            var trigger = Object.values(webformStates[effect][indexOrSelector])[0];
+            if (Object.prototype.hasOwnProperty.call(data, _elementName2) && typeof data[_elementName2] !== 'string' && typeof data[_elementName2] !== 'boolean') {
+              console.warn("Unexpected type \"" + typeof data[_elementName2] + "\" for element \"" + _elementName2 + "\"");
+              continue;
+            }
+            if (Object.values(webformStates[effect]).includes('or')) {
+              var _data$_elementName;
+              anyConditionForTrue[effect][_elementName2] = getConditionState(trigger, (_data$_elementName = data[_elementName2]) != null ? _data$_elementName : undefined);
+            } else if (Object.values(webformStates[effect]).includes('xor')) {
+              var _data$_elementName2;
+              oneConditionForTrue[effect][_elementName2] = getConditionState(trigger, (_data$_elementName2 = data[_elementName2]) != null ? _data$_elementName2 : undefined);
+            }
+          }
+        }
+      }
+    }
+    return {
+      allConditionsForTrue: allConditionsForTrue,
+      anyConditionForTrue: anyConditionForTrue,
+      oneConditionForTrue: oneConditionForTrue,
+      webformStates: webformStates
+    };
+  };
+  var getEffect = function getEffect(effect) {
+    switch (effect) {
+      case 'invisible':
+      case 'invisible-slide':
+      case '!visible':
+        return {
+          '#access': false
+        };
+      case 'visible':
+      case 'visible-slide':
+      case '!invisible':
+        return {
+          '#access': true
+        };
+      case 'enabled':
+      case '!disabled':
+        return {
+          '#disabled': false
+        };
+      case 'disabled':
+      case '!enabled':
+        return {
+          '#disabled': true
+        };
+      case 'required':
+      case '!optional':
+        return {
+          '#required': true
+        };
+      case 'optional':
+      case '!required':
+        return {
+          '#required': false
+        };
+      case 'checked':
+      case '!unchecked':
+        return {
+          '#checked': true
+        };
+      case 'unchecked':
+      case '!checked':
+        return {
+          '#unchecked': true
+        };
+      case 'readonly':
+      case '!readwrite':
+        return {
+          '#readonly': true
+        };
+      case 'readwrite':
+      case '!readonly':
+        return {
+          '#readonly': false
+        };
+    }
+  };
+  var getStatesForData = function getStatesForData(states, data) {
+    // Initialize the list of conditions and set whether they are true or not.
+    var _getStateConditions = getStateConditions(states, data),
+      allConditionsForTrue = _getStateConditions.allConditionsForTrue,
+      anyConditionForTrue = _getStateConditions.anyConditionForTrue,
+      oneConditionForTrue = _getStateConditions.oneConditionForTrue,
+      webformStates = _getStateConditions.webformStates;
+    if (!webformStates || Object.keys(webformStates).length === 0 || !Object.keys(webformStates)[0].length) {
+      return;
+    }
+    var effects = {};
+    // Set the state accordingly based on our list of conditions.
+    for (var _i5 = 0, _Object$keys5 = Object.keys(webformStates); _i5 < _Object$keys5.length; _i5++) {
+      var effect = _Object$keys5[_i5];
+      // Check if EVERY condition is true.
+      if (Object.keys(allConditionsForTrue[effect]).length && Object.values(allConditionsForTrue[effect]).every(function (value) {
+        return value === true;
+      })) {
+        Object.assign(effects, getEffect(effect));
+        // Check if ANY condition is true (OR).
+      } else if (Object.keys(anyConditionForTrue[effect]).length && Object.values(anyConditionForTrue[effect]).includes(true)) {
+        Object.assign(effects, getEffect(effect));
+        // Check if ONE condition is true (XOR).
+      } else if (Object.keys(oneConditionForTrue[effect]).length) {
+        var filterByTrue = Object.values(oneConditionForTrue[effect]).filter(function (item) {
+          return item == true;
+        });
+        if (filterByTrue.length == 1) {
+          Object.assign(effects, getEffect(effect));
+        } else {
+          var falseEffect = '!' + effect;
+          Object.assign(effects, getEffect(falseEffect));
+        }
+      } else {
+        var _falseEffect = '!' + effect;
+        Object.assign(effects, getEffect(_falseEffect));
+      }
+    }
+    return effects;
+  };
+  // Higher order component to handle the conditional logic for Webform elements.
+  var withStates = function withStates(WrappedComponent) {
+    return function WebformElementWithStates(props) {
+      var _useState = React.useState({}),
+        state = _useState[0],
+        setState = _useState[1];
+      var _useContext = React.useContext(WebformContext),
+        data = _useContext.data;
+      var element = props.element;
+      // Multi-value elements don't have #states in its render array so we need to use #_webform_states.
+      var elementStates = element['add'] ? element['#_webform_states'] : element['#states'];
+      var dependencyElements = getDependencies(elementStates);
+      React.useEffect(function () {
+        setState(getStatesForData(elementStates, data));
+      }, []);
+      React.useEffect(function () {
+        setState(getStatesForData(elementStates, data));
+      }, dependencyElements.map(function (key) {
+        return data[key];
+      }));
+      // Override element object with the dynamic states.
+      return /*#__PURE__*/jsxRuntime.jsx(WrappedComponent, _extends({}, props, {
+        element: _extends({}, element, state)
+      }));
+    };
+  };
+
+  var _excluded$3 = ["children", "label", "labelProps", "labelFor", "isRequired", "description", "descriptionDisplay", "descriptionProps", "labelDisplay", "error", "access"];
+  var WebformElementWrapper = function WebformElementWrapper(_ref) {
+    var children = _ref.children,
+      label = _ref.label,
+      _ref$labelProps = _ref.labelProps,
+      labelProps = _ref$labelProps === void 0 ? {} : _ref$labelProps,
+      labelFor = _ref.labelFor,
+      isRequired = _ref.isRequired,
+      description = _ref.description,
+      descriptionDisplay = _ref.descriptionDisplay,
+      _ref$descriptionProps = _ref.descriptionProps,
+      descriptionProps = _ref$descriptionProps === void 0 ? {} : _ref$descriptionProps,
+      _ref$labelDisplay = _ref.labelDisplay,
+      labelDisplay = _ref$labelDisplay === void 0 ? 'before' : _ref$labelDisplay,
+      error = _ref.error,
+      access = _ref.access,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$3);
+    var css = "\n.required-field:after {\n  content: ' *';\n  color: red;\n}\n.invalid-feedback {\n  color: red;\n}\n.visually-hidden {\n  position: absolute !important;\n  clip: rect(1px, 1px, 1px, 1px);\n  overflow: hidden;\n  height: 1px;\n  width: 1px;\n  word-wrap: normal;\n}\n        ";
+    var labelClasses = classNames__default["default"](labelProps['className'], {
+      'required-field': isRequired,
+      'visually-hidden': labelDisplay === 'invisible'
+    });
+    var descriptionClasses = classNames__default["default"](descriptionProps['className'], {
+      'visually-hidden': descriptionDisplay === 'invisible'
+    });
+    var labelElement = /*#__PURE__*/jsxRuntime.jsx("label", _extends({}, labelProps, {
+      className: labelClasses,
+      htmlFor: labelFor,
+      children: label
+    }));
+    return access ? /*#__PURE__*/jsxRuntime.jsxs("div", _extends({}, props, {
+      children: [/*#__PURE__*/jsxRuntime.jsx("style", {
+        suppressHydrationWarning: true,
+        children: css
+      }), !['after', 'none'].includes(labelDisplay) && labelElement, descriptionDisplay === 'before' && description && /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, descriptionProps, {
+        children: description
+      })), children, (descriptionDisplay === 'after' || descriptionDisplay === 'invisible') && description && /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, descriptionProps, {
+        className: descriptionClasses,
+        children: description
+      })), labelDisplay === 'after' && labelElement, error && /*#__PURE__*/jsxRuntime.jsx("div", {
+        className: "invalid-feedback",
+        children: error
+      })]
+    })) : null;
+  };
+
+  var _excluded$2 = ["children", "label", "labelProps", "labelDisplay", "labelFor", "description", "descriptionDisplay", "descriptionProps", "isRequired", "error", "access"];
+  var WebformFieldsetWrapper = function WebformFieldsetWrapper(_ref) {
+    var children = _ref.children,
+      label = _ref.label,
+      _ref$labelProps = _ref.labelProps,
+      labelProps = _ref$labelProps === void 0 ? {} : _ref$labelProps,
+      description = _ref.description,
+      descriptionDisplay = _ref.descriptionDisplay,
+      _ref$descriptionProps = _ref.descriptionProps,
+      descriptionProps = _ref$descriptionProps === void 0 ? {} : _ref$descriptionProps,
+      isRequired = _ref.isRequired,
+      error = _ref.error,
+      access = _ref.access,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$2);
+    var css = "\n.required-field:after {\n  content: ' *';\n  color: red;\n}\n.invalid-feedback {\n  color: red;\n}\n.visually-hidden {\n  position: absolute !important;\n  clip: rect(1px, 1px, 1px, 1px);\n  overflow: hidden;\n  height: 1px;\n  width: 1px;\n  word-wrap: normal;\n}\n        ";
+    var labelClasses = classNames__default["default"](labelProps['className'], {
+      'required-field': isRequired
+    });
+    var descriptionClasses = classNames__default["default"](descriptionProps['className'], {
+      'visually-hidden': descriptionDisplay === 'invisible'
+    });
+    var labelElement = /*#__PURE__*/jsxRuntime.jsx("legend", _extends({}, labelProps, {
+      className: labelClasses,
+      children: label
+    }));
+    return access ? /*#__PURE__*/jsxRuntime.jsxs("fieldset", _extends({}, props, {
+      children: [/*#__PURE__*/jsxRuntime.jsx("style", {
+        suppressHydrationWarning: true,
+        children: css
+      }), labelElement, descriptionDisplay === 'before' && description && /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, descriptionProps, {
+        className: descriptionClasses,
+        children: description
+      })), children, (descriptionDisplay === 'after' || descriptionDisplay === 'invisible') && description && /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, descriptionProps, {
+        className: descriptionClasses,
+        children: description
+      })), error && /*#__PURE__*/jsxRuntime.jsx("div", {
+        className: "invalid-feedback",
+        children: error
+      })]
+    })) : null;
+  };
+
+  var withWrapper = function withWrapper(EnhancedComponent, customConfig) {
+    if (customConfig === void 0) {
+      customConfig = {};
+    }
+    return function WebformElementWithWrapper(props) {
+      var element = props.element,
+        error = props.error;
+      var config = _extends({
+        defaultWrapperType: 'form_element',
+        displayErrors: true,
+        labelFor: function labelFor(element) {
+          return element['#id'];
+        },
+        labelProps: {},
+        wrapperProps: {}
+      }, typeof customConfig === 'function' ? customConfig(element) : customConfig);
+      var labelFor = config.labelFor,
+        defaultWrapperType = config.defaultWrapperType,
+        displayErrors = config.displayErrors;
+      // Apply wrapper type based on render array, otherwise use the default
+      // value.
+      var wrapperType = element['#wrapper_type'] ? element['#wrapper_type'] : defaultWrapperType;
+      // Label is only configurable for `form_element` wrappers because:
+      //   - `legend` is a required child of `fieldset`.
+      //   - `container` type is specifically used for not rendering the label.
+      var labelDisplay = wrapperType === 'form_element' && element['#title'] ? element['#title_display'] : 'none';
+      // Only render errors that are tied to the current element by checking if
+      // the curent error is a string or React element.
+      var hasValidError = typeof error === 'string' || /*#__PURE__*/React__namespace.isValidElement(error);
+      var WrapperComponent = wrapperType !== 'fieldset' ? WebformElementWrapper : WebformFieldsetWrapper;
+      // Allow components to retrieve the `labelFor` property value from the element.
+      var getLabel = function getLabel() {
+        if (typeof labelFor === 'function') {
+          return labelFor(element);
+        }
+        return;
+      };
+      // Allow overriding label and wrapper props.
+      var labelProps = _extends({}, props.labelProps, config.labelProps);
+      var wrapperProps = _extends({}, props.wrapperProps, config.wrapperProps);
+      return /*#__PURE__*/jsxRuntime.jsx(WrapperComponent, _extends({
+        label: element['#title'],
+        isRequired: element['#required'],
+        access: element['#access'],
+        labelDisplay: labelDisplay,
+        error: displayErrors && hasValidError ? error : undefined,
+        labelProps: labelProps,
+        description: element['#description'] ? /*#__PURE__*/jsxRuntime.jsx("div", {
+          dangerouslySetInnerHTML: {
+            __html: element['#description']['#markup']
+          }
+        }) : undefined,
+        descriptionDisplay: element['#description_display']
+      }, wrapperProps, {
+        labelFor: labelDisplay !== 'none' ? getLabel() : undefined,
+        children: /*#__PURE__*/jsxRuntime.jsx(EnhancedComponent, _extends({}, props))
+      }));
+    };
+  };
+
+  var WebformAutocomplete = function WebformAutocomplete(_ref) {
+    var element = _ref.element,
+      setValue = _ref.setValue,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? '' : _ref$value,
+      fieldProps = _ref.fieldProps;
+    var _useState = React.useState({}),
+      autocompleteOptions = _useState[0],
+      setAutocompleteOptions = _useState[1];
+    var _useState2 = React.useState(null),
+      autocompleteValue = _useState2[0],
+      setAutocompleteValue = _useState2[1];
+    var webform = React.useContext(WebformContext);
+    React.useEffect(function () {
+      var resolveAsyncAutocompleteItems = function resolveAsyncAutocompleteItems() {
+        try {
+          var url = webform.apiUrl + "?op=autocomplete_options&id=" + webform.id + "&options_id=" + element['#autocomplete_items'];
+          return Promise.resolve(fetch(url)).then(function (response) {
+            var _exit;
+            function _temp2(_result) {
+              return _exit ? _result : Promise.resolve(response.json()).then(function (_response$json2) {
+                setAutocompleteOptions(_response$json2);
+              });
+            }
+            var _temp = function () {
+              if (!response.ok) {
+                return Promise.resolve(response.json()).then(function (_response$json) {
+                  throw Error(_response$json.message.message);
+                });
+              }
+            }();
+            return _temp && _temp.then ? _temp.then(_temp2) : _temp2(_temp);
+          });
+        } catch (e) {
+          return Promise.reject(e);
+        }
+      };
+      if (Array.isArray(element['#autocomplete_items'])) {
+        setAutocompleteOptions(element['#autocomplete_items'].reduce(function (currentValue, item) {
+          currentValue[item] = item;
+          return currentValue;
+        }, {}));
+      } else if (typeof element['#autocomplete_items'] === 'string') {
+        resolveAsyncAutocompleteItems();
+      } else {
+        console.warn("Unsupported autocomplete type on element " + element['#name'] + ".");
+      }
+    }, [element['#autocomplete_items']]);
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        if (autocompleteOptions[e.target.value]) {
+          setValue(e.target.value);
+        } else {
+          setValue('');
+        }
+        setAutocompleteValue(e.target.value);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    // Update component state when value changes in upstream state.
+    React.useEffect(function () {
+      setAutocompleteValue(value);
+    }, [value]);
+    return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+      children: [/*#__PURE__*/jsxRuntime.jsx("input", _extends({
+        type: "text",
+        name: element['#webform_key'],
+        onChange: function onChange(e) {
+          return onChangeHandler(e);
+        },
+        disabled: element['#disabled'],
+        hidden: !element['#access'],
+        required: element['#required'],
+        readOnly: element['#readonly'],
+        value: autocompleteValue != null ? autocompleteValue : value
+      }, fieldProps, {
+        id: "" + element['#id'],
+        list: element['#webform_key'] + "-datalist"
+      })), /*#__PURE__*/jsxRuntime.jsx("datalist", {
+        id: element['#webform_key'] + "-datalist",
+        children: Object.keys(autocompleteOptions).map(function (item, i) {
+          return /*#__PURE__*/jsxRuntime.jsx("option", {
+            value: item,
+            children: autocompleteOptions[item]
+          }, i);
+        })
+      })]
+    });
+  };
+  var WebformAutocomplete$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformAutocomplete))));
+
+  var supportedTypes$1 = {
+    number: 'number',
+    hidden: 'hidden',
+    email: 'email',
+    search: 'search',
+    tel: 'tel',
+    url: 'url',
+    textfield: 'text'
+  };
+  var WebformText = function WebformText(_ref) {
+    var _supportedTypes$eleme;
+    var element = _ref.element,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? '' : _ref$value,
+      setValue = _ref.setValue,
+      fieldProps = _ref.fieldProps;
+    if (!(element['#type'] in supportedTypes$1)) {
+      console.warn(element['#type'] + " which was used on " + element['#webform_key'] + " is not supported by WebformText.");
+    }
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        setValue(e.target.value);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsx("input", _extends({
+        type: (_supportedTypes$eleme = supportedTypes$1[element['#type']]) != null ? _supportedTypes$eleme : element['#type'],
+        name: element['#name'],
+        value: value,
+        onChange: function onChange(e) {
+          return onChangeHandler(e);
+        },
+        disabled: element['#disabled'],
+        hidden: !element['#access'],
+        required: element['#required'],
+        readOnly: element['#readonly'],
+        placeholder: element['#placeholder']
+      }, fieldProps, {
+        id: element['#id']
+      }))
+    });
+  };
+  var WebformText$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformText))));
+
+  var WebformSelect = function WebformSelect(_ref) {
+    var element = _ref.element,
+      setValue = _ref.setValue,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? '' : _ref$value,
+      fieldProps = _ref.fieldProps;
+    var _useState = React.useState(false),
+      showOther = _useState[0],
+      setShowOther = _useState[1];
+    // Used to get the options for select other elements that have the options nested one level deeper.
+    function getOptions() {
+      var options = {};
+      for (var _i = 0, _Object$keys = Object.keys(element); _i < _Object$keys.length; _i++) {
+        var key = _Object$keys[_i];
+        if (key == 'select') {
+          options = element[key];
+        }
+      }
+      return options;
+    }
+    var optionsForOther = element['#type'] === 'webform_select_other' ? getOptions() : null;
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        if (e.target.value == 'Other') {
+          setShowOther(!showOther);
+        } else if (showOther) {
+          setShowOther(!showOther);
+          setValue(e.target.value);
+        } else {
+          setValue(e.target.value);
+        }
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    var onInputHandler = function onInputHandler(e) {
+      try {
+        setValue(e.target.value);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    function sortOptions(options) {
+      var arr = [];
+      var title;
+      for (var _i2 = 0, _Object$keys2 = Object.keys(options); _i2 < _Object$keys2.length; _i2++) {
+        var key = _Object$keys2[_i2];
+        if (key.length) {
+          arr.push(options[key]);
+        } else {
+          title = options[key];
+        }
+      }
+      arr.unshift(title);
+      return arr;
+    }
+    return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+      children: [/*#__PURE__*/jsxRuntime.jsxs("select", _extends({
+        name: element['#name'],
+        onChange: function onChange(e) {
+          return onChangeHandler(e);
+        },
+        value: value,
+        disabled: element['#disabled'],
+        hidden: !element['#access'],
+        required: element['#required']
+      }, fieldProps, {
+        id: element['#id'],
+        children: [element['#webform_plugin_id'] == 'select' || typeof element['#webform_plugin_id'] === 'undefined' && element['#type'] !== 'webform_select_other' ? sortOptions(element['#options']).map(function (option, index) {
+          return /*#__PURE__*/jsxRuntime.jsx("option", {
+            value: option,
+            children: option
+          }, index);
+        }) : null, element['#webform_plugin_id'] == 'webform_entity_select' ? Object.keys(element['#options']).map(function (entityId) {
+          var entityName = element['#options'][entityId];
+          return /*#__PURE__*/jsxRuntime.jsx("option", {
+            value: entityId,
+            children: entityName
+          }, entityId);
+        }) : null, element['#type'] === 'webform_select_other' && optionsForOther['#options'] ? /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+          children: [Object.values(optionsForOther['#options']).map(function (option, index) {
+            if (option != 'Other…') {
+              return /*#__PURE__*/jsxRuntime.jsx("option", {
+                value: option.toString(),
+                children: option
+              }, index);
+            }
+          }), /*#__PURE__*/jsxRuntime.jsx("option", {
+            value: "Other",
+            children: "Other..."
+          })]
+        }) : null]
+      })), showOther ? /*#__PURE__*/jsxRuntime.jsx("input", {
+        type: "text",
+        id: element['#webform_key'],
+        name: element['#webform_key'],
+        onInput: function onInput(e) {
+          return onInputHandler(e);
+        },
+        value: value
+      }) : null]
+    });
+  };
+  var WebformSelect$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformSelect))));
+
+  var WebformTextArea = function WebformTextArea(_ref) {
+    var element = _ref.element,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? '' : _ref$value,
+      setValue = _ref.setValue,
+      fieldProps = _ref.fieldProps;
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        setValue(e.target.value);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsx("textarea", _extends({
+        name: element['#webform_key'],
+        value: value,
+        onChange: function onChange(e) {
+          return onChangeHandler(e);
+        },
+        disabled: element['#disabled'],
+        hidden: !element['#access'],
+        required: element['#required'],
+        readOnly: element['#readonly'],
+        placeholder: element['#placeholder']
+      }, fieldProps, {
+        id: element['#id']
+      }))
+    });
+  };
+  var WebformTextArea$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformTextArea))));
+
+  var ComponentRegistry = function ComponentRegistry(registry) {
+    var _this = this;
+    if (registry === void 0) {
+      registry = {};
+    }
+    this._registry = void 0;
+    // get a component by id, if not available we return null
+    this.getComponent = function (key) {
+      var _this$_registry$get;
+      return (_this$_registry$get = _this._registry.get(key)) != null ? _this$_registry$get : null;
+    };
+    this.setComponent = function (key, component) {
+      _this._registry.set(key, component);
+    };
+    this._registry = new Map();
+    Object.keys(registry).forEach(function (key) {
+      _this._registry.set(key, registry[key]);
+    });
+  };
+
+  var WebformDebug = function WebformDebug(_ref) {
+    var element = _ref.element,
+      error = _ref.error;
+    return /*#__PURE__*/jsxRuntime.jsxs("code", {
+      children: [error, /*#__PURE__*/jsxRuntime.jsx("pre", {
+        children: JSON.stringify(element, null, 2)
+      })]
+    });
+  };
+
+  var WebformElement = function WebformElement(props) {
+    var _useContext = React.useContext(WebformContext),
+      registry = _useContext.registry;
+    var element = props.element,
+      error = props.error;
+    // Render using custom component if provided:
+    if (registry.getComponent(element['#type'])) {
+      var CustomComponent = registry.getComponent(element['#type']);
+      return /*#__PURE__*/jsxRuntime.jsx(CustomComponent, _extends({}, props));
+    } else {
+      return /*#__PURE__*/jsxRuntime.jsx(WebformDebug, {
+        element: element,
+        error: error
+      });
+    }
+  };
+
+  var WebformMultifield = function WebformMultifield(_ref) {
+    var element = _ref.element,
+      value = _ref.value,
+      _setValue = _ref.setValue,
+      error = _ref.error,
+      _ref$tableProps = _ref.tableProps,
+      tableProps = _ref$tableProps === void 0 ? {} : _ref$tableProps,
+      _ref$trProps = _ref.trProps,
+      trProps = _ref$trProps === void 0 ? {} : _ref$trProps,
+      _ref$tdProps = _ref.tdProps,
+      tdProps = _ref$tdProps === void 0 ? {} : _ref$tdProps;
+    var normalizedValue = Array.isArray(value) ? value : [];
+    var isCustomComposite = element['#type'] === 'webform_custom_composite';
+    var remove = function remove(item) {
+      if (!isIterable(value)) {
+        throw new TypeError("\"" + typeof value + "\" is not iterable");
+      }
+      var newValue = [].concat(value);
+      newValue.splice(item, 1);
+      _setValue(newValue);
+    };
+    var renderChildElement = function renderChildElement(item, childElement, childKey) {
+      if (childKey === void 0) {
+        childKey = null;
+      }
+      var parents = [].concat(element['#parents'], ['items', item, '_item_']);
+      var currentElement = element.items[item] ? _extends({}, childElement, {
+        '#access': element['#access'],
+        '#states': element['#_webform_states'],
+        '#parents': parents
+      }) : _extends({}, childElement, {
+        '#default_value': undefined,
+        '#access': element['#access'],
+        '#states': element['#_webform_states'],
+        '#parents': parents
+      });
+      return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: currentElement,
+        setValue: function setValue(newChildValue) {
+          var newValue = Array.from(normalizedValue);
+          if (childKey) {
+            newValue[item][childKey] = newChildValue;
+          } else {
+            newValue[item] = newChildValue;
+          }
+          _setValue(newValue);
+        },
+        value: childKey ? normalizedValue[item][childKey] : normalizedValue[item],
+        error: error ? error[item] : null
+      }, currentElement['#id']);
+    };
+    var renderChildren = function renderChildren(item) {
+      var compositeElements = getChildElements(element['#element']);
+      var index = element.items[item] ? item : 0;
+      if (Array.isArray(compositeElements) && compositeElements.length) {
+        return compositeElements.map(function (childKey) {
+          // If 'Display in table columns' is unchecked in Drupal then the elements are
+          // under the '_items_' key.
+          var resolvedElement = element.items[index]['_item_'] ? resolvePath("items." + index + "._item_." + childKey, element) : resolvePath("items." + index + "." + childKey, element);
+          var currentElement = _extends({}, resolvedElement, {
+            '#webform_key': childKey,
+            '#id': resolvedElement['#id'] + "[" + item + "]"
+          });
+          var elementItem = JSON.parse(JSON.stringify(currentElement));
+          updateNameAndIdWithIndex(item, elementItem);
+          return renderChildElement(item, elementItem, childKey);
+        });
+      } else {
+        var childElement = _extends({}, element.items[index]['_item_'], {
+          '#webform_key': element.items[index]['_item_']['#webform_key'] + "[" + item + "]",
+          '#id': element.items[index]['_item_']['#webform_key'] + "[" + item + "]"
+        });
+        return renderChildElement(item, childElement);
+      }
+    };
+    var maxItems = element['#cardinality'];
+    var currentCount = normalizedValue.length;
+    React.useEffect(function () {
+      if (currentCount === 0) {
+        // Multifield is responsible for setting the default value to the state
+        // when the default value is an array. If the value is something else than
+        // array, it is the responsibility of the child element to ensure that the
+        // element data is initialized with the correct default value.
+        if (element['#default_value'] && Array.isArray(element['#default_value'])) {
+          _setValue(element['#default_value']);
+        } else {
+          _setValue(['']);
+        }
+      }
+    }, []);
+    var children = [];
+    var _loop = function _loop(i) {
+      var removeButton = _extends({}, element.items[0]['_operations_']['remove'], {
+        '#type': 'button',
+        '#value': 'Remove',
+        '#attributes': {
+          "class": ['webform-button--remove']
+        }
+      });
+      children.push( /*#__PURE__*/jsxRuntime.jsxs("tr", _extends({}, trProps, {
+        children: [/*#__PURE__*/jsxRuntime.jsx("td", _extends({}, tdProps, {
+          children: renderChildren(i)
+        })), /*#__PURE__*/jsxRuntime.jsx("td", _extends({}, tdProps, {
+          children: /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+            element: removeButton,
+            fieldProps: {
+              onClick: function onClick(e) {
+                e.preventDefault();
+                remove(i);
+              },
+              id: element['#webform_key'] + "-remove-btn-" + i
+            }
+          })
+        }))]
+      }), i));
+    };
+    for (var i = 0; i < currentCount; i++) {
+      _loop(i);
+    }
+    return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+      children: [/*#__PURE__*/jsxRuntime.jsx("table", _extends({
+        style: {
+          width: '100%'
+        }
+      }, tableProps, {
+        children: /*#__PURE__*/jsxRuntime.jsx("tbody", {
+          children: children
+        })
+      })), (currentCount < maxItems || !maxItems) && /*#__PURE__*/jsxRuntime.jsx("div", {
+        children: /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+          element: _extends({}, element['add']['submit'], {
+            '#type': 'button',
+            '#attributes': {
+              "class": ['webform-button--add']
+            }
+          }),
+          fieldProps: {
+            onClick: function onClick(e) {
+              e.preventDefault();
+              normalizedValue.push(isCustomComposite ? {} : '');
+              _setValue(normalizedValue);
+            },
+            id: element['#webform_key'] + "-add-btn"
+          }
+        })
+      })]
+    });
+  };
+  var WebformMultifield$1 = withStates(withAttributes(withWrapper(WebformMultifield, {
+    labelFor: false
+  })));
+
+  var WebformComposite = function WebformComposite(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      value = _ref.value,
+      _setValue = _ref.setValue;
+    var compositeElements = getChildElements(element);
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: compositeElements.map(function (name) {
+        return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+          element: _extends({
+            // Ensure that all child elements have '#webform_key' and '#states' defined.
+            '#webform_key': element['#webform_key'],
+            '#states': element['#states']
+          }, element[name], {
+            '#id': element['#webform_multiple'] ? "" + element[name]['#id'] + getIndexOfMultiValue(element['#webform_key']) : element[name]['#id']
+          }),
+          value: value && value[name] ? value[name] : '',
+          setValue: function setValue(newValue) {
+            var _extends2;
+            _setValue(_extends({}, value, (_extends2 = {}, _extends2[name] = newValue, _extends2)));
+          },
+          error: error ? error[name] : null
+        }, name);
+      })
+    });
+  };
+  var WebformComposite$1 = withDefaultValue(withWrapper(WebformComposite, {
+    displayErrors: false,
+    defaultWrapperType: 'fieldset'
+  }));
+
+  var WebformContainer = function WebformContainer(_ref) {
+    var element = _ref.element,
+      fieldProps = _ref.fieldProps;
+    var _useContext = React.useContext(WebformContext),
+      data = _useContext.data,
+      setData = _useContext.setData,
+      errors = _useContext.errors;
+    var childElements = getChildElements(element).map(function (key) {
+      var parentAndChildStates = element['#states'] ? _extends({}, element[key]['#states'], element['#states']) : null;
+      return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: parentAndChildStates ? _extends({}, element[key], {
+          '#states': parentAndChildStates
+        }) : element[key],
+        error: errors[element[key]['#webform_key']],
+        value: data[element[key]['#webform_key']],
+        setValue: function setValue(value) {
+          setData(function (previousData) {
+            var _extends2;
+            return _extends({}, previousData, (_extends2 = {}, _extends2[element[key]['#webform_key']] = value, _extends2));
+          });
+        }
+      }, element[key]['#webform_key']);
+    });
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, fieldProps, {
+        children: childElements
+      }))
+    });
+  };
+  var WebformContainer$1 = withStates(withAttributes(withWrapper(WebformContainer, {
+    defaultWrapperType: 'container'
+  })));
+
+  var WebformFlexboxLayout = function WebformFlexboxLayout(_ref) {
+    var element = _ref.element,
+      _ref$itemProps = _ref.itemProps,
+      itemProps = _ref$itemProps === void 0 ? {} : _ref$itemProps;
+    var _useContext = React.useContext(WebformContext),
+      data = _useContext.data,
+      setData = _useContext.setData,
+      errors = _useContext.errors;
+    var itemPropsWithDefaults = _extends({
+      style: {
+        flexGrow: 1
+      }
+    }, itemProps);
+    var childElements = getChildElements(element).map(function (key) {
+      var parentAndChildStates = element['#states'] ? _extends({}, element[key]['#states'], element['#states']) : null;
+      return /*#__PURE__*/React.createElement("div", _extends({}, itemPropsWithDefaults, {
+        key: element[key]['#webform_key']
+      }), /*#__PURE__*/jsxRuntime.jsx("div", {
+        children: /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+          element: parentAndChildStates ? _extends({}, element[key], {
+            '#states': parentAndChildStates
+          }) : element[key],
+          error: errors[element[key]['#webform_key']],
+          value: data[element[key]['#webform_key']],
+          setValue: function setValue(value) {
+            setData(function (previousData) {
+              var _extends2;
+              return _extends({}, previousData, (_extends2 = {}, _extends2[element[key]['#webform_key']] = value, _extends2));
+            });
+          }
+        })
+      }, element[key]['#webform_key']));
+    });
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: childElements
+    });
+  };
+  var WebformFlexboxLayout$1 = withStates(withWrapper(WebformFlexboxLayout, function (element) {
+    var _element$Attributes, _element$Align_items;
+    return {
+      wrapperProps: _extends({}, normalizeAttributes((_element$Attributes = element['#attributes']) != null ? _element$Attributes : {}), {
+        style: {
+          display: 'flex',
+          boxSizing: 'border-box',
+          gap: '1rem',
+          justifyContent: (_element$Align_items = element['#align_items']) != null ? _element$Align_items : 'flex-start'
+        }
+      })
+    };
+  }));
+
+  var WebformFieldset = function WebformFieldset(_ref) {
+    var element = _ref.element;
+    var _useContext = React.useContext(WebformContext),
+      data = _useContext.data,
+      setData = _useContext.setData,
+      errors = _useContext.errors;
+    var childElements = getChildElements(element).map(function (key) {
+      var parentAndChildStates = element['#states'] ? _extends({}, element[key]['#states'], element['#states']) : null;
+      return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: parentAndChildStates ? _extends({}, element[key], {
+          '#states': parentAndChildStates
+        }) : element[key],
+        error: errors[element[key]['#webform_key']],
+        value: data[element[key]['#webform_key']],
+        setValue: function setValue(value) {
+          setData(function (previousData) {
+            var _extends2;
+            return _extends({}, previousData, (_extends2 = {}, _extends2[element[key]['#webform_key']] = value, _extends2));
+          });
+        }
+      }, element[key]['#webform_key']);
+    });
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: childElements
+    });
+  };
+  var WebformFieldset$1 = withStates(withWrapper(WebformFieldset, {
+    defaultWrapperType: 'fieldset'
+  }));
+
+  var WebformSection = function WebformSection(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      labelProps = _ref.labelProps,
+      fieldProps = _ref.fieldProps,
+      _ref$wrapperProps = _ref.wrapperProps,
+      wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps;
+    var _useContext = React.useContext(WebformContext),
+      data = _useContext.data,
+      setData = _useContext.setData,
+      errors = _useContext.errors;
+    var childElements = getChildElements(element).map(function (key) {
+      // Pass down the parent states down to the child elements. The parent state
+      // will override the child state if there are any duplicate effects.
+      var parentAndChildStates = element['#states'] ? _extends({}, element[key]['#states'], element['#states']) : null;
+      return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: parentAndChildStates ? _extends({}, element[key], {
+          '#states': parentAndChildStates
+        }) : element[key],
+        error: errors[element[key]['#webform_key']],
+        value: data[element[key]['#webform_key']],
+        setValue: function setValue(value) {
+          setData(function (previousData) {
+            var _extends2;
+            return _extends({}, previousData, (_extends2 = {}, _extends2[element[key]['#webform_key']] = value, _extends2));
+          });
+        }
+      }, element[key]['#webform_key']);
+    });
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, _extends({
+      label: element['#title'],
+      isRequired: element['#required'],
+      labelDisplay: element['#title_display'],
+      access: element['#access'],
+      settings: null,
+      error: error,
+      labelProps: labelProps
+    }, wrapperProps, {
+      children: /*#__PURE__*/jsxRuntime.jsx("section", _extends({}, fieldProps, {
+        style: fieldProps['style'],
+        children: childElements
+      }))
+    }));
+  };
+  var WebformSection$1 = withStates(withAttributes(WebformSection));
+
+  var _excluded$1 = ["data"];
+  var WebformTable = function WebformTable(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      _ref$wrapperProps = _ref.wrapperProps,
+      wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps,
+      _ref$fieldProps = _ref.fieldProps,
+      fieldProps = _ref$fieldProps === void 0 ? {} : _ref$fieldProps,
+      _ref$theadProps = _ref.theadProps,
+      theadProps = _ref$theadProps === void 0 ? {} : _ref$theadProps,
+      _ref$tbodyProps = _ref.tbodyProps,
+      tbodyProps = _ref$tbodyProps === void 0 ? {} : _ref$tbodyProps,
+      _ref$trProps = _ref.trProps,
+      trProps = _ref$trProps === void 0 ? {} : _ref$trProps,
+      _ref$tdProps = _ref.tdProps,
+      tdProps = _ref$tdProps === void 0 ? {} : _ref$tdProps,
+      labelProps = _ref.labelProps;
+    var childElements = getChildElements(element).map(function (row) {
+      if (element[row]['#type'] !== 'webform_table_row') {
+        return /*#__PURE__*/jsxRuntime.jsx("tr", {
+          children: /*#__PURE__*/jsxRuntime.jsx("td", {
+            children: /*#__PURE__*/jsxRuntime.jsxs("div", {
+              children: ["The form element ", /*#__PURE__*/jsxRuntime.jsx("em", {
+                children: row
+              }), " is not inside a table row. To render the form element, it must be placed inside a table row."]
+            })
+          })
+        }, row);
+      }
+      return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: _extends({}, element[row], {
+          '#states': element['#states']
+        }),
+        fieldProps: trProps,
+        tdProps: tdProps
+      }, row);
+    });
+    var headers = element['#header'];
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, _extends({
+      label: element['#title'],
+      isRequired: element['#required'],
+      labelDisplay: element['#title_display'],
+      access: element['#access'],
+      settings: null,
+      error: error,
+      labelProps: labelProps
+    }, wrapperProps, {
+      children: /*#__PURE__*/jsxRuntime.jsxs("table", _extends({}, fieldProps, {
+        children: [/*#__PURE__*/jsxRuntime.jsx("thead", _extends({}, theadProps, {
+          children: /*#__PURE__*/jsxRuntime.jsx("tr", _extends({}, trProps, {
+            children: headers && headers.length ? headers.map(function (header, index) {
+              var data = header.data,
+                attributes = _objectWithoutPropertiesLoose(header, _excluded$1);
+              return /*#__PURE__*/React.createElement("th", _extends({}, normalizeAttributes(attributes), {
+                key: index
+              }), data['#markup']);
+            }) : null
+          }))
+        })), /*#__PURE__*/jsxRuntime.jsx("tbody", _extends({}, tbodyProps, {
+          children: childElements
+        }))]
+      }))
+    }));
+  };
+  var WebformTable$1 = withStates(withAttributes(WebformTable));
+
+  var WebformRange = function WebformRange(_ref) {
+    var element = _ref.element,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? 0 : _ref$value,
+      setValue = _ref.setValue,
+      fieldProps = _ref.fieldProps;
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        setValue(e.target.value);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    var styles = {
+      below: {
+        transform: "translateX(" + value + "px)",
+        display: 'block',
+        position: 'absolute',
+        padding: '2px 5px',
+        textAlign: 'center',
+        border: '1px solid #bbb',
+        background: '#ededed'
+      },
+      above: {
+        transform: "translateX(" + value + "px)",
+        display: 'block',
+        position: 'absolute',
+        padding: '2px 5px',
+        textAlign: 'center',
+        border: '1px solid #bbb',
+        background: '#ededed',
+        bottom: '22px'
+      },
+      left: {
+        marginRight: '5px'
+      },
+      right: {
+        marginLeft: '5px'
+      }
+    };
+    // Styling is different based on user defined output position.
+    var outputElement = /*#__PURE__*/jsxRuntime.jsx("output", {
+      htmlFor: element['#id'],
+      style: styles[element['#output']],
+      name: "result",
+      children: value
+    });
+    return /*#__PURE__*/jsxRuntime.jsxs("div", {
+      className: "form-type-range",
+      style: {
+        display: 'block',
+        position: 'relative'
+      },
+      children: [element['#output'] && element['#output'] === 'left' ? outputElement : null, /*#__PURE__*/jsxRuntime.jsx("input", _extends({
+        type: element['#type'],
+        name: element['#webform_key'],
+        min: element['#min'] ? element['#min'] : null,
+        max: element['#max'] ? element['#max'] : null,
+        onChange: function onChange(e) {
+          return onChangeHandler(e);
+        },
+        disabled: element['#disabled'],
+        hidden: !element['#access'],
+        required: element['#required'],
+        readOnly: element['#readonly']
+      }, fieldProps, {
+        id: element['#id'],
+        value: value
+      })), element['#output'] && element['#output'] !== 'left' ? outputElement : null]
+    });
+  };
+  var WebformRange$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformRange))));
+
+  var WebformCheckbox = function WebformCheckbox(_ref) {
+    var element = _ref.element,
+      setValue = _ref.setValue,
+      fieldProps = _ref.fieldProps,
+      value = _ref.value;
+    if (element['#type'] !== 'checkbox' && element['#type'] !== 'radio') {
+      console.warn(element['#type'] + " which was used on " + element['#webform_key'] + " is not supported by WebformCheckbox.");
+    }
+    var _useState = React.useState(value != null ? value : element['#checked'] ? element['#checked'] : false),
+      checkedState = _useState[0],
+      setCheckedState = _useState[1];
+    // Update component state when value changes in upstream state.
+    React.useEffect(function () {
+      if (typeof value === 'boolean') {
+        setCheckedState(value);
+      }
+    }, [value]);
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        setValue(e.target.checked);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsx("div", {
+        children: /*#__PURE__*/jsxRuntime.jsx("input", _extends({
+          type: element['#type'],
+          name: element['#name'],
+          onChange: function onChange(e) {
+            return onChangeHandler(e);
+          },
+          disabled: element['#disabled'],
+          hidden: !(element['#access'] ? element['#access'] : true),
+          required: element['#required'],
+          readOnly: element['#readonly'],
+          checked: checkedState,
+          id: element['#id']
+        }, fieldProps, {
+          value: element['#return_value']
+        }))
+      })
+    });
+  };
+  var WebformCheckbox$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformCheckbox, {
+    wrapperProps: {
+      style: {
+        display: 'flex'
+      }
+    }
+  }))));
+
+  var WebformRating = function WebformRating(_ref) {
+    var element = _ref.element,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? 0 : _ref$value,
+      setValue = _ref.setValue,
+      fieldProps = _ref.fieldProps;
+    var _useState = React.useState(0),
+      hover = _useState[0],
+      setHover = _useState[1];
+    var max = element['#max'] ? element['#max'] : 5;
+    var css = "\nbutton {\n  backgroundColor: 'transparent',\n  border: 'none',\n  outline: 'none',\n  cursor: 'pointer',\n}\n.on {\n  color: rgb(14 165 233);\n  }\n.off {\ncolor: #ccc;\n}\n.star-rating {\nfont-size: 2rem;\n}\n}";
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsxs("div", {
+        className: "star-rating",
+        children: [/*#__PURE__*/jsxRuntime.jsx("input", _extends({
+          defaultValue: value,
+          name: element['#webform_key'],
+          hidden: true,
+          type: "range"
+        }, fieldProps, {
+          id: element['#webform_key']
+        })), /*#__PURE__*/jsxRuntime.jsx("style", {
+          suppressHydrationWarning: true,
+          children: css
+        }), Array(max).fill(0).map(function (star, index) {
+          index += 1;
+          return /*#__PURE__*/jsxRuntime.jsx("button", {
+            type: "button",
+            className: index <= (hover || value) ? 'on' : 'off',
+            onClick: function onClick() {
+              return setValue(index);
+            },
+            onMouseEnter: function onMouseEnter() {
+              return setHover(index);
+            },
+            onMouseLeave: function onMouseLeave() {
+              return setHover(value);
+            },
+            disabled: element['#disabled'],
+            hidden: !element['#access'],
+            children: /*#__PURE__*/jsxRuntime.jsx("span", {
+              className: "star",
+              children: "\u2605"
+            })
+          }, index);
+        })]
+      })
+    });
+  };
+  var WebformRating$1 = withStates(withDefaultValue(withWrapper(WebformRating)));
+
+  var WebformEmailConfirm = function WebformEmailConfirm(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      setValue = _ref.setValue,
+      labelProps = _ref.labelProps,
+      value = _ref.value,
+      fieldProps = _ref.fieldProps,
+      _ref$wrapperProps = _ref.wrapperProps,
+      wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps;
+    var _useContext = React.useContext(WebformContext),
+      registerField = _useContext.registerField;
+    var _useState = React.useState(''),
+      email1 = _useState[0],
+      setEmail1 = _useState[1];
+    var _useState2 = React.useState(''),
+      email2 = _useState2[0],
+      setEmail2 = _useState2[1];
+    React__namespace.useEffect(function () {
+      if (element['#parents']) {
+        registerField(toKey(element['#parents']), {
+          validate: function validate() {
+            if (email1 === email2) {
+              return;
+            }
+            return 'The specified email addresses do not match.';
+          }
+        });
+      }
+    });
+    React.useEffect(function () {
+      // Do not reset value from state when value is empty because the value
+      // changes into an empty value while typing into the field.
+      if (value === '') {
+        return;
+      }
+      setEmail1(value);
+      setEmail2(value);
+    }, [value]);
+    React.useEffect(function () {
+      if (!email1 || !email2) {
+        setValue('');
+        return;
+      }
+      if (email1 !== email2) {
+        setValue('');
+      } else {
+        setValue(email1);
+      }
+    }, [email1, email2]);
+    var children = getChildElements(element);
+    var childElements = children.map(function (name) {
+      return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: _extends({}, element[name], {
+          '#states': element['#states']
+        }),
+        error: error ? error[name] : null,
+        value: name === 'mail_1' ? email1 : email2,
+        setValue: function setValue(value) {
+          if (name === 'mail_1') {
+            setEmail1(value);
+          } else if (name === 'mail_2') {
+            setEmail2(value);
+          }
+        },
+        labelProps: labelProps,
+        fieldProps: fieldProps
+      }, name);
+    });
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, _extends({
+      isRequired: false,
+      labelDisplay: "none",
+      error: error,
+      access: element['#access']
+    }, wrapperProps, {
+      children: childElements
+    }));
+  };
+  var WebformEmailConfirm$1 = withStates(withDefaultValue(withAttributes(WebformEmailConfirm)));
+
+  var WebformValue = function WebformValue(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      _ref$fieldProps = _ref.fieldProps,
+      fieldProps = _ref$fieldProps === void 0 ? {} : _ref$fieldProps,
+      _ref$labelProps = _ref.labelProps,
+      labelProps = _ref$labelProps === void 0 ? {} : _ref$labelProps,
+      _ref$wrapperProps = _ref.wrapperProps,
+      wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps;
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, _extends({
+      label: element['#title'],
+      isRequired: element['#required'],
+      labelDisplay: element['#title_display'],
+      access: element['#access'],
+      settings: null,
+      error: error,
+      labelProps: labelProps
+    }, wrapperProps, {
+      labelFor: element['#webform_key'],
+      children: /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, fieldProps, {
+        id: element['#webform_key'],
+        children: element['#value']
+      }))
+    }));
+  };
+  var WebformValue$1 = withStates(WebformValue);
+
+  var Modal = function Modal(props) {
+    var css = "\n.modal {\n    width: 500px;\n    background: white;\n    border: 1px solid #ccc;\n    transition: 1.1s ease-out;\n    box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);\n    filter: blur(0);\n    transform: translate(-50%, -5%);\n    visibility: visible;\n    position: absolute;\n    opacity: 1;\n    left: 50%;\n    z-index: 100;\n}\n.modal.off {\n    opacity: 0;\n    visibility: hidden;\n    filter: blur(8px);\n    transform: scale(0.33);\n    box-shadow: 1rem 0 0 rgba(0, 0, 0, 0.2);\n}\n@supports (offset-rotation: 0deg) {\n    offset-rotation: 0deg;\n    offset-path: path(\"M 250,100 S -300,500 -700,-200\");\n    .modal.off {\n        offset-distance: 100%;\n    }\n}\n@media (prefers-reduced-motion) {\n    .modal {\n        offset-path: none;\n    }\n}\n.modal h2 {\n    border-bottom: 1px solid #ccc;\n    padding: 1rem;\n    margin: 0;\n}\n.modal .content {\n    padding: 1rem;\n}\n.modal .actions {\n    border-top: 1px solid #ccc;\n    background: #eee;\n    padding: 0.5rem 1rem;\n}\n#centered-toggle-button {\n    position: absolute;\n}\n\n";
+    var onClose = function onClose(e) {
+      props.onClose && props.onClose(e);
+    };
+    return props.show ? /*#__PURE__*/jsxRuntime.jsxs("div", {
+      className: "modal",
+      id: "modal",
+      onClick: onClose,
+      children: [/*#__PURE__*/jsxRuntime.jsx("style", {
+        suppressHydrationWarning: true,
+        children: css
+      }), /*#__PURE__*/jsxRuntime.jsx("div", {
+        className: "content",
+        children: props.children
+      }), /*#__PURE__*/jsxRuntime.jsx("div", {
+        className: "actions",
+        children: /*#__PURE__*/jsxRuntime.jsx("button", {
+          className: "toggle-button",
+          onClick: onClose,
+          children: "Close"
+        })
+      })]
+    }) : null;
+  };
+
+  var WebformTermsOfService = function WebformTermsOfService(_ref) {
+    var element = _ref.element,
+      setValue = _ref.setValue,
+      fieldProps = _ref.fieldProps,
+      labelProps = _ref.labelProps;
+    var _useState = React.useState(false),
+      show = _useState[0],
+      setShow = _useState[1];
+    var _useState2 = React.useState(element['#checked'] ? element['#checked'] : false),
+      checkedState = _useState2[0],
+      setCheckedState = _useState2[1];
+    var _useState3 = React.useState(element['#access'] ? element['#access'] : true),
+      accessState = _useState3[0];
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        setCheckedState(!checkedState);
+        if (e.target.value) {
+          setValue('1');
+        } else {
+          setValue('0');
+        }
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    // Generate label for the checkbox.
+    var getLabel = function getLabel() {
+      var regex = new RegExp(/(.*){(.*)}(.*)/);
+      // Link cannot be added if the label doesn't match expected pattern.
+      if (!regex.test(element['#title'])) {
+        return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+          children: element['#title']
+        });
+      }
+      var parts = regex.exec(element['#title']);
+      return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+        children: [parts[1], /*#__PURE__*/jsxRuntime.jsx("a", {
+          href: "#terms",
+          role: "button",
+          target: "_blank",
+          className: "terms-link",
+          onClick: function onClick(e) {
+            e.preventDefault();
+            setShow(!show);
+          },
+          children: parts[2]
+        }), parts[3]]
+      });
+    };
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsxs("div", {
+        children: [/*#__PURE__*/jsxRuntime.jsx("input", _extends({
+          type: "checkbox",
+          id: element['#id'],
+          name: element['#webform_key'],
+          onChange: function onChange(e) {
+            return onChangeHandler(e);
+          },
+          disabled: element['#disabled'],
+          hidden: !accessState,
+          required: element['#required'],
+          readOnly: element['#readonly'],
+          checked: checkedState
+        }, fieldProps)), /*#__PURE__*/jsxRuntime.jsx(Modal, {
+          onClose: function onClose() {
+            return setShow(false);
+          },
+          show: show,
+          children: /*#__PURE__*/jsxRuntime.jsx("div", {
+            dangerouslySetInnerHTML: {
+              __html: element['#terms_content']['#markup']
+            }
+          })
+        }), /*#__PURE__*/jsxRuntime.jsx("label", _extends({
+          htmlFor: element['#id']
+        }, labelProps, {
+          children: getLabel()
+        }))]
+      })
+    });
+  };
+  var WebformTermsOfService$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformTermsOfService, {
+    labelProps: {
+      style: {
+        display: 'none'
+      }
+    }
+  }))));
+
+  var WebformDateTime = function WebformDateTime(_ref) {
+    var element = _ref.element,
+      _setValue = _ref.setValue,
+      value = _ref.value,
+      error = _ref.error,
+      fieldProps = _ref.fieldProps,
+      labelProps = _ref.labelProps,
+      _ref$wrapperProps = _ref.wrapperProps,
+      wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps;
+    var _useContext = React.useContext(WebformContext),
+      registerField = _useContext.registerField;
+    var _split = (value != null ? value : '').split('T'),
+      _split$ = _split[0],
+      date = _split$ === void 0 ? '' : _split$,
+      _split$2 = _split[1],
+      time = _split$2 === void 0 ? '' : _split$2;
+    var dateTime = {
+      date: date,
+      time: time
+    };
+    React__namespace.useEffect(function () {
+      if (element['#parents']) {
+        registerField(toKey(element['#parents']), {
+          validate: function validate(value) {
+            if (!value) {
+              return;
+            }
+            // Ex: 2010-05-10T09:15
+            var re = new RegExp('^((19|20)\\d{2})-((0|1)\\d{1})-((0|1|2)\\d{1})T(2[0-3]|[01][0-9]):[0-5][0-9]');
+            // Ex: 2010-05-10T09:15:10
+            var reWithSeconds = new RegExp('^((19|20)\\d{2})-((0|1)\\d{1})-((0|1|2)\\d{1})T(2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]');
+            if (!(re.test(value) || reWithSeconds.test(value))) {
+              return 'The value is invalid. Please fill out every field.';
+            }
+          }
+        });
+      }
+    }, []);
+    var children = getChildElements(element);
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, _extends({
+      label: element['#title'],
+      labelDisplay: element['#title_display'],
+      access: element['#access'],
+      isRequired: false,
+      error: error
+    }, wrapperProps, {
+      children: /*#__PURE__*/jsxRuntime.jsx("div", {
+        id: element['#id'],
+        children: children.map(function (name) {
+          return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+            element: _extends({}, element[name], {
+              '#webform_key': element['#webform_key'],
+              '#access': element[name]['#access'] ? element[name]['#access'] : element['#access'],
+              '#disabled': element['#disabled'],
+              '#required': element['#required'],
+              '#date_date_min': element['#date_date_min'],
+              '#date_date_max': element['#date_date_max'],
+              '#date_time_min': element['#date_time_min'],
+              '#date_time_max': element['#date_time_max'],
+              '#states': element['#states']
+            }),
+            error: error ? error[name] : null,
+            setValue: function setValue(newValue) {
+              _setValue((name === 'date' ? newValue : date) + "T" + (name === 'time' ? newValue : time));
+            },
+            labelProps: labelProps,
+            fieldProps: fieldProps,
+            value: dateTime[name] ? dateTime[name] : ''
+          }, name);
+        })
+      })
+    }));
+  };
+  var WebformDateTime$1 = withStates(withDefaultValue(withAttributes(WebformDateTime)));
+
+  var WebformTime = function WebformTime(_ref) {
+    var _element$Date_time_m, _element$Date_time_m2;
+    var element = _ref.element,
+      setValue = _ref.setValue,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? '' : _ref$value,
+      fieldProps = _ref.fieldProps;
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        setValue(e.target.value);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsx("input", _extends({
+        type: "time",
+        name: element['#name'],
+        onChange: function onChange(e) {
+          return onChangeHandler(e);
+        },
+        disabled: element['#disabled'],
+        hidden: !element['#access'],
+        required: element['#required'],
+        readOnly: element['#readonly'],
+        value: value
+      }, fieldProps, {
+        id: element['#id'],
+        min: (_element$Date_time_m = element['#date_time_min']) != null ? _element$Date_time_m : null,
+        max: (_element$Date_time_m2 = element['#date_time_max']) != null ? _element$Date_time_m2 : null
+      }))
+    });
+  };
+  var WebformTime$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformTime))));
+
+  var WebformDateList = function WebformDateList(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      setValue = _ref.setValue,
+      fieldProps = _ref.fieldProps,
+      labelProps = _ref.labelProps,
+      _ref$wrapperProps = _ref.wrapperProps,
+      wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps;
+    var _useState = React.useState({}),
+      dateList = _useState[0],
+      setDateList = _useState[1];
+    var children = getChildElements(element);
+    var _useContext = React.useContext(WebformContext),
+      registerField = _useContext.registerField;
+    React__namespace.useEffect(function () {
+      if (element['#parents']) {
+        registerField(toKey(element['#parents']), {
+          validate: function validate(value) {
+            if (!value) {
+              return;
+            }
+            // Ex: 2010-05-10T09:15
+            var re = new RegExp('^((19|20)\\d{2})-((0|1)\\d{1})-((0|1|2)\\d{1})T(2[0-3]|[01][0-9]):[0-5][0-9]');
+            // Ex: 2010-05-10T09:15:10
+            var reWithSeconds = new RegExp('^((19|20)\\d{2})-((0|1)\\d{1})-((0|1|2)\\d{1})T(2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]');
+            if (!(re.test(value) || reWithSeconds.test(value))) {
+              return 'The value is invalid. Please fill out every field.';
+            }
+            return checkDateMinMax(value, element);
+          }
+        });
+      }
+    }, []);
+    React.useEffect(function () {
+      // When every value of the date list element is filled out then we can set the value.
+      if (Object.keys(dateList)[0] && Object.values(dateList).every(function (i) {
+        return i !== null;
+      })) {
+        var twentyFourHour;
+        var isPM = dateList['ampm'] && dateList['ampm'] === 'pm';
+        // Use military time for the hour if am/pm is used.
+        if (dateList['hour']) {
+          if (isPM) {
+            twentyFourHour = dateList['hour'] + 12;
+          } else {
+            twentyFourHour = dateList['hour'];
+          }
+        } else if (isPM) {
+          // If the hour is not part of the form but the am/pm is then it should be 12.
+          twentyFourHour = 12;
+        } else {
+          twentyFourHour = '00';
+        }
+        var monthAsNum;
+        if (dateList['month']) {
+          var monthOptions = element['month']['#options'];
+          // Get the number value of the month. ex) May -> 5
+          monthAsNum = Object.keys(monthOptions).find(function (key) {
+            return monthOptions[key] === dateList['month'];
+          });
+        } else {
+          // Add fallback values if the unit is not part of the date list like in Webform.
+          monthAsNum = '1';
+        }
+        // Add fallback values if the unit is not part of the date list like in Webform.
+        var day = dateList['day'] ? dateList['day'] : '1';
+        var year = dateList['year'] ? dateList['year'] : new Date().getFullYear();
+        var hour = twentyFourHour;
+        var minute = dateList['minute'] ? dateList['minute'] : '00';
+        var second = dateList['second'] ? dateList['second'] : null;
+        if (!second) {
+          setValue(year + "-" + padZero(monthAsNum) + "-" + padZero(day) + "T" + padZero(hour) + ":" + minute);
+        } else {
+          setValue(year + "-" + padZero(monthAsNum) + "-" + padZero(day) + "T" + padZero(hour) + ":" + minute + ":" + second);
+        }
+      } else {
+        if (Object.values(dateList).some(function (i) {
+          return i !== null;
+        })) {
+          setValue(dateList);
+        }
+      }
+    }, [dateList]);
+    React.useEffect(function () {
+      children.map(function (name) {
+        // Initialize dateList object keys with units.
+        setDateList(function (prevState) {
+          var _extends2;
+          return _extends({}, prevState, (_extends2 = {}, _extends2[name] = null, _extends2));
+        });
+      });
+    }, []);
+    var padZero = function padZero(num) {
+      if (num <= 9) {
+        num = '0' + num;
+        return num;
+      } else {
+        return num;
+      }
+    };
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, _extends({
+      label: element['#title'],
+      labelDisplay: element['#title_display'],
+      access: element['#access'],
+      isRequired: false,
+      error: error
+    }, wrapperProps, {
+      children: /*#__PURE__*/jsxRuntime.jsx("div", {
+        id: element['#id'],
+        children: children.map(function (name, index) {
+          return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+            element: _extends({}, element[name], {
+              '#webform_key': element['#webform_key'],
+              '#disabled': element['#disabled'],
+              '#access': element['#access'],
+              '#required': element['#required'],
+              '#states': element['#states']
+            }),
+            error: error ? error[name] : null,
+            setValue: function setValue(newValue) {
+              var _extends3;
+              setDateList(_extends({}, dateList, (_extends3 = {}, _extends3[name] = newValue, _extends3)));
+            },
+            labelProps: labelProps,
+            fieldProps: fieldProps,
+            value: dateList[name] ? dateList[name] : ''
+          }, index);
+        })
+      })
+    }));
+  };
+  var WebformDateList$1 = withStates(withDefaultValue(withAttributes(WebformDateList)));
+
+  var WebformDate = function WebformDate(_ref) {
+    var element = _ref.element,
+      setValue = _ref.setValue,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? '' : _ref$value,
+      fieldProps = _ref.fieldProps;
+    var _useContext = React.useContext(WebformContext),
+      registerField = _useContext.registerField;
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        setValue(e.target.value);
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    React__namespace.useEffect(function () {
+      if (element['#parents']) {
+        registerField(toKey(element['#parents']), {
+          validate: function validate(value) {
+            if (!value) {
+              return;
+            }
+            return checkDateMinMax(value, element);
+          }
+        });
+      }
+    }, []);
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsx("input", _extends({
+        onChange: function onChange(e) {
+          return onChangeHandler(e);
+        },
+        type: element['#type'],
+        name: element['#name'],
+        disabled: element['#disabled'],
+        hidden: !element['#access'],
+        required: element['#required'],
+        readOnly: element['#readonly'],
+        value: value
+      }, fieldProps, {
+        id: element['#id'],
+        min: element['#date_date_min'] ? convertDateToISO(element['#date_date_min']) : null,
+        max: element['#date_date_max'] ? convertDateToISO(element['#date_date_max']) : null
+      }))
+    });
+  };
+  var WebformDate$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformDate))));
+
+  var WebformItem = function WebformItem(_ref) {
+    var element = _ref.element;
+    return element['#access'] === false ? null : /*#__PURE__*/jsxRuntime.jsx("div", {
+      children: /*#__PURE__*/jsxRuntime.jsx("label", {
+        children: element['#title']
+      })
+    });
+  };
+  var WebformItem$1 = withStates(withDefaultValue(WebformItem));
+
+  var WebformActions = function WebformActions(_ref) {
+    var element = _ref.element,
+      wrapperProps = _ref.wrapperProps;
+    var buttons = [];
+    var _useContext = React.useContext(WebformContext),
+      registry = _useContext.registry,
+      setData = _useContext.setData;
+    var supportedButtons = {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      submit: function submit() {},
+      reset: function reset(e) {
+        e.preventDefault();
+        setData(function () {
+          return {};
+        });
+      }
+    };
+    var WebformButton = registry.getComponent('button');
+    Object.keys(supportedButtons).forEach(function (key) {
+      if (element[key]) {
+        buttons.push( /*#__PURE__*/jsxRuntime.jsx(WebformButton, {
+          element: element[key],
+          fieldProps: {
+            type: 'submit',
+            onClick: supportedButtons[key]
+          }
+        }, key));
+      }
+    });
+    return /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, wrapperProps, {
+      children: buttons
+    }));
+  };
+
+  var supportedTypes = {
+    radios: 'radio',
+    checkboxes: 'checkbox',
+    webform_radios_other: 'radio',
+    webform_checkboxes_other: 'checkbox',
+    webform_entity_checkboxes: 'checkbox',
+    webform_entity_radios: 'radio'
+  };
+  // Component for checkboxes or radio buttons that are an options list.
+  var WebformCheckboxRadioGroup = function WebformCheckboxRadioGroup(_ref) {
+    var element = _ref.element,
+      _ref$value = _ref.value,
+      value = _ref$value === void 0 ? [] : _ref$value,
+      _setValue = _ref.setValue,
+      error = _ref.error,
+      fieldProps = _ref.fieldProps;
+    if (!(element['#type'] in supportedTypes)) {
+      throw new Error(element['#type'] + " which was used on " + element['#webform_key'] + " is not supported by WebformCheckboxRadioGroup.");
+    }
+    var _useState = React.useState(null),
+      valueOther = _useState[0],
+      setValueOther = _useState[1];
+    var _useState2 = React.useState(false),
+      showInputForOther = _useState2[0],
+      setShowInputForOther = _useState2[1];
+    var type = supportedTypes[element['#type']];
+    var withOther = element['#type'] === 'webform_checkboxes_other' || element['#type'] === 'webform_radios_other';
+    var elementForOther = withOther ? element['other'] : null;
+    function getOptions() {
+      var options = {};
+      var finalOptions = {};
+      if (withOther) {
+        for (var _i = 0, _Object$keys = Object.keys(element); _i < _Object$keys.length; _i++) {
+          var key = _Object$keys[_i];
+          if (key === 'radios' || key === 'checkboxes') {
+            options = element[key];
+          }
+        }
+      } else {
+        options = element;
+      }
+      for (var _i2 = 0, _Object$keys2 = Object.keys(options['#options']); _i2 < _Object$keys2.length; _i2++) {
+        var option = _Object$keys2[_i2];
+        if (option !== '_other_') {
+          finalOptions[option] = options['#options'][option];
+        }
+      }
+      return finalOptions;
+    }
+    var options = getOptions();
+    React.useEffect(function () {
+      if (element['#default_value'] && !element['#default_value']['headers']) {
+        _setValue(element['#default_value']);
+        var defaultValues = typeof element['#default_value'] === 'string' ? [element['#default_value']] : element['#default_value'];
+        var normalizedDefaultValues = defaultValues.filter(function (option) {
+          return Object.hasOwn(options, option);
+        });
+        if (type === 'checkbox') {
+          _setValue(normalizedDefaultValues);
+        }
+        if (withOther && Object.keys(defaultValues).length !== Object.keys(normalizedDefaultValues).length) {
+          for (var _iterator = _createForOfIteratorHelperLoose(defaultValues), _step; !(_step = _iterator()).done;) {
+            var defaultValue = _step.value;
+            if (!Object.hasOwn(options, defaultValue)) {
+              setValueOther(defaultValue);
+            }
+          }
+        }
+      }
+    }, []);
+    React.useEffect(function () {
+      if (valueOther && type === 'checkbox') {
+        _setValue([].concat(Array.isArray(value) ? value : [], [valueOther]));
+      } else if (valueOther && type === 'radio') {
+        _setValue(valueOther);
+      }
+    }, [valueOther]);
+    var childElements = getChildElements(element).map(function (name) {
+      // Option lists without an 'Other' option.
+      if (name !== 'other' && name !== 'radios' && name !== 'checkboxes') {
+        return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+          element: _extends({}, element[name], {
+            '#webform_key': element['#webform_key'],
+            '#states': element['#states'],
+            '#access': element['#access']
+          }),
+          fieldProps: fieldProps,
+          setValue: function setValue(newValue) {
+            if (element['#type'] === 'checkboxes' || element['#type'] === 'webform_entity_checkboxes') {
+              if (newValue === true) {
+                _setValue([].concat(Array.isArray(value) ? value : [], [element[name]['#return_value']]));
+              } else {
+                if (Array.isArray(value) && value.length) {
+                  var filtered = value.filter(function (i) {
+                    return i !== element[name]['#return_value'];
+                  });
+                  _setValue(filtered);
+                }
+              }
+            } else {
+              _setValue(element[name]['#return_value']);
+            }
+          },
+          value: Array.isArray(value) && value.includes(element[name]['#return_value']) || value === element[name]['#return_value'],
+          error: error
+        }, name);
+        // The element has an 'Other' option if the child element key is 'checkboxes' or 'radios' so we need to
+        // go one level deeper to get the list of options.
+      } else if (name == 'checkboxes' || name == 'radios') {
+        return getChildElements(element[name]).map(function (option) {
+          return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+            fieldProps: fieldProps,
+            element: _extends({}, element[name][option], {
+              '#webform_key': element['#webform_key'],
+              '#states': element['#states'],
+              '#access': element['#access']
+            }),
+            setValue: function setValue(newValue) {
+              if (element[name][option]['#type'] === 'checkbox') {
+                if (element[name][option]['#return_value'] === '_other_') {
+                  if (newValue) {
+                    setValueOther(valueOther != null ? valueOther : '');
+                    setShowInputForOther(true);
+                  } else {
+                    setShowInputForOther(false);
+                    setValueOther(null);
+                  }
+                } else {
+                  if (newValue === true) {
+                    _setValue([].concat(Array.isArray(value) ? value : [], [element[name][option]['#return_value']]));
+                  } else {
+                    if (Array.isArray(value) && value.length) {
+                      var filtered = value.filter(function (i) {
+                        return i !== element[name][option]['#return_value'];
+                      });
+                      _setValue(filtered);
+                    }
+                  }
+                }
+              } else {
+                if (element[name][option]['#return_value'] === '_other_') {
+                  setValueOther(valueOther != null ? valueOther : '');
+                  _setValue(valueOther != null ? valueOther : '');
+                  setShowInputForOther(true);
+                } else {
+                  setShowInputForOther(false);
+                  setValueOther(null);
+                  _setValue(element[name][option]['#return_value']);
+                }
+              }
+            },
+            value: Array.isArray(value) && value.includes(element[name][option]['#return_value']) || value === element[name][option]['#return_value'] || element[name][option]['#return_value'] === '_other_' && showInputForOther,
+            error: error
+          }, option);
+        });
+      }
+    });
+    return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+      children: [childElements, withOther && showInputForOther ? /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: _extends({}, element, {
+          '#type': elementForOther['#type'],
+          '#webform_key': element['#webform_key'],
+          '#title': elementForOther['#title'],
+          '#description': elementForOther['#description'],
+          '#id': element['#id'] + "-other-input"
+        }),
+        value: valueOther,
+        setValue: function setValue(newValue) {
+          setValueOther(newValue);
+        }
+      }) : null]
+    });
+  };
+  var WebformCheckboxRadioGroup$1 = withStates(withAttributes(withWrapper(WebformCheckboxRadioGroup, {
+    defaultWrapperType: 'fieldset',
+    labelFor: false
+  })));
+
+  var WebformMarkup = function WebformMarkup(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      _ref$fieldProps = _ref.fieldProps,
+      fieldProps = _ref$fieldProps === void 0 ? {} : _ref$fieldProps,
+      _ref$labelProps = _ref.labelProps,
+      labelProps = _ref$labelProps === void 0 ? {} : _ref$labelProps,
+      _ref$wrapperProps = _ref.wrapperProps,
+      wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps;
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, _extends({
+      label: element['#title'],
+      isRequired: element['#required'],
+      labelDisplay: element['#title_display'],
+      access: element['#access'],
+      settings: null,
+      error: error,
+      labelProps: labelProps
+    }, wrapperProps, {
+      labelFor: element['#webform_key'],
+      children: /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, fieldProps, {
+        id: element['#webform_key'],
+        dangerouslySetInnerHTML: {
+          __html: element['#markup']
+        }
+      }))
+    }));
+  };
+  var WebformMarkup$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformMarkup, {
+    wrapperProps: {
+      style: {
+        display: 'flex'
+      }
+    }
+  }))));
+
+  var WebformMessage = function WebformMessage(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      _ref$fieldProps = _ref.fieldProps,
+      fieldProps = _ref$fieldProps === void 0 ? {} : _ref$fieldProps,
+      _ref$labelProps = _ref.labelProps,
+      labelProps = _ref$labelProps === void 0 ? {} : _ref$labelProps,
+      _ref$wrapperProps = _ref.wrapperProps,
+      wrapperProps = _ref$wrapperProps === void 0 ? {} : _ref$wrapperProps;
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, _extends({
+      label: element['#title'],
+      isRequired: element['#required'],
+      labelDisplay: element['#title_display'],
+      access: element['#access'],
+      settings: null,
+      error: error,
+      labelProps: labelProps
+    }, wrapperProps, {
+      labelFor: element['#webform_key'],
+      children: /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, fieldProps, {
+        id: element['#webform_key'],
+        dangerouslySetInnerHTML: {
+          __html: element['#message_message']['#markup']
+        }
+      }))
+    }));
+  };
+  var WebformMessage$1 = withStates(withDefaultValue(withAttributes(withWrapper(WebformMessage, {
+    wrapperProps: {
+      style: {
+        display: 'flex'
+      }
+    }
+  }))));
+
+  var WebformButton = function WebformButton(_ref) {
+    var element = _ref.element,
+      fieldProps = _ref.fieldProps;
+    return /*#__PURE__*/jsxRuntime.jsx("button", _extends({
+      type: "button"
+    }, fieldProps, {
+      children: element['#value']
+    }));
+  };
+  var WebformButton$1 = withAttributes(WebformButton);
+
+  var WebformTableRow = function WebformTableRow(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      _ref$fieldProps = _ref.fieldProps,
+      fieldProps = _ref$fieldProps === void 0 ? {} : _ref$fieldProps,
+      _ref$tdProps = _ref.tdProps,
+      tdProps = _ref$tdProps === void 0 ? {} : _ref$tdProps;
+    var _useContext = React.useContext(WebformContext),
+      data = _useContext.data,
+      setData = _useContext.setData;
+    return /*#__PURE__*/jsxRuntime.jsx("tr", _extends({}, fieldProps, {
+      children: getChildElements(element).map(function (key) {
+        var _element$key$Wrapper;
+        var rowAndChildStates = element['#states'] ? _extends({}, element[key]['#states'], element['#states']) : null;
+        var parentAndRowAndChildStates = element['#states'] ? Object.assign({}, rowAndChildStates, element['#states']) : rowAndChildStates;
+        return /*#__PURE__*/React.createElement("td", _extends({}, _extends({}, tdProps, normalizeAttributes((_element$key$Wrapper = element[key]['#wrapper_attributes']) != null ? _element$key$Wrapper : {})), {
+          key: key
+        }), /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+          element: _extends({}, parentAndRowAndChildStates ? _extends({
+            '#states': parentAndRowAndChildStates
+          }, element[key]) : element[key], {
+            // Make sure `#wrapper_attributes` is only applied once.
+            '#wrapper_attributes': []
+          }),
+          error: error,
+          value: data[element[key]['#webform_key']],
+          setValue: function setValue(value) {
+            setData(function (previousData) {
+              var _extends2;
+              return _extends({}, previousData, (_extends2 = {}, _extends2[element[key]['#webform_key']] = value, _extends2));
+            });
+          }
+        }, key));
+      })
+    }));
+  };
+  var WebformTableRow$1 = withAttributes(WebformTableRow);
+
+  var ConfirmationPage = function ConfirmationPage(_ref) {
+    var webform = _ref.webform;
+    var defaultMessage = /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+      children: ["New submission added to ", /*#__PURE__*/jsxRuntime.jsx("em", {
+        children: webform.title
+      }), "."]
+    });
+    return /*#__PURE__*/jsxRuntime.jsx("div", {
+      children: webform.confirmation.message && webform.confirmation.message.length > 0 ? webform.confirmation.message : defaultMessage
+    });
+  };
+
+  var DebugConfirmation = function DebugConfirmation(_ref) {
+    var submission = _ref.submission;
+    return /*#__PURE__*/jsxRuntime.jsx("pre", {
+      children: /*#__PURE__*/jsxRuntime.jsx("code", {
+        id: "submitted-data",
+        children: JSON.stringify(submission)
+      })
+    });
+  };
+
+  var WizardPage = function WizardPage(_ref) {
+    var element = _ref.element,
+      fieldProps = _ref.fieldProps;
+    var _useContext = React.useContext(WebformContext),
+      data = _useContext.data,
+      setData = _useContext.setData,
+      errors = _useContext.errors;
+    var childElements = getChildElements(element).map(function (key) {
+      var parentAndChildStates = element['#states'] ? _extends({}, element[key]['#states'], element['#states']) : null;
+      return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: parentAndChildStates ? _extends({}, element[key], {
+          '#states': parentAndChildStates,
+          '#access': true
+        }) : _extends({}, element[key], {
+          '#access': true
+        }),
+        error: errors[element[key]['#webform_key']],
+        value: data[element[key]['#webform_key']],
+        setValue: function setValue(value) {
+          setData(function (previousData) {
+            var _extends2;
+            return _extends({}, previousData, (_extends2 = {}, _extends2[element[key]['#webform_key']] = value, _extends2));
+          });
+        }
+      }, element[key]['#webform_key']);
+    });
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: /*#__PURE__*/jsxRuntime.jsx("div", _extends({}, fieldProps, {
+        children: childElements
+      }))
+    });
+  };
+  var WizardPage$1 = withStates(withAttributes(withWrapper(WizardPage, {
+    defaultWrapperType: 'container'
+  })));
+
+  var MultiPageForm = function MultiPageForm(_ref) {
+    var elements = _ref.elements;
+    var _useState = React.useState(0),
+      currentPage = _useState[0],
+      setCurrentPage = _useState[1];
+    var children = getChildElements(elements);
+    var pageElement = elements[children[currentPage]];
+    var showPrevBtn = currentPage > 0;
+    var showSubmitBtn = currentPage === children.length - 1;
+    var submitBtnElement = elements['actions'];
+    var highlightCurrent = function highlightCurrent(item) {
+      if (pageElement['#title'] == elements[item]['#title']) {
+        return {
+          color: 'blue'
+        };
+      }
+    };
+    return /*#__PURE__*/jsxRuntime.jsxs("div", {
+      children: [/*#__PURE__*/jsxRuntime.jsx("ul", {
+        style: {
+          display: 'flex'
+        },
+        children: children.map(function (item) {
+          return /*#__PURE__*/jsxRuntime.jsxs("li", {
+            style: highlightCurrent(item),
+            children: [elements[item]['#title'], "----", '>']
+          }, item);
+        })
+      }), /*#__PURE__*/jsxRuntime.jsx("br", {}), /*#__PURE__*/jsxRuntime.jsxs("h1", {
+        children: ["Page Title: ", pageElement['#title']]
+      }), /*#__PURE__*/jsxRuntime.jsxs("h1", {
+        children: ["Current page: ", currentPage + 1]
+      }), /*#__PURE__*/jsxRuntime.jsx(WizardPage$1, {
+        element: _extends({}, pageElement)
+      }), showPrevBtn && /*#__PURE__*/jsxRuntime.jsx("button", {
+        style: {
+          border: 'solid'
+        },
+        type: "button",
+        className: 'webform-button--previous',
+        onClick: function onClick() {
+          return setCurrentPage(function (prevState) {
+            return prevState - 1;
+          });
+        },
+        children: "Previous"
+      }), !showSubmitBtn && /*#__PURE__*/jsxRuntime.jsx("button", {
+        style: {
+          border: 'solid'
+        },
+        type: "button",
+        onClick: function onClick() {
+          return setCurrentPage(function (prevState) {
+            return prevState + 1;
+          });
+        },
+        children: "Next"
+      }), showSubmitBtn && /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+        element: submitBtnElement
+      })]
+    });
+  };
+
+  var FormLayout = function FormLayout(_ref) {
+    var webform = _ref.webform,
+      status = _ref.status;
+    var _useContext = React.useContext(WebformContext),
+      registry = _useContext.registry,
+      setData = _useContext.setData,
+      data = _useContext.data,
+      errors = _useContext.errors;
+    var elements = webform.elements,
+      confirmation = webform.confirmation;
+    var children = getChildElements(elements);
+    var renderConfirmationPage = function renderConfirmationPage() {
+      var ConfirmationPage = registry.getComponent('confirmation_page');
+      return /*#__PURE__*/jsxRuntime.jsx(ConfirmationPage, {
+        webform: webform,
+        submission: data
+      });
+    };
+    var isMultiPageForm = children.some(function (i) {
+      return elements[i]['#type'] === 'webform_wizard_page';
+    });
+    React.useEffect(function () {
+      if (confirmation.type !== 'debug' || status === 'success') {
+        return;
+      }
+      // Store Webform debug data in local storage so that it can be retrieved
+      // after submission.
+      window.localStorage.setItem('webformDebugData', JSON.stringify(data));
+    }, [data, status, confirmation.type]);
+    var renderChildren = function renderChildren() {
+      return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+        children: children.map(function (key) {
+          return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+            element: elements[key],
+            setValue: function setValue(value) {
+              setData(function (previousData) {
+                var _extends2;
+                return _extends({}, previousData, (_extends2 = {}, _extends2[elements[key]['#webform_key']] = value, _extends2));
+              });
+            },
+            value: data[elements[key]['#webform_key']],
+            error: errors[elements[key]['#webform_key']]
+          }, elements[key]['#webform_key']);
+        })
+      });
+    };
+    if (status === 'success') {
+      if (confirmation.type === 'debug') {
+        var debugData = function () {
+          if (typeof window === 'undefined') {
+            return data;
+          }
+          return JSON.parse(window.localStorage.getItem('webformDebugData'));
+        }();
+        return /*#__PURE__*/jsxRuntime.jsx(DebugConfirmation, {
+          submission: debugData
+        });
+      } else if (confirmation.type === 'page' || confirmation.type === 'inline') {
+        return renderConfirmationPage();
+      } else if (confirmation.type === 'message') {
+        var Message = registry.getComponent('message');
+        var defaultMessage = /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+          children: ["New submission added to ", /*#__PURE__*/jsxRuntime.jsx("em", {
+            children: webform.title
+          }), "."]
+        });
+        return /*#__PURE__*/jsxRuntime.jsxs(jsxRuntime.Fragment, {
+          children: [/*#__PURE__*/jsxRuntime.jsx(Message, {
+            type: "success",
+            children: webform.confirmation.message && webform.confirmation.message.length > 0 ? webform.confirmation.message : defaultMessage
+          }), renderChildren()]
+        });
+      } else if (confirmation.type === 'none') {
+        return renderChildren();
+      }
+    }
+    if (isMultiPageForm) {
+      // Fix for element access on Wizard.
+      for (var _i = 0, _Object$entries = Object.entries(elements); _i < _Object$entries.length; _i++) {
+        var _Object$entries$_i = _Object$entries[_i],
+          key = _Object$entries$_i[0],
+          value = _Object$entries$_i[1];
+        if (typeof value === 'object' && value !== null) {
+          var keys2 = Object.keys(value);
+          var hasValue = keys2.includes('#access');
+          if (hasValue) {
+            elements[key]['#access'] = true;
+            accessChildrenElements(elements[key]);
+          }
+        }
+      }
+      return /*#__PURE__*/jsxRuntime.jsx(MultiPageForm, {
+        elements: elements
+      });
+    } else {
+      return renderChildren();
+    }
+  };
+  var accessChildrenElements = function accessChildrenElements(element) {
+    Object.entries(element).forEach(function (item) {
+      for (var _i2 = 0, _Object$entries2 = Object.entries(item); _i2 < _Object$entries2.length; _i2++) {
+        var _Object$entries2$_i = _Object$entries2[_i2],
+          key = _Object$entries2$_i[0],
+          value = _Object$entries2$_i[1];
+        if (typeof value === 'object' && value !== null) {
+          var keys2 = Object.keys(value);
+          var hasValue = keys2.includes('#access');
+          if (hasValue) {
+            item[key]['#access'] = true;
+            accessChildrenElements(item[key]);
+          }
+        }
+      }
+    });
+    return true;
+  };
+
+  var Message = function Message(_ref) {
+    var children = _ref.children;
+    return /*#__PURE__*/jsxRuntime.jsx("div", {
+      children: children
+    });
+  };
+
+  var WebformCustomComposite = function WebformCustomComposite(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      value = _ref.value,
+      _setValue = _ref.setValue,
+      labelProps = _ref.labelProps;
+    var compositeElements = getChildElements(element['#element']);
+    var isMulti = !!element['add'];
+    React.useEffect(function () {
+      // The custom composite component handles setting default value.
+      if (element['#default_value'] && Array.isArray(element['#default_value'])) {
+        _setValue(element['#default_value']);
+      } else {
+        _setValue([{}]);
+      }
+    }, []);
+    return /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+      children: isMulti ? /*#__PURE__*/jsxRuntime.jsx(jsxRuntime.Fragment, {
+        children: /*#__PURE__*/jsxRuntime.jsx(WebformMultifield$1, {
+          element: element,
+          value: value,
+          setValue: _setValue,
+          error: error
+        })
+      }) : /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, {
+        label: element['#title'],
+        labelDisplay: element['#title_display'],
+        access: element['#access'],
+        isRequired: false,
+        error: error,
+        children: compositeElements.map(function (name, index) {
+          var elementItem = element.items['0'][name];
+          return /*#__PURE__*/jsxRuntime.jsx(WebformElement, {
+            element: _extends({}, elementItem, {
+              // Ensure that all child elements have '#webform_key' and '#states' defined.
+              '#webform_key': name,
+              '#states': element['#_webform_states'],
+              '#id': elementItem['#id'],
+              '#default_value': undefined
+            }),
+            value: value && value[0][name] ? value[0][name] : '',
+            setValue: function setValue(newValue) {
+              // A single value custom composite element needs to be an object
+              // wrapped in an array [{}]. So check first if the object
+              // exists yet and if so, create a new object with the existing object and the new value.
+              // Otherwise, create an object with the new key and value inside an array.
+              if (value && value[0]) {
+                var _extends2;
+                _setValue([_extends({}, value[0], (_extends2 = {}, _extends2[name] = newValue, _extends2))]);
+              } else {
+                var _ref2;
+                _setValue([(_ref2 = {}, _ref2[name] = newValue, _ref2)]);
+              }
+            },
+            error: error ? error[name] : null,
+            labelProps: labelProps
+          }, index);
+        })
+      })
+    });
+  };
+
+  var defaultComponents = {
+    // Text types.
+    textfield: WebformText$1,
+    number: WebformText$1,
+    hidden: WebformText$1,
+    email: WebformText$1,
+    search: WebformText$1,
+    tel: WebformText$1,
+    url: WebformText$1,
+    textarea: WebformTextArea$1,
+    // Elements with fixed values.
+    autocomplete: WebformAutocomplete$1,
+    checkbox: WebformCheckbox$1,
+    checkboxes: WebformCheckboxRadioGroup$1,
+    entity_autocomplete: WebformAutocomplete$1,
+    range: WebformRange$1,
+    radio: WebformCheckbox$1,
+    radios: WebformCheckboxRadioGroup$1,
+    select: WebformSelect$1,
+    webform_autocomplete: WebformAutocomplete$1,
+    webform_checkboxes_other: WebformCheckboxRadioGroup$1,
+    webform_entity_checkboxes: WebformCheckboxRadioGroup$1,
+    webform_entity_radios: WebformCheckboxRadioGroup$1,
+    webform_radios_other: WebformCheckboxRadioGroup$1,
+    webform_rating: WebformRating$1,
+    webform_select_other: WebformSelect$1,
+    webform_terms_of_service: WebformTermsOfService$1,
+    // Containers.
+    container: WebformContainer$1,
+    fieldset: WebformFieldset$1,
+    webform_flexbox: WebformFlexboxLayout$1,
+    webform_section: WebformSection$1,
+    webform_table: WebformTable$1,
+    webform_table_row: WebformTableRow$1,
+    // Composite types.
+    webform_address: WebformComposite$1,
+    webform_contact: WebformComposite$1,
+    webform_name: WebformComposite$1,
+    webform_link: WebformComposite$1,
+    webform_custom_composite: WebformCustomComposite,
+    // Datetime types.
+    date: WebformDate$1,
+    datelist: WebformDateList$1,
+    datetime: WebformDateTime$1,
+    webform_time: WebformTime$1,
+    button: WebformButton$1,
+    submit: WebformActions,
+    item: WebformItem$1,
+    value: WebformValue$1,
+    webform_actions: WebformActions,
+    webform_email_confirm: WebformEmailConfirm$1,
+    webform_multiple: WebformMultifield$1,
+    // Non-form element components.
+    confirmation_page: ConfirmationPage,
+    form_layout: FormLayout,
+    message: Message,
+    webform_wizard_page: WizardPage$1,
+    // Custom Messages, Markup (Work in progress)
+    webform_message: WebformMessage$1,
+    webform_markup: WebformMarkup$1
+  };
+  var defaultComponentRegistry = new ComponentRegistry(defaultComponents);
+
+  var _excluded = ["data", "id", "customComponents", "onSubmit", "apiUrl", "validate"];
+  var WebformError = /*#__PURE__*/function (_Error) {
+    _inheritsLoose(WebformError, _Error);
+    function WebformError(response) {
+      var _this;
+      _this = _Error.call(this) || this;
+      _this.response = void 0;
+      _this.response = response;
+      return _this;
+    }
+    return WebformError;
+  }( /*#__PURE__*/_wrapNativeSuper(Error));
+  var Webform = function Webform(_ref) {
+    var webformObject = _ref.data,
+      id = _ref.id,
+      _ref$customComponents = _ref.customComponents,
+      customComponents = _ref$customComponents === void 0 ? {} : _ref$customComponents,
+      customOnSubmit = _ref.onSubmit,
+      _ref$apiUrl = _ref.apiUrl,
+      apiUrl = _ref$apiUrl === void 0 ? '/api/webform' : _ref$apiUrl,
+      validate = _ref.validate,
+      formProps = _objectWithoutPropertiesLoose(_ref, _excluded);
+    var componentRegistry = defaultComponentRegistry;
+    useConstructor(function () {
+      // Register components on the initial load.
+      Object.keys(customComponents).forEach(function (key) {
+        componentRegistry.setComponent(key, customComponents[key]);
+      });
+    });
+    // Update component library when `customComponents` changes. This ensures that
+    // the component library is kept in a consistent state with hot module
+    // replacement.
+    React.useEffect(function () {
+      Object.keys(customComponents).forEach(function (key) {
+        componentRegistry.setComponent(key, customComponents[key]);
+      });
+    }, [customComponents]);
+    var _useState = React.useState({}),
+      errors = _useState[0],
+      setErrors = _useState[1];
+    var _useState2 = React.useState(),
+      status = _useState2[0],
+      setStatus = _useState2[1];
+    var _useState3 = React.useState({}),
+      data = _useState3[0],
+      setData = _useState3[1];
+    var fieldRegistry = React.useRef({});
+    var registerField = React__namespace.useCallback(function (name, _ref2) {
+      var validate = _ref2.validate;
+      fieldRegistry.current[name] = {
+        validate: validate
+      };
+    }, []);
+    var unregisterField = React__namespace.useCallback(function (name) {
+      delete fieldRegistry.current[name];
+    }, []);
+    var _onSubmit = customOnSubmit ? customOnSubmit : defaultOnSubmit;
+    var WebformForm = componentRegistry.getComponent('form_layout');
+    var Message = componentRegistry.getComponent('message');
+    var runSingleFieldLevelValidation = function runSingleFieldLevelValidation(field, value) {
+      return new Promise(function (resolve) {
+        return resolve(fieldRegistry.current[field].validate(value));
+      });
+    };
+    var runFieldValidators = function runFieldValidators(values) {
+      var fieldKeysWithValidation = Object.keys(fieldRegistry.current).filter(function (key) {
+        return isFunction(fieldRegistry.current[key].validate);
+      });
+      var fieldValidations = fieldKeysWithValidation.map(function (key) {
+        return runSingleFieldLevelValidation(key, values[key]);
+      });
+      return Promise.all(fieldValidations).then(function (fieldErrorsList) {
+        return fieldErrorsList.reduce(function (previousValue, currentValue, currentIndex) {
+          if (currentValue === undefined) {
+            return previousValue;
+          }
+          setIn(previousValue, fieldKeysWithValidation[currentIndex], currentValue);
+          return previousValue;
+        }, {});
+      });
+    };
+    var runValidators = function runValidators(values) {
+      return Promise.all([runFieldValidators(values), validate ? validate(values) : {}]).then(function (_ref3) {
+        var fieldErrors = _ref3[0],
+          validateErrors = _ref3[1];
+        return deepmerge__default["default"].all([fieldErrors, validateErrors], {
+          arrayMerge: arrayMerge
+        });
+      });
+    };
+    return /*#__PURE__*/jsxRuntime.jsxs("form", _extends({}, formProps, {
+      onSubmit: function onSubmit(event) {
+        event.preventDefault();
+        runValidators(data).then(function (combinedErrors) {
+          if (Object.keys(combinedErrors).length !== 0) {
+            setStatus('error');
+            setErrors(combinedErrors);
+          } else {
+            _onSubmit({
+              id: id,
+              event: event,
+              data: data,
+              setData: setData,
+              setStatus: setStatus,
+              setErrors: setErrors,
+              apiUrl: apiUrl
+            });
+          }
+        });
+      },
+      children: [status === 'error' ? /*#__PURE__*/jsxRuntime.jsx(Message, {
+        type: "error",
+        children: "An error occurred. Please try again."
+      }) : null, /*#__PURE__*/jsxRuntime.jsx(WebformContext.Provider, {
+        value: {
+          id: id,
+          apiUrl: apiUrl,
+          data: data,
+          setData: setData,
+          setStatus: setStatus,
+          errors: errors,
+          registry: componentRegistry,
+          registerField: registerField,
+          unregisterField: unregisterField
+        },
+        children: /*#__PURE__*/jsxRuntime.jsx(WebformForm, {
+          webform: webformObject,
+          status: status
+        })
+      })]
+    }));
+  };
+
+  var WebformHeight = function WebformHeight(_ref) {
+    var element = _ref.element,
+      error = _ref.error,
+      value = _ref.value,
+      setValue = _ref.setValue;
+    var onChangeHandler = function onChangeHandler(e) {
+      try {
+        var _extends2;
+        setValue(_extends({}, value, (_extends2 = {}, _extends2[e.target.name] = e.target.value, _extends2)));
+        return Promise.resolve();
+      } catch (e) {
+        return Promise.reject(e);
+      }
+    };
+    return /*#__PURE__*/jsxRuntime.jsx(WebformElementWrapper, {
+      labelFor: element['#key'],
+      label: element['#title'],
+      isRequired: element['#required'],
+      access: element['#access'],
+      settings: null,
+      error: error,
+      children: /*#__PURE__*/jsxRuntime.jsxs("div", {
+        style: {
+          display: 'inline-flex',
+          alignItems: 'center'
+        },
+        children: [/*#__PURE__*/jsxRuntime.jsx("input", {
+          type: "number",
+          name: "feet",
+          min: 0,
+          max: 8,
+          onChange: function onChange(e) {
+            return onChangeHandler(e);
+          }
+        }), /*#__PURE__*/jsxRuntime.jsx("label", {
+          style: {
+            padding: '0.5em'
+          },
+          children: "feet"
+        }), /*#__PURE__*/jsxRuntime.jsx("input", {
+          type: "number",
+          name: "inches",
+          min: 0,
+          max: 11,
+          onChange: function onChange(e) {
+            return onChangeHandler(e);
+          }
+        }), /*#__PURE__*/jsxRuntime.jsx("label", {
+          style: {
+            padding: '0.5em'
+          },
+          children: "inches"
+        })]
+      })
+    });
+  };
+
+  var WebformDefaultApiRoute = function WebformDefaultApiRoute(request, response, drupal) {
+    try {
+      return Promise.resolve(function () {
+        if (request.method === 'GET') {
+          switch (request.query.op.toString()) {
+            case 'autocomplete_options':
+              {
+                var _request$query = request.query,
+                  id = _request$query.id,
+                  options_id = _request$query.options_id;
+                var url = drupal.buildUrl("/webform_rest/" + id.toString() + "/autocomplete_options/" + options_id + "?_format=json");
+                return Promise.resolve(drupal.fetch(url.toString(), {
+                  headers: {
+                    'Content-Type': 'application/json'
+                  }
+                })).then(function (result) {
+                  var _exit;
+                  function _temp2(_result2) {
+                    if (_exit) return _result2;
+                    var _end = response.end;
+                    return Promise.resolve(result.json()).then(function (_result$json) {
+                      _end.call(response, JSON.stringify(_result$json));
+                      response.status(200);
+                      return response;
+                    });
+                  }
+                  var _temp = function () {
+                    if (!result.ok) {
+                      return Promise.resolve(result.json()).then(function (message) {
+                        // Send error to client.
+                        var _response$status$json = response.status(result.status).json({
+                          message: message
+                        });
+                        _exit = 1;
+                        return _response$status$json;
+                      });
+                    }
+                  }();
+                  return _temp && _temp.then ? _temp.then(_temp2) : _temp2(_temp);
+                });
+              }
+            default:
+              {
+                response.end('{}');
+                response.status(404);
+                return response;
+              }
+          }
+        } else return function () {
+          if (request.method === 'POST') {
+            var _url = drupal.buildUrl('/webform_rest/submit?_format=json');
+            // Submit to Drupal.
+            return Promise.resolve(drupal.fetch(_url.toString(), {
+              method: 'POST',
+              body: JSON.stringify(request.body),
+              headers: {
+                'Content-Type': 'application/json'
+              }
+            })).then(function (result) {
+              var _exit2;
+              function _temp4(_result4) {
+                if (_exit2) return _result4;
+                response.end(JSON.stringify(result));
+                response.status(200);
+                return response;
+              }
+              var _temp3 = function () {
+                if (!result.ok) {
+                  return Promise.resolve(result.json()).then(function (message) {
+                    // Send error to client.
+                    var _response$status$json2 = response.status(result.status).json({
+                      message: message
+                    });
+                    _exit2 = 1;
+                    return _response$status$json2;
+                  });
+                }
+              }();
+              return _temp3 && _temp3.then ? _temp3.then(_temp4) : _temp4(_temp3);
+            });
+          }
+        }();
+      }());
+    } catch (e) {
+      return Promise.reject(e);
+    }
+  };
+
+  exports.Webform = Webform;
+  exports.WebformContext = WebformContext;
+  exports.WebformDefaultApiRoute = WebformDefaultApiRoute;
+  exports.WebformError = WebformError;
+  exports.WebformHeight = WebformHeight;
+  exports.arrayMerge = arrayMerge;
+  exports.checkDateMinMax = checkDateMinMax;
+  exports.components = defaultComponents;
+  exports.convertDateToISO = convertDateToISO;
+  exports.cssStringToObject = cssStringToObject;
+  exports.defaultOnSubmit = defaultOnSubmit;
+  exports.getChildElements = getChildElements;
+  exports.getCurrentError = getCurrentError;
+  exports.getIndexOfMultiValue = getIndexOfMultiValue;
+  exports.getNormalizedErrorMessages = getNormalizedErrorMessages;
+  exports.isFunction = isFunction;
+  exports.isInteger = isInteger;
+  exports.isIterable = isIterable;
+  exports.isObject = isObject;
+  exports.normalizeElements = normalizeElements;
+  exports.reactPropertyMap = reactPropertyMap;
+  exports.resolvePath = resolvePath;
+  exports.resolveWebformContent = resolveWebformContent;
+  exports.resolveWebformSubmission = resolveWebformSubmission;
+  exports.setIn = setIn;
+  exports.toKey = toKey;
+  exports.toPath = toPath;
+  exports.updateNameAndIdWithIndex = updateNameAndIdWithIndex;
+  exports.useConstructor = useConstructor;
+
+}));
 //# sourceMappingURL=index.umd.js.map
