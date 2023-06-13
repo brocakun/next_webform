@@ -105,8 +105,8 @@ const FormLayout = ({ webform, status }) => {
   }
 };
 
-const accessChildrenElements = (element : any) => {
-  Object.entries(element).forEach( (item : any) => {
+const accessChildrenElements = (element: any) => {
+  Object.entries(element).forEach((item: any) => {
     for (const [key, value] of Object.entries(item)) {
       if (typeof value === 'object' && value !== null) {
         const keys2 = Object.keys(value);
@@ -119,7 +119,6 @@ const accessChildrenElements = (element : any) => {
     }
   });
   return true;
-}
-
+};
 
 export default FormLayout;

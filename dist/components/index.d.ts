@@ -69,8 +69,14 @@ declare const defaultComponents: {
     }) => JSX.Element;
     message: ({ children, type }: import("./Message").messagePropTypes) => JSX.Element;
     webform_wizard_page: (props: import("..").WebformElementProps) => JSX.Element;
-    webform_message: (props: import("..").WebformElementProps) => JSX.Element;
-    webform_markup: (props: import("..").WebformElementProps) => JSX.Element;
+    webform_message: ({ element, error }: {
+        element: any;
+        error: any;
+    }) => JSX.Element;
+    webform_markup: ({ element, error }: {
+        element: any;
+        error: any;
+    }) => JSX.Element;
 };
 export declare const defaultComponentRegistry: ComponentRegistry;
 export default defaultComponents;

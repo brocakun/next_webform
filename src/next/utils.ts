@@ -43,6 +43,27 @@ export const normalizeElements = (result) => {
   return result;
 };
 
+export const updateNestedObjectDefaultValue = (obj, keyToFind, newValue) => {
+  // Base case: if the object is not an actual object, return
+  if (typeof obj !== 'object' || obj === null) {
+    return;
+  }
+  // Iterate over the object's keys
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      // Check if the current key matches the key you want to find
+      if (key === keyToFind) {
+        // Update the value with the new value
+        obj[key]['#default_value'] = newValue;
+      }
+      // If the current value is another object, recursively call the function
+      if (typeof obj[key] === 'object' && obj[key] !== null) {
+        updateNestedObjectDefaultValue(obj[key], keyToFind, newValue);
+      }
+    }
+  }
+};
+
 export async function resolveWebformContent(
   id: string,
   drupal: DrupalClient,
@@ -150,9 +171,7 @@ export async function resolveWebformSubmission(
   const submissionData = submission.data;
   // Fill values with default data from submission.
   for (const [key, value] of Object.entries(submissionData)) {
-    if (typeof normalizedElements[key] !== 'undefined') {
-      normalizedElements[key]['#default_value'] = value;
-    }
+    updateNestedObjectDefaultValue(normalizedElements, key, value);
   }
   const webform = await result.json();
 
