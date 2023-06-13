@@ -5,7 +5,7 @@ import { GetStaticPathsResult } from 'next';
 import { useRouter } from 'next/router';
 import { drupal } from '../../../lib/drupal';
 
-export default function WebformSlug({ webform, id }) {
+export default function WebformSlug({ webform, id, sid }) {
   const router = useRouter();
 
   if (router.query) {
@@ -25,6 +25,7 @@ export default function WebformSlug({ webform, id }) {
       <h1>{webform?.title}</h1>
       <Webform
         id={id}
+        sid={sid}
         data={webform}
         className="form-test-class"
         noValidate={true}
@@ -54,6 +55,7 @@ export async function getStaticProps(context) {
     props: {
       webform,
       id: context.params.webform_id,
+      sid: context.params.submission_id,
     },
     revalidate: 1,
   };

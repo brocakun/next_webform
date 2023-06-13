@@ -10,4 +10,4 @@ export declare class WebformError extends Error {
 export type WebformErrors = {
     [name: string]: string;
 };
-export declare const Webform: ({ data: webformObject, id, customComponents, onSubmit: customOnSubmit, apiUrl, validate, ...formProps }: WebformProps) => JSX.Element;
+export declare const Webform: ({ data: webformObject, id, sid, customComponents, onSubmit: customOnSubmit, apiUrl, validate, ...formProps }: WebformProps) => JSX.Element;

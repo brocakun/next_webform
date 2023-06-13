@@ -104,7 +104,7 @@ export async function resolveWebformContent(
 
   return {
     id: id,
-    uuid: webform.uuid,
+    sid: id,
     title: webform.title,
     description: webform.description,
     status: webform.status,
@@ -119,7 +119,7 @@ export async function resolveWebformContent(
 
 export async function resolveWebformSubmission(
   id: string,
-  uuid: string,
+  sid: string,
   drupal: DrupalClient,
   fetchOptions?: FetchOptions,
 ): Promise<WebformObject> {
@@ -128,7 +128,7 @@ export async function resolveWebformSubmission(
     `/webform_rest/${id}/elements?_format=json`,
   );
   const submissionUrl = drupal.buildUrl(
-    `/webform_rest/${id}/submission/${uuid}?_format=json`,
+    `/webform_rest/${id}/submission/${sid}?_format=json`,
   );
   const [result, elementsResult, submissionResult] = await Promise.all([
     drupal.fetch(url.toString(), {
@@ -177,7 +177,7 @@ export async function resolveWebformSubmission(
 
   return {
     id: id,
-    uuid: webform.uuid,
+    sid: sid,
     title: webform.title,
     description: webform.description,
     status: webform.status,
@@ -192,6 +192,7 @@ export async function resolveWebformSubmission(
 
 export async function defaultOnSubmit({
   id,
+  sid,
   event,
   data,
   setData,
@@ -199,7 +200,10 @@ export async function defaultOnSubmit({
   setErrors,
   apiUrl,
 }) {
-  const body = { ...(data as object), ...{ webform_id: id } };
+  const body = {
+    ...(data as object),
+    ...{ webform_id: id, submission_id: sid },
+  };
   const response = await fetch(apiUrl, {
     method: 'POST',
     body: JSON.stringify(body),

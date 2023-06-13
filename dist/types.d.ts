@@ -30,6 +30,7 @@ type onSubmitProps = {
     setStatus: any;
     setErrors: any;
     id: string;
+    sid: string;
     apiUrl: string;
 };
 export type onSubmitFn = (props: onSubmitProps) => void;
@@ -38,6 +39,7 @@ export type ComponentLibrary = {
 };
 export type WebformProps = HTMLProps<HTMLFormElement> & {
     id: string;
+    sid?: string;
     data: WebformObject;
     customComponents?: ComponentLibrary;
     onSubmit?: onSubmitFn;
@@ -48,7 +50,7 @@ export type validateFn = (data: WebformDataType) => ErrorObjectType | Promise<Er
 export type validateFieldFn = (value: string) => string | null;
 export type WebformObject = {
     id: string;
-    uuid: string;
+    sid?: string;
     title: string;
     description?: string;
     status: string;
@@ -75,6 +77,7 @@ export type WebformElementType = {
 export type WebformContextType = FieldRegistration & {
     apiUrl: string;
     id: string;
+    sid?: string;
     data: WebformDataType;
     setData: setDataFn;
     setStatus: setStatusFn;

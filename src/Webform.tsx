@@ -40,6 +40,7 @@ export type WebformErrors = {
 export const Webform = ({
   data: webformObject,
   id,
+  sid,
   customComponents = {},
   onSubmit: customOnSubmit,
   apiUrl = '/api/webform',
@@ -138,6 +139,7 @@ export const Webform = ({
           } else {
             onSubmit({
               id,
+              sid,
               event,
               data,
               setData,
