@@ -47,16 +47,10 @@ declare const defaultComponents: {
     datetime: (props: import("..").WebformElementProps) => JSX.Element;
     webform_time: (props: import("..").WebformElementProps) => JSX.Element;
     button: (props: any) => JSX.Element;
-    submit: ({ element, wrapperProps }: {
-        element: any;
-        wrapperProps: any;
-    }) => JSX.Element;
+    submit: (props: import("..").WebformElementProps) => JSX.Element;
     item: (props: import("..").WebformElementProps) => JSX.Element;
     value: (props: import("..").WebformElementProps) => JSX.Element;
-    webform_actions: ({ element, wrapperProps }: {
-        element: any;
-        wrapperProps: any;
-    }) => JSX.Element;
+    webform_actions: (props: import("..").WebformElementProps) => JSX.Element;
     webform_email_confirm: (props: import("..").WebformElementProps) => JSX.Element;
     webform_multiple: (props: import("..").WebformElementProps) => JSX.Element;
     confirmation_page: ({ webform, submission }: {

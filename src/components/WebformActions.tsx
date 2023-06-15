@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { useContext } from 'react';
 import { WebformContext } from '../utils';
+import withStates from './utils/withStates';
+import withDefaultValue from './utils/withDefaultValue';
+import withAttributes from './utils/withAttributes';
+import withWrapper from './utils/withWrapper';
 
 const WebformActions = ({ element, wrapperProps }) => {
   const buttons = [];
@@ -33,4 +37,17 @@ const WebformActions = ({ element, wrapperProps }) => {
   return <div {...wrapperProps}>{buttons}</div>;
 };
 
-export default WebformActions;
+// export default WebformActions;
+export default withStates(
+  withDefaultValue(
+    withAttributes(
+      withWrapper(WebformActions, {
+        wrapperProps: {
+          style: {
+            display: 'flex',
+          },
+        },
+      }),
+    ),
+  ),
+);
