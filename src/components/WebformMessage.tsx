@@ -40,6 +40,7 @@ export default withStates(
     withAttributes(
       withWrapper(WebformMessage, {
         wrapperProps: {
+          className: 'messages-wrapper',
           style: {
             display: 'flex',
           },
