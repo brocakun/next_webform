@@ -66,12 +66,16 @@ export const updateNestedObjectDefaultValue = (obj, keyToFind, newValue) => {
 
 export async function resolveWebformContent(
   id: string,
+  locale: '',
   drupal: DrupalClient,
   fetchOptions?: FetchOptions,
 ): Promise<WebformObject> {
   const url = drupal.buildUrl(`/webform/${id}?_format=json`);
+  // Suport for Multilanguage context.
   const elementsUrl = drupal.buildUrl(
-    `/webform_rest/${id}/elements?_format=json`,
+    `${
+      locale !== '' ? `/${locale}` : ''
+    }/webform_rest/${id}/elements?_format=json`,
   );
   const [result, elementsResult] = await Promise.all([
     drupal.fetch(url.toString(), {
@@ -120,12 +124,16 @@ export async function resolveWebformContent(
 export async function resolveWebformSubmission(
   id: string,
   sid: string,
+  locale = '',
   drupal: DrupalClient,
   fetchOptions?: FetchOptions,
 ): Promise<WebformObject> {
   const url = drupal.buildUrl(`/webform/${id}?_format=json`);
+  // Suport for Multilanguage context.
   const elementsUrl = drupal.buildUrl(
-    `/webform_rest/${id}/elements?_format=json`,
+    `${
+      locale !== '' ? `/${locale}` : ''
+    }/webform_rest/${id}/elements?_format=json`,
   );
   const submissionUrl = drupal.buildUrl(
     `/webform_rest/${id}/submission/${sid}?_format=json`,
