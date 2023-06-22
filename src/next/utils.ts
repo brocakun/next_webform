@@ -66,7 +66,7 @@ export const updateNestedObjectDefaultValue = (obj, keyToFind, newValue) => {
 
 export async function resolveWebformContent(
   id: string,
-  locale: '',
+  locale: string,
   drupal: DrupalClient,
   fetchOptions?: FetchOptions,
 ): Promise<WebformObject> {
@@ -124,7 +124,7 @@ export async function resolveWebformContent(
 export async function resolveWebformSubmission(
   id: string,
   sid: string,
-  locale = '',
+  locale: string,
   drupal: DrupalClient,
   fetchOptions?: FetchOptions,
 ): Promise<WebformObject> {
