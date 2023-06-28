@@ -24,6 +24,7 @@ import WebformItem from './WebformItem';
 import WebformActions from './WebformActions';
 import WebformCheckboxRadioGroup from './WebformCheckboxRadioGroup';
 import WebformMarkup from './WebformMarkup';
+import WebformHorizontalRule from './WebformHorizontalRule';
 import WebformMessage from './WebformMessage';
 import WebformButton from './WebformButton';
 import WebformTableRow from './WebformTableRow';
@@ -100,6 +101,7 @@ const defaultComponents = {
   // Custom Messages, Markup (Work in progress)
   webform_message: WebformMessage,
   webform_markup: WebformMarkup,
+  webform_horizontal_rule: WebformHorizontalRule,
 };
 
 export const defaultComponentRegistry = new ComponentRegistry(

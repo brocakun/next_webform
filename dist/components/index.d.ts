@@ -65,6 +65,7 @@ declare const defaultComponents: {
     webform_wizard_page: (props: import("..").WebformElementProps) => JSX.Element;
     webform_message: (props: import("..").WebformElementProps) => JSX.Element;
     webform_markup: (props: import("..").WebformElementProps) => JSX.Element;
+    webform_horizontal_rule: (props: import("..").WebformElementProps) => JSX.Element;
 };
 export declare const defaultComponentRegistry: ComponentRegistry;
 export default defaultComponents;
