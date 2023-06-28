@@ -47,6 +47,7 @@ export async function getStaticProps(context) {
   const webform = await resolveWebformSubmission(
     context.params.webform_id,
     context.params.submission_id,
+    'es',
     drupal,
     { withAuth: true },
   );

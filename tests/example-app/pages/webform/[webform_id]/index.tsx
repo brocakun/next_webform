@@ -53,6 +53,7 @@ export async function getStaticPaths(
 export async function getStaticProps(context) {
   const webform = await resolveWebformContent(
     context.params.webform_id,
+    'es',
     drupal,
     { withAuth: true },
   );

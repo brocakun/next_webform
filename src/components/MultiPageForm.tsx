@@ -29,8 +29,10 @@ const MultiPageForm = ({ elements }) => {
         })}
       </ul>
       <br />
-      <h1>Page Title: {pageElement['#title']}</h1>
-      <h1>Current page: {currentPage + 1}</h1>
+      <h1>{pageElement['#title']}</h1>
+      <h1>
+        ({currentPage + 1}/{children.length})
+      </h1>
       <WizardPage element={{ ...pageElement }} />
       {showPrevBtn && (
         <button
@@ -39,7 +41,9 @@ const MultiPageForm = ({ elements }) => {
           className={'webform-button--previous'}
           onClick={() => setCurrentPage((prevState) => prevState - 1)}
         >
-          Previous
+          {pageElement['#prev_button_label']
+            ? pageElement['#prev_button_label']
+            : 'Next'}
         </button>
       )}
       {!showSubmitBtn && (
@@ -48,7 +52,9 @@ const MultiPageForm = ({ elements }) => {
           type="button"
           onClick={() => setCurrentPage((prevState) => prevState + 1)}
         >
-          Next
+          {pageElement['#next_button_label']
+            ? pageElement['#next_button_label']
+            : 'Next'}
         </button>
       )}
       {showSubmitBtn && <WebformElement element={submitBtnElement} />}
