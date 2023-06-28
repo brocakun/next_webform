@@ -17,6 +17,12 @@ const MultiPageForm = ({ elements }) => {
     }
   };
 
+  const scrollToTop = () => {
+    if (typeof window !== undefined) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <div>
       <ul style={{ display: 'flex' }}>
@@ -39,7 +45,9 @@ const MultiPageForm = ({ elements }) => {
           style={{ border: 'solid' }}
           type="button"
           className={'webform-button--previous'}
-          onClick={() => setCurrentPage((prevState) => prevState - 1)}
+          onClick={() => (
+            scrollToTop(), setCurrentPage((prevState) => prevState - 1)
+          )}
         >
           {pageElement['#prev_button_label']
             ? pageElement['#prev_button_label']
@@ -50,7 +58,9 @@ const MultiPageForm = ({ elements }) => {
         <button
           style={{ border: 'solid' }}
           type="button"
-          onClick={() => setCurrentPage((prevState) => prevState + 1)}
+          onClick={() => (
+            scrollToTop(), setCurrentPage((prevState) => prevState + 1)
+          )}
         >
           {pageElement['#next_button_label']
             ? pageElement['#next_button_label']
