@@ -9,7 +9,7 @@ const MultiPageForm = ({ elements }) => {
   const children = getChildElements(elements);
   const pageElement = elements[children[currentPage]];
   const showPrevBtn = currentPage > 0;
-  const showSubmitBtn = currentPage === children.length - 1;
+  const showSubmitBtn = currentPage === children.length - 2;
   const submitBtnElement = elements['actions'];
   const highlightCurrent = (item) => {
     if (pageElement['#title'] == elements[item]['#title']) {
@@ -37,7 +37,7 @@ const MultiPageForm = ({ elements }) => {
       <br />
       <h1>{pageElement['#title']}</h1>
       <h1>
-        ({currentPage + 1}/{children.length})
+        ({currentPage + 1}/{children.length - 1})
       </h1>
       <WizardPage element={{ ...pageElement }} />
       {showPrevBtn && (
@@ -51,7 +51,7 @@ const MultiPageForm = ({ elements }) => {
         >
           {pageElement['#prev_button_label']
             ? pageElement['#prev_button_label']
-            : 'Next'}
+            : 'Previous'}
         </button>
       )}
       {!showSubmitBtn && (
